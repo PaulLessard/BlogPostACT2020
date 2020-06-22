@@ -1,0 +1,701 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% Trying to deal with the \undertilde problem
+% \usepackage{\undertilde}
+% \input\{\undertilde}
+
+%trying to do tikz-cd
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{xargs}
+\usetikzlibrary{arrows.meta}
+
+%Trying to add "Yo" from Hiragana
+\usepackage{inputenc}
+
+\newcommand{\Yo}{\text{\usefont{U}{min}{m}{n}\symbol{'110}}}
+
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> dmjhira}{}
+
+
+%trying to do triple arrows
+\newlength{\myline}           % line thickness
+\setlength{\myline}{1pt}      %setting it I geuss
+\newcommandx*{\triplearrow}[4][1=0, 2=1]{
+	% #1 = shorten left (optional), #2 = shorten right (optionsl),
+	% #3 = draw options (must contain arrow type), #4 = path
+  	\draw[line width=\myline,double distance=3\myline,#3] #4;
+  	\draw[line width=\myline,shorten <=#1\myline,shorten >=#2\myline,#3] #4;
+}
+
+
+% define new commands for diagrams
+\newcommand{\xyR}[1]{
+  \xydef@\xymatrixrowsep@{#1}}
+\newcommand{\xyC}[1]{
+  \xydef@\xymatrixcolsep@{#1}}
+\newcommand{\pullbackcorner}[1][dr]{
+  \save*!/#1-1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pushoutcorner}[1][dr]{
+  \save*!/#1+1.2pc/#1:(-1,1)@^{|-}\restore}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{quotation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Roman Characters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\bA{\mathbf{A}}%
+
+\global\long\def\sA{\mathscr{A}}%
+
+\global\long\def\sB{\mathscr{B}}%
+
+\global\long\def\C{\mathbf{C}}%
+
+\global\long\def\bC{\mathbb{C}}%
+
+\global\long\def\sC{\mathscr{C}}%
+
+\global\long\def\sfC{\mathsf{C}}%
+
+\global\long\def\sD{\mathscr{D}}%
+
+\global\long\def\sfD{\mathsf{D}}%
+
+\global\long\def\sE{\mathscr{E}}%
+
+\global\long\def\bF{\mathbb{F}}%
+
+\global\long\def\cF{\mathcal{F}}%
+
+\global\long\def\sF{\mathscr{F}}%
+
+\global\long\def\bG{\mathbf{G}}%
+
+\global\long\def\bbG{\mathbb{G}}%
+
+\global\long\def\cG{\mathcal{G}}%
+
+\global\long\def\sG{\mathscr{G}}%
+
+\global\long\def\sH{\mathscr{H}}%
+
+\global\long\def\cI{\mathcal{I}}%
+
+\global\long\def\sI{\mathcal{\mathscr{I}}}%
+
+\global\long\def\fI{\mathfrak{I}}%
+
+\global\long\def\bJ{\mathbf{J}}%
+
+\global\long\def\cL{\mathcal{L}}%
+
+\global\long\def\sL{\mathscr{L}}%
+
+\global\long\def\fm{\mathfrak{m}}%
+
+\global\long\def\sM{\mathscr{M}}%
+
+\global\long\def\N{\mathbf{N}}%
+
+\global\long\def\fN{\mathfrak{N}}%
+
+\global\long\def\sN{\mathscr{N}}%
+
+\global\long\def\cO{\mathcal{O}}%
+
+\global\long\def\sO{\mathscr{O}}%
+
+\global\long\def\bP{\mathbf{P}}%
+
+\global\long\def\fp{\mathfrak{p}}%
+
+\global\long\def\bQ{\mathbb{Q}}%
+
+\global\long\def\fq{\mathfrak{q}}%
+
+\global\long\def\sR{\mathscr{R}}%
+
+\global\long\def\R{\mathbb{\mathbf{R}}}%
+
+\global\long\def\RR{\overline{\sR}}%
+
+\global\long\def\cS{\mathscr{\mathcal{S}}}%
+
+\global\long\def\fS{\mathfrak{S}}%
+
+\global\long\def\sS{\mathcal{\mathscr{S}}}%
+
+\global\long\def\bU{\mathbf{U}}%
+
+\global\long\def\sU{\mathfrak{\mathscr{U}}}%
+
+\global\long\def\bV{\mathbf{V}}%
+
+\global\long\def\sV{\mathscr{V}}%
+
+\global\long\def\sfV{\mathsf{V}}%
+
+\global\long\def\sW{\mathscr{W}}%
+
+\global\long\def\sX{\mathcal{\mathscr{X}}}%
+
+\global\long\def\bZ{\mathbb{\mathbf{Z}}}%
+
+\global\long\def\Z{\mathbf{Z}}%
+
+\global\long\def\frZ{\mathfrak{Z}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Greek Character Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\e{\text{\ensuremath{\varepsilon}}}%
+
+\global\long\def\G{\Gamma}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Character Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\p{\mathcal{\prime}}%
+
+\global\long\def\srn{\sqrt{-5}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoration Abbreviation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\wh#1{\widehat{#1}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Relational Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\nf#1#2{\nicefrac{#1}{#2}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Set Theoretic Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\E{\mathsf{Ens}}%
+
+\global\long\def\Fin{\mathsf{Fin}}%
+
+\global\long\def\Ord{\mathsf{Ord}}%
+
+\global\long\def\S{\mathsf{Set}}%
+
+\global\long\def\sd#1{\left.#1\right|}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Category Theoretic Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Aut{\text{\ensuremath{\mathsf{Aut}}}}%
+
+\global\long\def\Arr#1{\mathsf{Arr}\left(#1\right)}%
+
+\global\long\def\Cat{\mathsf{Cat}}%
+
+\global\long\def\coker{\mathrm{coker}}%
+
+\global\long\def\colim{\underset{\longrightarrow}{\lim}}%
+
+\global\long\def\lcolim#1{\underset{#1}{\colim}}%
+
+\global\long\def\End{\mathsf{End}}%
+
+\global\long\def\Ext{{\rm Ext}}%
+
+\global\long\def\id{\text{id}}%
+
+\global\long\def\im{\text{im}}%
+
+\global\long\def\Im{\text{Im}}%
+
+\global\long\def\iso{\overset{\sim}{\rightarrow}}%
+\global\long\def\osi{\overset{\sim}{\leftarrow}}%
+
+\global\long\def\liso{\overset{\sim}{\longrightarrow}}%
+\global\long\def\losi{\overset{\sim}{\longleftarrow}}%
+
+\global\long\def\Hom{\mathsf{Hom}}%
+
+\global\long\def\BHom{\mathbf{Hom}}%
+
+\global\long\def\Homc{\text{\text{Hom}}_{\mathscr{C}}}%
+
+\global\long\def\Homd{\text{\text{Hom}}_{\mathscr{D}}}%
+
+\global\long\def\Homs{\text{\text{Hom}}_{\mathsf{Set}}}%
+
+\global\long\def\Homt{\text{\text{Hom}}_{\mathsf{Top}}}%
+
+\global\long\def\clim{\underset{\longleftarrow}{\lim}}%
+
+\global\long\def\cllim#1{\underset{#1}{\clim}}%
+
+\global\long\def\Mono{\mathsf{Mono}}%
+
+\global\long\def\Mor{\text{\ensuremath{\mathsf{Mor}}}}%
+
+\global\long\def\Ob{\mathsf{Ob}}%
+
+\global\long\def\one{\mathbf{1}}%
+
+\global\long\def\op{\mathsf{op}}%
+
+\global\long\def\Pull{\mathsf{Pull}}%
+
+\global\long\def\Push{\mathsf{Push}}%
+
+\global\long\def\Psh#1{\mathsf{Psh}\left(#1\right)}%
+
+\global\long\def\pt{\text{pt.}}%
+
+\global\long\def\Sh#1{\mathsf{Sh}\left(#1\right)}%
+
+\global\long\def\sh{\text{sh}}%
+
+\global\long\def\Tor{\text{\text{Tor}}}%
+
+\global\long\def\XoY{\nicefrac{X}{Y}}%
+
+\global\long\def\XtY{X\times Y}%
+
+\global\long\def\Yon{\Yo}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebra Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Ab{\mathsf{Ab}}%
+
+\global\long\def\AbGrp{\text{\ensuremath{\mathsf{AbGrp}}}}%
+
+\global\long\def\alg{\mathsf{alg}}%
+
+\global\long\def\ann{\text{ann}}%
+
+\global\long\def\Ass{{\rm Ass}}%
+
+\global\long\def\Ch{\mathsf{Ch}}%
+
+\global\long\def\CR{\mathsf{ComRing}}%
+
+\global\long\def\Gal{\text{Gal}}%
+
+\global\long\def\Grp{\mathsf{Grp}}%
+
+\global\long\def\Inn{\mathsf{Inn}}%
+
+\global\long\def\Frac{\text{Frac}}%
+
+\global\long\def\mod{\text{\ensuremath{\mathsf{mod}}}}%
+
+\global\long\def\norm{\text{Norm}}%
+
+\global\long\def\Norm{\mathsf{Norm}}%
+
+\global\long\def\Orb{\mathsf{Orb}}%
+
+\global\long\def\rad{\text{\text{rad}}}%
+
+\global\long\def\Ring{\mathbb{\mathsf{Ring}}}%
+
+\global\long\def\sgn{\text{sgn}}%
+
+\global\long\def\Stab{\mathsf{Stab}}%
+
+\global\long\def\Syl{\text{Syl}}%
+
+\global\long\def\ZpZ{\nicefrac{\mathbb{\mathbf{Z}}}{p\bZ}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Homological Algebra Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\CompR{_{R}\mathsf{Comp}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Geometry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\clm{\RR=\left(\sR,\mathbf{U},\cL,\bA\right)}%
+
+\global\long\def\ebar{\overline{\sE}}%
+
+\global\long\def\lrs{\mathsf{LocRngSpc}}%
+
+\global\long\def\LRS{\mathsf{LRS}}%
+
+\global\long\def\sHom{\mathscr{H}om}%
+
+\global\long\def\RRing{\overline{\sR}\mathsf{-Ring}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebro-Geometric Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Ae{\nicefrac{A\left[\varepsilon\right]}{\left(\e^{2}\right)}}%
+
+\global\long\def\Aff{\mathsf{Aff}}%
+
+\global\long\def\AX{\nicefrac{\Aff}{X}}%
+
+\global\long\def\AY{\nicefrac{\Aff}{Y}}%
+
+\global\long\def\Der{\text{Der}}%
+
+\global\long\def\et{\text{\ensuremath{\acute{e}}t}}%
+
+\global\long\def\etale{\acute{\text{e}}\text{tale}}%
+
+\global\long\def\Et{\mathsf{\acute{E}t}}%
+
+\global\long\def\ke{\nf{k\left[\varepsilon\right]}{\varepsilon^{2}}}%
+
+\global\long\def\Pic{\text{Pic}}%
+
+\global\long\def\proj{\text{Proj}}%
+
+\global\long\def\Qcoh#1{\mathsf{QCoh}\left(#1\right)}%
+
+\global\long\def\rad{\text{\text{rad}}}%
+
+\global\long\def\red{\text{red.}}%
+
+\global\long\def\aScheme#1{\left(\spec\left(#1\right),\cO_{\spec\left(#1\right)}\right)}%
+
+\global\long\def\resScheme#1#2{\left(#2,\sd{\cO_{#1}}_{#2}\right)}%
+
+\global\long\def\Sch{\mathbb{\mathsf{Sch}}}%
+
+\global\long\def\scheme#1{\left(#1,\cO_{#1}\right)}%
+
+\global\long\def\SCR{\S^{\CR}}%
+
+\global\long\def\Schs{\mathsf{\nicefrac{\Sch}{S}}}%
+
+\global\long\def\ShAb#1{\mathsf{Sh}_{\AbGrp}\left(#1\right)}%
+
+\global\long\def\Spec{\text{Spec}}%
+
+\global\long\def\Sym{\text{Sym}}%
+
+\global\long\def\Zar{\mathsf{Zar}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\co#1#2{\left[#1,#2\right)}%
+
+\global\long\def\oc#1#2{\left(#1,#2\right]}%
+
+\global\long\def\loc{\mathsf{\text{loc.}}}%
+
+\global\long\def\nn#1{\left\Vert #1\right\Vert }%
+
+\global\long\def\Re{\text{Re}}%
+
+\global\long\def\supp{\text{supp}}%
+
+\global\long\def\XSM{\left(X,\cS,\mu\right)}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\grad{\text{grad}}%
+
+\global\long\def\Homrv{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Geometric Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Topology Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Cech{{\rm \check{C}ech}}%
+\global\long\def\cCC{\check{\mathcal{C}}}%
+\global\long\def\CC{\check{C}}%
+
+\global\long\def\CH{\mathsf{CHaus}}%
+
+\global\long\def\Cov{\mathsf{Cov}}%
+
+\global\long\def\CW{\mathsf{CW}}%
+
+\global\long\def\HT{\mathsf{HTop}}%
+
+\global\long\def\Homt{\text{\text{Hom}}_{\mathsf{Top}}}%
+
+\global\long\def\Homrv{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}%
+
+\global\long\def\MT{\text{\ensuremath{\mathsf{Mor}}}_{\T}}%
+
+\global\long\def\Open{\text{\ensuremath{\mathsf{Open}}}}%
+
+\global\long\def\PT{\mathsf{P-Top}}%
+
+\global\long\def\T{\mathsf{Top}}%
+
+% Homotopy Theory specific macros
+
+\global\long\def\Ad{\mathsf{Ad}}%
+
+\global\long\def\Cell{\mathsf{Cell}}%
+
+\global\long\def\Cov{\mathsf{Cov}}%
+
+\global\long\def\Sp{\mathsf{Sp}}%
+
+\global\long\def\Spectra{\mathsf{Spectra}}%
+
+\global\long\def\ss{\widehat{\triangle}}%
+
+\global\long\def\Tn{\mathbb{T}^{n}}%
+
+\global\long\def\Sk#1{\textrm{Sk}^{#1}}%
+
+\global\long\def\smash{\wedge}%
+
+\global\long\def\wp{\vee}%
+
+% HoTT specific macros
+
+\global\long\def\base{\mathsf{base}}%
+
+\global\long\def\comp{\mathsf{comp}}%
+
+\global\long\def\funext{\mathsf{funext}}%
+
+\global\long\def\hfib{\text{\ensuremath{\mathsf{hfib}}}}%
+
+\global\long\def\I{\mathbf{I}}%
+
+\global\long\def\ind{\mathsf{ind}}%
+
+% LOOP as \mathsf WHAT THE FUCK!!!!
+
+\global\long\def\lp{\mathsf{loop}}%
+
+\global\long\def\pair{\mathsf{pair}}%
+
+\global\long\def\pr{\mathbf{\mathsf{pr}}}%
+
+\global\long\def\rec{\mathsf{rec}}%
+
+\global\long\def\refl{\mathsf{refl}}%
+
+\global\long\def\transport{\mathsf{transport}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNSORTED! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\is{\triangle\raisebox{2mm}{\mbox{\ensuremath{\infty}}}}%
+
+\global\long\def\Cof{\mathsf{Cof}}%
+
+\global\long\def\sfW{\mathsf{W}}%
+
+\global\long\def\Cyl{\mathsf{Cyl}}%
+
+\global\long\def\Mono{\mathsf{Mono}}%
+
+\global\long\def\t{\triangle}%
+
+\global\long\def\tl{\triangleleft}%
+
+\global\long\def\tr{\triangleright}%
+
+\global\long\def\Shift{\mathrm{Shift}_{+1}}%
+
+\global\long\def\Shiftd{\mathrm{Shift}_{-1}}%
+
+\global\long\def\out{\mathrm{out}}%
+
+\global\long\def\cN{\mathcal{N}}%
+
+\global\long\def\fC{\mathcal{\mathfrak{C}}}%
+
+\global\long\def\ev{\mathsf{ev}}%
+
+\global\long\def\Map{\mathsf{Map}}%
+
+\global\long\def\whp#1{\wh{#1}_{\bullet}}%
+
+\global\long\def\bfTwo{\mathbf{2}}%
+
+\global\long\def\bfL{\mathbf{L}}%
+
+\global\long\def\bfR{\mathbf{R}}%
+
+\global\long\def\sJ{\mathscr{J}}%
+
+\global\long\def\Sing{\mathsf{Sing}}%
+
+\global\long\def\Sph{\mathsf{Sph}}%
+
+\global\long\def\whfin#1{\widehat{#1}_{\mathrm{fin}}}%
+
+\global\long\def\whpfin#1{\widehat{#1}_{\mathrm{\bullet fin}}}%
+
+\global\long\def\fin{\mathsf{fin}}%
+
+\global\long\def\cT{\mathcal{T}}%
+
+\global\long\def\Alg{\mathsf{Alg}}%
+
+\global\long\def\st{\mathsf{st}}%
+
+\global\long\def\IN{\mathsf{in}}%
+
+\global\long\def\hr{\mathsf{hr}}%
+
+\global\long\def\Fun{\mathsf{Fun}}%
+
+\global\long\def\Th{\mathsf{Th}}%
+
+\global\long\def\sT{\mathscr{T}}%
+
+\global\long\def\Lex{\mathsf{Lex}}%
+
+\global\long\def\FinSet{\mathsf{FinSet}}%
+
+\global\long\def\Fib{\mathsf{Fib}}%
+
+\global\long\def\FPS{\mathsf{FinPos}}%
+
+\global\long\def\Mod{\mathsf{Mod}}%
+
+\global\long\def\sfA{\mathsf{A}}%
+\global\long\def\sfV{\mathsf{V}}%
+\global\long\def\inner{\mathsf{inner}}%
+\global\long\def\bfI{\mathbf{I}}%
+\global\long\def\Kan{\mathsf{Kan}}%
+\global\long\def\Berger{\mathsf{Berger}}%
+\end{quotation}
+
+\section{Introduction}
+
+$\mathsf{Semantics}\dashv\mathsf{Syntax}$ relationships between some
+notion of type theory\footnote{or, more broadly, some formal language}
+and some flavor of category abound. They range from the well known
+and well studied example of the internal language of a topos, to linear
+type theory and $\star$-autonomous categories, to regular type theory
+for regular categories, among many others\footnote{As Shulman points out, a far more complete list can be found in Part
+D of ``The Elephant''} and more recent developments, e.g. homtopy type theory, cubical type
+theory, etc. have extended this library of $\mathsf{Semantics}\dashv\mathsf{Syntax}$
+relationships into higher category theory.
+
+But what makes such a relationship, and therefor a type theory \emph{practical}?
+Can we conjecture some criteria which judge a particular $\mathsf{Semantics}\dashv\mathsf{Syntax}$
+relationship well adapted, both in strength and sensibility, to reasoning
+about that flavor of category in general?
+
+In
+\begin{quotation}
+``A Practical Type Theory for Symmetric Monoidal Categories''
+\end{quotation}
+Mike Shulman develops such a list of criteria and then follows them
+towards a new type theory for symmetric monoidal categories, $\mathsf{PTT}$.
+
+\subsection{The Criteria}
+
+While Shulman provides a longer list for the specific case of symmetric
+monoidal categories, two items provide a more general principle. Any
+practical $\text{\ensuremath{\mathsf{Semantics}\dashv\mathsf{Syntax}} relationship }$
+should enjoy:
+\begin{enumerate}
+\item an initiality theorem:
+\begin{enumerate}
+\item say something nice here
+\item $\mathsf{Semantics\left(\mathsf{Syntax}\left(\sC\right)\right)\liso\sC}$;
+and
+\end{enumerate}
+\item possess term and typing judgements which permit us to reason about
+types as ``sets with elements'', albeit with some carefully chosen
+restrictions, e.g. coherence, linearity, etc.).
+\end{enumerate}
+In this blog post we'll :
+\begin{itemize}
+\item try to convince you that these requirements, while simple to state,
+are far  more sophisticated than they might appear;
+\item we'll follow them towards a syntax for symmetric monoidal categories,
+indeed we'll see precisely how these two requirements almost innevitably
+lead to Shulman's $\mathsf{PTT}$ as a synthesis of Sweedler's notation
+and Street\&Batanin's Computads
+\item we'll explore a specific instance of Shulman's practical type theory,
+and see how these requirements play out;
+\item ; and more
+\item in this last point we'll suggest a little of the direction of the
+ACT project.
+\end{itemize}
+
+\subsection{Initiality}
+
+What are we talking about when we talk about categories with type
+theory?
+
+\subsection{Sets With Elements}
+
+The great surge in interest in the relationship between type theory
+and category theory has, of course, been spurred by the advent of
+homotopy type theory. In particular, homotopy type theory has shown
+how particular principled choices in a syntax for elementary reasoning
+can be used to reason about structures which are far from discrete.
+\footnote{It should of course be noted that synthetic geometry set the stage
+for such a PROGRAM as it demonstrates very well that a sophisticated
+treatment of elements can in fact}
+
+----THIS NEEDS FIXING----
+
+While the parametrization of $\mathsf{HoTT}$ by $\left(\infty,1\right)$-toposes
+is present in the library of higher inductive types which are put
+into the theory as primitive rules; every $\left(\infty,1\right)$-topos
+is locally presentable, meaning it is the
+
+While $\mathsf{HoTT}$ thereby justifies our interest in such a relationship
+for symmetric monoidal categories, the character of such categories
+is in general, very different than the character of $\left(\infty,1\right)$-toposes
+and indeed 1-toposes.
+
+Typing judgements are.. such they should be maps
+
+While $\times$ enjoys a universal property characterized in terms
+of projection maps, the universal property of $\otimes$ is characterized
+in terms of co-projection maps. In particular, for any $z\in X\times Y$,
+we have that 
+\[
+z=\mathsf{pair}\left(\pr_{1}\left(z\right),\pr_{2}\left(z\right)\right)
+\]
+ whereas no such characterization of the elements of $X\otimes Y$
+is available. Locating the concern in the familiar terrain of vector
+spaces provides this categorical phenomenon with concrete intuition;
+it is the fact that the tensor product $\bigotimes_{i\in\left\{ 1,\dots,n\right\} }V_{i}$
+of vector spaces is comrised not of simple tensors 
+\[
+v=v_{1}\otimes\cdots\otimes v_{n}=\mathsf{tuple}\left(v_{1},\dots,v_{n}\right)
+\]
+but of linear combinations of them. Any \emph{practical }type theory
+for symmetric monoidal categories
+
+We can however, pretend that every tensor is a tuple, provided we
+are very careful; this is exactly the power of Sweedler's notation
+which Shulman's expands into a syntax.
+
+\subsection{Practical Type Theory}
+
+\begin{table}
+\begin{tabular}{|c|c|c|}
+\hline 
+$\mathsf{SymmMonCat}$ & $\left\{ s,t:\mathfrak{F}\mathcal{R}\rightrightarrows\mathfrak{F}\mathcal{G}\right\} $ & $\mathsf{PTT}$\tabularnewline
+\hline 
+\hline 
+Objects & $\left\{ \sd{\left(A_{i}\right)_{i\in\left\{ 1,\dots,n\right\} }}n\in\N,\ A_{i}\in\mathsf{Ob}\left(\mathcal{R}\right)=\Ob\left(\mathcal{\mathcal{G}}\right)\right\} $ & Types\tabularnewline
+\hline 
+Morphisms & $\circ\&\otimes$-closure of $\Mor\left(\cG\right)$ & Typing Judgements\tabularnewline
+\hline 
+Commuting Diagrams & $\left(s\left(f\right)=f^{\p}\wedge t\left(f\right)=f^{\p\p}\right)\Rightarrow f^{\p}\sim_{\mathcal{R}}f^{\p\p}$ & Equality Judgments\tabularnewline
+\hline 
+ &  & \tabularnewline
+\hline 
+\end{tabular}
+
+\caption{Cat and Type Theory}
+\end{table}
+
+\end{document}
