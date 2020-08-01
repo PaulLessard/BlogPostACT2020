@@ -1,0 +1,672 @@
+%% LyX 2.3.5.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{mathrsfs}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage[all]{xy}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{\protect\definitionname}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{\protect\remarkname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% Trying to deal with the \undertilde problem
+% \usepackage{\undertilde}
+% \input\{\undertilde}
+
+%trying to do tikz-cd
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{xargs}
+\usetikzlibrary{arrows.meta}
+
+%Trying to add "Yo" from Hiragana
+
+
+\newcommand{\Yo}{\text{\usefont{U}{min}{m}{n}\symbol{'110}}}
+
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> dmjhira}{}
+
+
+%trying to do triple arrows
+\newlength{\myline}           % line thickness
+\setlength{\myline}{1pt}      %setting it I geuss
+\newcommandx*{\triplearrow}[4][1=0, 2=1]{
+	% #1 = shorten left (optional), #2 = shorten right (optionsl),
+	% #3 = draw options (must contain arrow type), #4 = path
+  	\draw[line width=\myline,double distance=3\myline,#3] #4;
+  	\draw[line width=\myline,shorten <=#1\myline,shorten >=#2\myline,#3] #4;
+}
+
+
+% define new commands for diagrams
+\newcommand{\xyR}[1]{
+  \xydef@\xymatrixrowsep@{#1}}
+\newcommand{\xyC}[1]{
+  \xydef@\xymatrixcolsep@{#1}}
+\newcommand{\pullbackcorner}[1][dr]{
+  \save*!/#1-1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pushoutcorner}[1][dr]{
+  \save*!/#1+1.2pc/#1:(-1,1)@^{|-}\restore}
+
+
+
+\usepackage{babel}
+
+
+\makeatother
+
+\usepackage{babel}
+\providecommand{\definitionname}{Definition}
+\providecommand{\remarkname}{Remark}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+%ancient paul macros...leave them...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Roman Characters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quotation}
+\global\long\def\bA{\mathbf{A}}%
+\global\long\def\sA{\mathscr{A}}%
+\global\long\def\sB{\mathscr{B}}%
+\global\long\def\C{\mathbf{C}}%
+\global\long\def\bC{\mathbb{C}}%
+\global\long\def\sC{\mathscr{C}}%
+\global\long\def\sfC{\mathsf{C}}%
+\global\long\def\sD{\mathscr{D}}%
+\global\long\def\sfD{\mathsf{D}}%
+\global\long\def\sE{\mathscr{E}}%
+\global\long\def\bF{\mathbb{F}}%
+\global\long\def\cF{\mathcal{F}}%
+\global\long\def\sF{\mathscr{F}}%
+\global\long\def\bG{\mathbf{G}}%
+\global\long\def\bbG{\mathbb{G}}%
+%\global\long\def\cG{\mathcal{G}}%
+
+\global\long\def\sG{\mathscr{G}}%
+\global\long\def\sH{\mathscr{H}}%
+\global\long\def\cI{\mathcal{I}}%
+\global\long\def\sI{\mathcal{\mathscr{I}}}%
+\global\long\def\fI{\mathfrak{I}}%
+\global\long\def\bJ{\mathbf{J}}%
+\global\long\def\cL{\mathcal{L}}%
+\global\long\def\sL{\mathscr{L}}%
+\global\long\def\fm{\mathfrak{m}}%
+\global\long\def\sM{\mathscr{M}}%
+\global\long\def\N{\mathbf{N}}%
+\global\long\def\fN{\mathfrak{N}}%
+\global\long\def\sN{\mathscr{N}}%
+\global\long\def\cO{\mathcal{O}}%
+\global\long\def\sO{\mathscr{O}}%
+\global\long\def\bP{\mathbf{P}}%
+\global\long\def\fp{\mathfrak{p}}%
+\global\long\def\bQ{\mathbb{Q}}%
+\global\long\def\fq{\mathfrak{q}}%
+\global\long\def\sR{\mathscr{R}}%
+\global\long\def\R{\mathbb{\mathbf{R}}}%
+\global\long\def\RR{\overline{\sR}}%
+\global\long\def\cS{\mathscr{\mathcal{S}}}%
+\global\long\def\fS{\mathfrak{S}}%
+\global\long\def\sS{\mathcal{\mathscr{S}}}%
+\global\long\def\bU{\mathbf{U}}%
+\global\long\def\sU{\mathfrak{\mathscr{U}}}%
+\global\long\def\bV{\mathbf{V}}%
+\global\long\def\sV{\mathscr{V}}%
+\global\long\def\sfV{\mathsf{V}}%
+\global\long\def\sW{\mathscr{W}}%
+\global\long\def\sX{\mathcal{\mathscr{X}}}%
+\global\long\def\bZ{\mathbb{\mathbf{Z}}}%
+\global\long\def\Z{\mathbf{Z}}%
+\global\long\def\frZ{\mathfrak{Z}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Greek Character Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\e{\text{\ensuremath{\varepsilon}}}%
+\global\long\def\G{\Gamma}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Character Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\p{\mathcal{\prime}}%
+\global\long\def\srn{\sqrt{-5}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoration Abbreviation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\wh#1{\widehat{#1}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Relational Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\nf#1#2{\nicefrac{#1}{#2}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Set Theoretic Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\E{\mathsf{Ens}}%
+\global\long\def\Fin{\mathsf{Fin}}%
+\global\long\def\Ord{\mathsf{Ord}}%
+\global\long\def\S{\mathsf{Set}}%
+\global\long\def\sd#1{\left.#1\right|}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Category Theoretic Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Aut{\text{\ensuremath{\mathsf{Aut}}}}%
+\global\long\def\Arr#1{\mathsf{Arr}\left(#1\right)}%
+\global\long\def\Cat{\mathsf{Cat}}%
+\global\long\def\coker{\mathrm{coker}}%
+\global\long\def\colim{\underset{\longrightarrow}{\lim}}%
+\global\long\def\lcolim#1{\underset{#1}{\colim}}%
+\global\long\def\End{\mathsf{End}}%
+\global\long\def\Ext{{\rm Ext}}%
+\global\long\def\id{\text{id}}%
+\global\long\def\im{\text{im}}%
+\global\long\def\Im{\text{Im}}%
+\global\long\def\iso{\overset{\sim}{\rightarrow}}%
+\global\long\def\osi{\overset{\sim}{\leftarrow}}%
+\global\long\def\liso{\overset{\sim}{\longrightarrow}}%
+\global\long\def\losi{\overset{\sim}{\longleftarrow}}%
+\global\long\def\Hom{\mathsf{Hom}}%
+\global\long\def\BHom{\mathbf{Hom}}%
+\global\long\def\Homc{\text{\text{Hom}}_{\mathscr{C}}}%
+\global\long\def\Homd{\text{\text{Hom}}_{\mathscr{D}}}%
+\global\long\def\Homs{\text{\text{Hom}}_{\mathsf{Set}}}%
+\global\long\def\Homt{\text{\text{Hom}}_{\mathsf{Top}}}%
+\global\long\def\clim{\underset{\longleftarrow}{\lim}}%
+\global\long\def\cllim#1{\underset{#1}{\clim}}%
+\global\long\def\Mono{\mathsf{Mono}}%
+\global\long\def\Mor{\text{\ensuremath{\mathsf{Mor}}}}%
+\global\long\def\Ob{\mathsf{Ob}}%
+\global\long\def\one{\mathbf{1}}%
+\global\long\def\op{\mathsf{op}}%
+\global\long\def\Pull{\mathsf{Pull}}%
+\global\long\def\Push{\mathsf{Push}}%
+\global\long\def\Psh#1{\mathsf{Psh}\left(#1\right)}%
+\global\long\def\pt{\text{pt.}}%
+\global\long\def\Sh#1{\mathsf{Sh}\left(#1\right)}%
+\global\long\def\sh{\text{sh}}%
+\global\long\def\Tor{\text{\text{Tor}}}%
+\global\long\def\XoY{\nicefrac{X}{Y}}%
+\global\long\def\XtY{X\times Y}%
+\global\long\def\Yon{\Yo}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebra Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Ab{\mathsf{Ab}}%
+\global\long\def\AbGrp{\text{\ensuremath{\mathsf{AbGrp}}}}%
+\global\long\def\alg{\mathsf{alg}}%
+\global\long\def\ann{\text{ann}}%
+\global\long\def\Ass{{\rm Ass}}%
+\global\long\def\Ch{\mathsf{Ch}}%
+\global\long\def\CR{\mathsf{ComRing}}%
+\global\long\def\Gal{\text{Gal}}%
+\global\long\def\Grp{\mathsf{Grp}}%
+\global\long\def\Inn{\mathsf{Inn}}%
+\global\long\def\Frac{\text{Frac}}%
+\global\long\def\mod{\text{\ensuremath{\mathsf{mod}}}}%
+\global\long\def\norm{\text{Norm}}%
+\global\long\def\Norm{\mathsf{Norm}}%
+\global\long\def\Orb{\mathsf{Orb}}%
+\global\long\def\rad{\text{\text{rad}}}%
+\global\long\def\Ring{\mathbb{\mathsf{Ring}}}%
+\global\long\def\sgn{\text{sgn}}%
+\global\long\def\Stab{\mathsf{Stab}}%
+\global\long\def\Syl{\text{Syl}}%
+\global\long\def\ZpZ{\nicefrac{\mathbb{\mathbf{Z}}}{p\bZ}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Homological Algebra Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\CompR{_{R}\mathsf{Comp}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Geometry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\clm{\RR=\left(\sR,\mathbf{U},\cL,\bA\right)}%
+\global\long\def\ebar{\overline{\sE}}%
+\global\long\def\lrs{\mathsf{LocRngSpc}}%
+\global\long\def\LRS{\mathsf{LRS}}%
+\global\long\def\sHom{\mathscr{H}om}%
+\global\long\def\RRing{\overline{\sR}\mathsf{-Ring}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebro-Geometric Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Ae{\nicefrac{A\left[\varepsilon\right]}{\left(\e^{2}\right)}}%
+\global\long\def\Aff{\mathsf{Aff}}%
+\global\long\def\AX{\nicefrac{\Aff}{X}}%
+\global\long\def\AY{\nicefrac{\Aff}{Y}}%
+\global\long\def\Der{\text{Der}}%
+\global\long\def\et{\text{\ensuremath{\acute{e}}t}}%
+\global\long\def\etale{\acute{\text{e}}\text{tale}}%
+\global\long\def\Et{\mathsf{\acute{E}t}}%
+\global\long\def\ke{\nf{k\left[\varepsilon\right]}{\varepsilon^{2}}}%
+\global\long\def\Pic{\text{Pic}}%
+\global\long\def\proj{\text{Proj}}%
+\global\long\def\Qcoh#1{\mathsf{QCoh}\left(#1\right)}%
+\global\long\def\rad{\text{\text{rad}}}%
+\global\long\def\red{\text{red.}}%
+\global\long\def\aScheme#1{\left(\spec\left(#1\right),\cO_{\spec\left(#1\right)}\right)}%
+\global\long\def\resScheme#1#2{\left(#2,\sd{\cO_{#1}}_{#2}\right)}%
+\global\long\def\Sch{\mathbb{\mathsf{Sch}}}%
+\global\long\def\scheme#1{\left(#1,\cO_{#1}\right)}%
+\global\long\def\SCR{\S^{\CR}}%
+\global\long\def\Schs{\mathsf{\nicefrac{\Sch}{S}}}%
+\global\long\def\ShAb#1{\mathsf{Sh}_{\AbGrp}\left(#1\right)}%
+\global\long\def\Spec{\text{Spec}}%
+\global\long\def\Sym{\text{Sym}}%
+\global\long\def\Zar{\mathsf{Zar}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\co#1#2{\left[#1,#2\right)}%
+\global\long\def\oc#1#2{\left(#1,#2\right]}%
+\global\long\def\loc{\mathsf{\text{loc.}}}%
+\global\long\def\nn#1{\left\Vert #1\right\Vert }%
+\global\long\def\Re{\text{Re}}%
+\global\long\def\supp{\text{supp}}%
+\global\long\def\XSM{\left(X,\cS,\mu\right)}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\grad{\text{grad}}%
+\global\long\def\Homrv{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Geometric Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Topology Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\Cech{{\rm \check{C}ech}}%
+\global\long\def\cCC{\check{\mathcal{C}}}%
+\global\long\def\CC{\check{C}}%
+\global\long\def\CH{\mathsf{CHaus}}%
+\global\long\def\Cov{\mathsf{Cov}}%
+\global\long\def\CW{\mathsf{CW}}%
+\global\long\def\HT{\mathsf{HTop}}%
+\global\long\def\Homt{\text{\text{Hom}}_{\mathsf{Top}}}%
+\global\long\def\Homrv{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}%
+\global\long\def\MT{\text{\ensuremath{\mathsf{Mor}}}_{\T}}%
+\global\long\def\Open{\text{\ensuremath{\mathsf{Open}}}}%
+\global\long\def\PT{\mathsf{P-Top}}%
+\global\long\def\T{\mathsf{Top}}%
+% Homotopy Theory specific macros
+
+\global\long\def\Ad{\mathsf{Ad}}%
+\global\long\def\Cell{\mathsf{Cell}}%
+\global\long\def\Cov{\mathsf{Cov}}%
+\global\long\def\Sp{\mathsf{Sp}}%
+\global\long\def\Spectra{\mathsf{Spectra}}%
+\global\long\def\ss{\widehat{\triangle}}%
+\global\long\def\Tn{\mathbb{T}^{n}}%
+\global\long\def\Sk#1{\textrm{Sk}^{#1}}%
+\global\long\def\smash{\wedge}%
+\global\long\def\wp{\vee}%
+% HoTT specific macros
+
+\global\long\def\base{\mathsf{base}}%
+\global\long\def\comp{\mathsf{comp}}%
+\global\long\def\funext{\mathsf{funext}}%
+\global\long\def\hfib{\text{\ensuremath{\mathsf{hfib}}}}%
+\global\long\def\I{\mathbf{I}}%
+\global\long\def\ind{\mathsf{ind}}%
+% LOOP as \mathsf WHAT THE FUCK!!!!
+
+\global\long\def\lp{\mathsf{loop}}%
+\global\long\def\pair{\mathsf{pair}}%
+\global\long\def\pr{\mathbf{\mathsf{pr}}}%
+\global\long\def\rec{\mathsf{rec}}%
+\global\long\def\refl{\mathsf{refl}}%
+\global\long\def\transport{\mathsf{transport}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNSORTED! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\global\long\def\is{\triangle\raisebox{2mm}{\mbox{\ensuremath{\infty}}}}%
+\global\long\def\Cof{\mathsf{Cof}}%
+\global\long\def\sfW{\mathsf{W}}%
+\global\long\def\Cyl{\mathsf{Cyl}}%
+\global\long\def\Mono{\mathsf{Mono}}%
+\global\long\def\t{\triangle}%
+\global\long\def\tl{\triangleleft}%
+\global\long\def\tr{\triangleright}%
+\global\long\def\Shift{\mathrm{Shift}_{+1}}%
+\global\long\def\Shiftd{\mathrm{Shift}_{-1}}%
+\global\long\def\out{\mathrm{out}}%
+\global\long\def\cN{\mathcal{N}}%
+\global\long\def\fC{\mathcal{\mathfrak{C}}}%
+\global\long\def\ev{\mathsf{ev}}%
+\global\long\def\Map{\mathsf{Map}}%
+\global\long\def\whp#1{\wh{#1}_{\bullet}}%
+\global\long\def\bfTwo{\mathbf{2}}%
+\global\long\def\bfL{\mathbf{L}}%
+\global\long\def\bfR{\mathbf{R}}%
+\global\long\def\sJ{\mathscr{J}}%
+\global\long\def\Sing{\mathsf{Sing}}%
+\global\long\def\Sph{\mathsf{Sph}}%
+\global\long\def\whfin#1{\widehat{#1}_{\mathrm{fin}}}%
+\global\long\def\whpfin#1{\widehat{#1}_{\mathrm{\bullet fin}}}%
+\global\long\def\fin{\mathsf{fin}}%
+\global\long\def\cT{\mathcal{T}}%
+\global\long\def\Alg{\mathsf{Alg}}%
+\global\long\def\st{\mathsf{st}}%
+\global\long\def\IN{\mathsf{in}}%
+\global\long\def\hr{\mathsf{hr}}%
+\global\long\def\Fun{\mathsf{Fun}}%
+\global\long\def\Th{\mathsf{Th}}%
+\global\long\def\sT{\mathscr{T}}%
+\global\long\def\Lex{\mathsf{Lex}}%
+\global\long\def\FinSet{\mathsf{FinSet}}%
+\global\long\def\Fib{\mathsf{Fib}}%
+\global\long\def\FPS{\mathsf{FinPos}}%
+\global\long\def\Mod{\mathsf{Mod}}%
+\global\long\def\sfA{\mathsf{A}}%
+\global\long\def\sfV{\mathsf{V}}%
+\global\long\def\inner{\mathsf{inner}}%
+\global\long\def\bfI{\mathbf{I}}%
+\global\long\def\Kan{\mathsf{Kan}}%
+\global\long\def\Berger{\mathsf{Berger}}%
+\end{quotation}
+%ancient paul macros...leave them...
+
+%macros for free prop section
+\global\long\def\fF{\mathfrak{F}}%
+ 
+\global\long\def\cG{\mathcal{G}}%
+ 
+\global\long\def\cR{\mathcal{R}}%
+ 
+\global\long\def\cD{\mathcal{D}}%
+ %\newcommand{\Ob}{\mathsf{Ob}}
+\global\long\def\evmap{\mathsf{ev}}%
+ 
+\global\long\def\coev{\mathsf{coev}}%
+ 
+\global\long\def\bigslant#1#2{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}%
+
+
+\subsection{From domain to foundations}
+
+While in the cases of $\mathsf{HoTT}$ or intuitionistic linear logic
+we have a particular form of reason or computation we wish to model,
+and only afterwards are we trying to use these type theories to reason
+\emph{about }$\left(\infty,1\right)$-toposes or closed symmetric
+monoidal categories, Shulman's project with practical type theory
+is to start with a domain and reverse engineer a syntax; we have a
+sort of category, symmetric monoidal categories, and wish to ask them
+to provide us with a type theory. This is not to say however that
+we have \emph{no} hand in specifying the type theory.
+
+\subsection{Criteria for practicality}
+\begin{itemize}
+\item syntax semantics correspondence satisfying the following criteria... 
+\end{itemize}
+First, for any symmetric monoidal category, not merely concrete and
+familiar ones, the type theory we get should permit us to leverage
+our intuition and experience with reasoning about sets with elements\footnote{A possibly enlightening parallel to this program can be found in the
+history of algebraic geometry. Just as the Zariski topology extends
+the interpretation, beyond the rings of polynomial functions on algebraic
+varieties, of rings as rings of functions on spaces, a philosophical
+perspective on the goal of Shulman's practical type theory extends
+the formal metaphor of symmetric monoidal categories of vector spaces
+to arbitary symetric monoidal categories.}. As such our type theory and its semantics should correlate 
+\begin{eqnarray*}
+\mathrm{objects} & \longleftrightarrow & \mathrm{contexts}\\
+\mathrm{morphisms} & \longleftrightarrow & \mathrm{typing\ judgements}
+\end{eqnarray*}
+
+Second, we must not: 
+\begin{quotation}
+``(strike) a Map of the Empire whose size was that of the Empire''
+- J.L.Borges ``On Exactitude in Science''\footnote{https://kwarc.info/teaching/TDM/Borges.pdf} 
+\end{quotation}
+so we ask that this type theory be specified not by a symmetric monoidal
+categories directly but instead by elegant presentations thereof.
+
+Lastly, we wish to be assured that the theory is complete in the sense
+that everything which holds in a particular symmetric monoidal category
+is derivable as a judgement.
+
+\subsection{Sweedler's notation for co-algebras and Shulman's term judgements}
+
+We cannot simply bend some cartesian type theory to our will to develop
+a practical type theory for symmetric monoidal categories, because,
+while $\times$ enjoys a universal property characterized in terms
+of projection maps, the universal property of $\otimes$ is characterized
+in terms of co-projection maps. So, while in a cartesian monoidal
+category like $\S$, for any $z\in X\times Y$, we have that\footnote{Type theoretically, this is precisely the derived judgement of the
+$\eta$-computation rule for the product type.} 
+\[
+z=\mathsf{pair}\left(\pr_{1}\left(z\right),\pr_{2}\left(z\right)\right)
+\]
+no such characterization of the elements of $X\otimes Y$ is immediately
+available.
+
+Locating the concern in the familiar terrain of vector spaces provides
+this categorical phenomenon with concrete intuition: the tensor product
+$\bigotimes_{i\in\left\{ 1,\dots,n\right\} }V_{i}$ of vector spaces
+is comprised not of simple tensors 
+\[
+v=v_{1}\otimes\cdots\otimes v_{n}=\mathsf{tuple}\left(v_{1},\dots,v_{n}\right)
+\]
+but of linear combinations of them. We can however pretend that every
+tensor is a tuple, provided we are very careful; this is exactly the
+power of Sweedler's notation for co-algebras which Shulman's expands
+into a syntax for symmetric monoidal categories.
+
+The co-multiplication of a co-algebra in vector spaces may be written
+elementarily as follows. 
+\[
+\vcenter{\vbox{\xyR{0pc}\xyC{3pc}\xymatrix{C\ar[r]^{\t} & C\otimes C\\
+c\ar@{|->}[r] & \sum_{i=1}^{k}c_{\left(1\right)}^{i}\otimes c_{\left(2\right)}^{i}
+}
+}}
+\]
+Sweedler long ago noted that it was convenient to drop summation and
+even to drop indices. Going further and replacing $\left(\_\right)\otimes\cdots\otimes\left(\_\right)$
+with $\left(\_,\dots,\_\right)$, both in the formation of tensor
+products and for 'simple tensors', we then denote maps into arbitrary
+tensor products as follows. 
+\[
+\vcenter{\vbox{\xyR{0pc}\xyC{3pc}\xymatrix{A\ar[r]^{f} & \left(B_{1},\dots,B_{n}\right)\\
+a\ar@{|->}[r] & \left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right)
+}
+}}
+\]
+Shulman translates this notation into term formation rules: for example\footnote{For expository purposes we've replaced $f\in\mathcal{G}\left(A_{1},\dots,A_{m};B_{1},\dots,B_{m}\right)$,
+which is the hypothesis that $f$ is a \emph{generating }morphism,
+with the more general hypothesis that $f\in\Hom\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)$.} 
+\[
+\frac{\begin{array}{c}
+\Gamma\vdash M_{1}\ \mathsf{term}\dots\Gamma\vdash M_{m}\ \mathsf{term}\\
+f\in\Hom\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)\ m\geq1\ n\geq2\ 1\leq k\leq n
+\end{array}}{\Gamma\vdash f_{\left(k\right)}\left(M_{1},\dots,M_{m}\right)}
+\]
+which in the case $m=1$ and $\Gamma\vdash a\ \mathsf{term}$ allows
+us to form the bare terms $f_{\left(k\right)}\left(a\right)$ as in
+Sweedler's notation and then the rules for our typing judgements,
+which we'll cover later, will allow us to derive 
+\[
+a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(k\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
+\]
+the typing judgement which corresponds to the morphism $f$.
+
+What's more, just as the syntactic limits on defineable expressions
+in $\mathsf{HoTT}$ grant that any expression is born invariant, the
+term formation rules of our type theory will make sure that only permissable
+expressions using Sweedler's notation will be syntactically accessible.
+
+\subsection{A suitable choice of presentation}
+
+It is 'well known' that every symmetric monoidal category is equivalent
+to a symmetric strict monoidal category. Signifigantly less well known
+is that every symmetric strict monoidal category is equivalent to
+a PROP.
+\begin{defn}
+A \textbf{PROP} $\left(P,\mathscr{P}\right)$ is comprised of:
+\begin{itemize}
+\item a set $P$ of generating objects; and
+\item a symmetric strict monoidal category $\mathscr{P}=\left(\mathscr{P},\otimes,\mathbf{1}\right)$
+for which $\left(\Ob\left(\mathscr{P}\right),\otimes,\mathbf{1}\right)$
+is the free commutative monoid on the set $P$.
+\end{itemize}
+A morphism of props is a pair $\left(f,F\right):\left(P,\mathscr{P}\right)\longrightarrow\left(Q,\mathscr{Q}\right)$
+where $f:P\longrightarrow Q$ is a function and $F:\mathscr{P}\longrightarrow\mathscr{Q}$
+is a strong symmetric monoidal functor with $\Ob\left(F\right)$ being
+the morphism of commutative monoids induced by the function $f$.
+We denote the category of PROPs by $\mathsf{PROP}$.
+\end{defn}
+
+Indeed we've an equivalence of categories
+\[
+\mathsf{SymStrMonCat_{strong}\liso\mathsf{PROP}}
+\]
+The utility of this observation for our ends is two-fold:
+\begin{itemize}
+\item syntactically, finite lists up to symmetry are far si
+\item a presentation of a $\mathsf{PROP}$ need only be comprised of three
+sorts of data:
+\begin{itemize}
+\item a generating set of objects;
+\item a generating set of morphisms, formal arrows between finite lists
+of generating objects;
+\item a generating sets of equalities of morphisms, between formal composites
+and tensors generating morphism.
+\end{itemize}
+\end{itemize}
+An elegant packaging of this second fact follows.
+\begin{defn}
+Let a \textbf{signature }for a prop $\mathcal{G}=\left(G_{0},G_{1}\right)$
+be comprised of a pair of sets: 
+\begin{itemize}
+\item $G_{0}$ a generating set of objects; and
+\item $G_{1}$ a set of formal arrows $f:\left(A_{1},\dots,A_{n}\right)\longrightarrow\left(B_{1},\dots,B_{m}\right)$
+where the $A_{i}$ and $B_{j}$ are of $G_{0}$. 
+\end{itemize}
+\end{defn}
+
+\begin{rem}
+AThose familiar with the theory of computads will note that the data
+enumerated above are exactly a 2-computad for a PROPs.
+\end{rem}
+
+
+\subsection{On initiality and the admissability of structural rules}
+
+In this framework the completeness result desired takes the form of
+an \emph{initiality theorem}, a theorem which here will posit that:
+\begin{itemize}
+\item for $\sC$ be a symmetric monoidal category and $\mathbf{T}_{\sC}$
+the associated type theory,
+\item the term model of $\mathbf{T}_{\sC}$, the initial semantic interpretation
+of $\mathbf{T}_{\sC}$, is equivalent as a symmetric monoidal category
+to $\sC$. 
+\end{itemize}
+In particular this 
+
+\section{Architecture of the paper}
+
+\subsection{Idea of the content of the paper}
+
+What is the general idea for obtaining this practical type theory?\\
+ 
+\begin{enumerate}
+\item \textit{Start with some input data (which we will call signature)} 
+\begin{itemize}
+\item Our input data for constructing type theories will consist of a set
+of objects together with a set of arrows whose domain and codomain
+consist of finite lists of objets. 
+\end{itemize}
+\item \textit{We build a type theory for the free prop generated by a signature} 
+\begin{itemize}
+\item This is done by defining rules for terms and rules for typing judgements. 
+\item Much care is taken while defining these rules to ensure, among other
+things, that the composition and the exchange rules are admissible,
+therefore ensuring that any judgement has a unique derivation. This
+is a key requirement to prove the initiality theorem that we discussed
+earlier. 
+\end{itemize}
+\item \textit{The term model of this type theory can be proven to be the
+prop freely generated by the input signature. Hence we now have the
+initiality theorem} %\item modulo by equality rule
+
+\begin{itemize}
+\item Taking the contexts of this type theory as objects and the derivable
+term judgement (modulo an equality rule) as morphisms forms a strict
+symmetric monoidal category, which we denote $\fF\cG$. It is also
+easy to show that $\fF\cG$ is in fact also a prop. 
+\item We can then show that $\fF\cG$ is actually the free prop generate
+by $\cG$. 
+\end{itemize}
+Great. Now we have a type theory for props freely generated by a signature.
+But, what about all the other props? Or in other words, how do we
+deal with SMC that have additional equality relations? Well, since
+we know that the category of prop is monadic over the category of
+signatures, we have that every prop $\mathcal{P}$ admit a presentation
+in terms of signatures (i.e. a coequaliser diagram $\fF\cR\rightrightarrows\fF\cG\rightarrow\mathcal{P}$),
+where $\cR$ is a signature that provides equality axioms. 
+\item \textit{We then essentially redo the two previous steps, but this
+time we also quotient by these additional equality axioms provided
+by the signature $\cR$ in the presentation of the prop} 
+\end{enumerate}
+That's it! Following these steps gives us a type theory for the prop
+presented by $(\cG,\cR)$, which, as proven in the paper, allows us
+to reason about structures in any props, and hence also in any symmetric
+monoidal category.\\
+
+
+\subsection{Illustrating the content of the paper using the free dual pair example}
+
+Start with the duality $(D,D^{*},\textsf{ev},\textsf{coev})$ (and
+its associated free dual pair $\cD$) given above.
+\begin{enumerate}
+\item \textit{Start with some input data} 
+\begin{itemize}
+\item Starting with the duality $(D,D^{*},\textsf{ev},\textsf{coev})$,
+we define some input data (signature) $\cG$ as follows: 
+\begin{itemize}
+\item Objects: $\{D,D^{*}\}$ 
+\item Arrows: $\{\msf{ev}:(D^{*},D)\to(),\quad\msf{coev}:()\to(D,D^{*})\}$ 
+\end{itemize}
+\end{itemize}
+\item \textit{Build a type theory from the input data} 
+\begin{itemize}
+\item The arrows in the input data become the rules in the type theory $\mathbf{T}_{\cG}$:
+
+\begin{minipage}[c]{0.42\textwidth}%
+ 
+\[
+\begin{tikzcd}[ampersandreplacement=\&,rowsep=small]\mathsf{ev}:(D^{\star},D)\longrightarrow()\arrow[d,mapsto]\end{tikzcd}
+\]
+%
+\end{minipage}%
+\begin{minipage}[c]{0.42\textwidth}%
+ 
+\[
+\begin{tikzcd}[ampersandreplacement=\&,rowsep=small]\mathsf{coev}:()\longrightarrow(D^{\star},D)\arrow[d,mapsto]\end{tikzcd}
+\]
+%
+\end{minipage}
+\end{itemize}
+{*}{*}{*}HOW CAN WE EXPRESS THE EQUALITY RULE IN THIS EXAMPLE? 
+\item \textit{Prove initiality theorem} 
+\begin{itemize}
+\item By the theorems in the paper the context and derivable typing judgements
+in the type theory $\mathbf{T}_{\cG}$ form a prop which is in fact
+the free prop generated by the input data $\cG$. 
+\end{itemize}
+\item \textit{Account for equality relations by using a presentation as
+a coequaliser} 
+\begin{itemize}
+\item The free dual pair $\cD$ admits a presentation as the following colimit:
+\begin{align*}
+\underset{\longrightarrow}{\textrm{lim}}\left\{ \fF\cR\rightrightarrows\fF\cG\right\} \overset{\sim}{\longrightarrow}\cD
+\end{align*}
+where $R$ is the signature of relations that imposes the following
+two axioms (these correspond to the commutative diagrams introduced
+above): 
+\begin{align*}
+(\mathsf{ev}\otimes\mathsf{id}_{D})\circ(\mathsf{id}_{D}\otimes\mathsf{coev})=\mathsf{id}_{D}\qquad\qquad(\mathsf{ev}\otimes\mathsf{id}_{D})\circ(\mathsf{id}_{D}\otimes\mathsf{coev})=\mathsf{id}_{D}
+\end{align*}
+
+First translation: 
+\begin{align*}
+x:D\vdash(\eta_{(1)}\;|\;\varepsilon(\eta_{(2)},x))=x:D\qquad y:D^{*}\vdash(\eta_{(2)}\;|\;\varepsilon(y,\eta_{(1)}))=y:D^{*}
+\end{align*}
+
+Second translation: 
+\begin{align*}
+x:D\vdash(u\;|\;\lambda^{D}u\triangleleft x)=x:D\qquad y:D^{*}\vdash(\lambda^{D}u\;|\;y\triangleleft x)=D^{*}
+\end{align*}
+{*}{*}{*}NEEDS FIXING!!! 
+\end{itemize}
+\end{enumerate}
+
+\end{document}
