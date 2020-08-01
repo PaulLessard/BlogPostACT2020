@@ -1,0 +1,2624 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+% Trying to deal with the \undertilde problem
+% \usepackage{\undertilde}
+% \input\{\undertilde}
+
+%trying to do tikz-cd
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{xargs}
+\usetikzlibrary{arrows.meta}
+
+%Trying to add "Yo" from Hiragana
+
+
+\newcommand{\Yo}{\text{\usefont{U}{min}{m}{n}\symbol{'110}}}
+
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> dmjhira}{}
+
+
+%trying to do triple arrows
+\newlength{\myline}           % line thickness
+\setlength{\myline}{1pt}      %setting it I geuss
+\newcommandx*{\triplearrow}[4][1=0, 2=1]{
+	% #1 = shorten left (optional), #2 = shorten right (optionsl),
+	% #3 = draw options (must contain arrow type), #4 = path
+  	\draw[line width=\myline,double distance=3\myline,#3] #4;
+  	\draw[line width=\myline,shorten <=#1\myline,shorten >=#2\myline,#3] #4;
+}
+
+
+% define new commands for diagrams
+\newcommand{\xyR}[1]{
+  \xydef@\xymatrixrowsep@{#1}}
+\newcommand{\xyC}[1]{
+  \xydef@\xymatrixcolsep@{#1}}
+\newcommand{\pullbackcorner}[1][dr]{
+  \save*!/#1-1.2pc/#1:(1,-1)@^{|-}\restore}
+\newcommand{\pushoutcorner}[1][dr]{
+  \save*!/#1+1.2pc/#1:(-1,1)@^{|-}\restore}
+
+
+
+\usepackage{babel}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding T1
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%ancient paul macros...leave them...
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Roman Characters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\bA}{\mathbf{A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sA}{\mathscr{A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sB}{\mathscr{B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\C}{\mathbf{C}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bC}{\mathbb{C}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sC}{\mathscr{C}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sfC}{\mathsf{C}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sD}{\mathscr{D}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sfD}{\mathsf{D}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sE}{\mathscr{E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bF}{\mathbb{F}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cF}{\mathcal{F}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sF}{\mathscr{F}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bG}{\mathbf{G}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bbG}{\mathbb{G}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+global
+\backslash
+long
+\backslash
+def
+\backslash
+cG{
+\backslash
+mathcal{G}}%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\sG}{\mathscr{G}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sH}{\mathscr{H}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cI}{\mathcal{I}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sI}{\mathcal{\mathscr{I}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fI}{\mathfrak{I}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\mathbf{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cL}{\mathcal{L}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sL}{\mathscr{L}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fm}{\mathfrak{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sM}{\mathscr{M}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\N}{\mathbf{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fN}{\mathfrak{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sN}{\mathscr{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cO}{\mathcal{O}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sO}{\mathscr{O}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bP}{\mathbf{P}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fp}{\mathfrak{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bQ}{\mathbb{Q}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fq}{\mathfrak{q}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sR}{\mathscr{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\R}{\mathbb{\mathbf{R}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\RR}{\overline{\sR}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cS}{\mathscr{\mathcal{S}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fS}{\mathfrak{S}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sS}{\mathcal{\mathscr{S}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bU}{\mathbf{U}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sU}{\mathfrak{\mathscr{U}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bV}{\mathbf{V}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sV}{\mathscr{V}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sfV}{\mathsf{V}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sW}{\mathscr{W}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sX}{\mathcal{\mathscr{X}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bZ}{\mathbb{\mathbf{Z}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Z}{\mathbf{Z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\frZ}{\mathfrak{Z}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Greek Character Macros %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\e}{\text{\ensuremath{\varepsilon}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\G}{\Gamma}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Character Macros %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\p}{\mathcal{\prime}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\srn}{\sqrt{-5}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Decoration Abbreviation %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\wh}[1]{\widehat{#1}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Miscellaneous Relational Macros %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\nf}[2]{\nicefrac{#1}{#2}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Set Theoretic Macros %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\E}{\mathsf{Ens}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Fin}{\mathsf{Fin}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ord}{\mathsf{Ord}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\S}{\mathsf{Set}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sd}[1]{\left.#1\right|}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Category Theoretic Macros %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\Aut}{\text{\ensuremath{\mathsf{Aut}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Arr}[1]{\mathsf{Arr}\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Cat}{\mathsf{Cat}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\coker}{\mathrm{coker}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\colim}{\underset{\longrightarrow}{\lim}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\lcolim}[1]{\underset{#1}{\colim}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\End}{\mathsf{End}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ext}{{\rm Ext}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\id}{\text{id}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\im}{\text{im}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Im}{\text{Im}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\iso}{\overset{\sim}{\rightarrow}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\osi}{\overset{\sim}{\leftarrow}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\liso}{\overset{\sim}{\longrightarrow}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\losi}{\overset{\sim}{\longleftarrow}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Hom}{\mathsf{Hom}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\BHom}{\mathbf{Hom}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Homc}{\text{\text{Hom}}_{\mathscr{C}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Homd}{\text{\text{Hom}}_{\mathscr{D}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Homs}{\text{\text{Hom}}_{\mathsf{Set}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Homt}{\text{\text{Hom}}_{\mathsf{Top}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\clim}{\underset{\longleftarrow}{\lim}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cllim}[1]{\underset{#1}{\clim}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Mono}{\mathsf{Mono}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Mor}{\text{\ensuremath{\mathsf{Mor}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ob}{\mathsf{Ob}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\one}{\mathbf{1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\op}{\mathsf{op}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Pull}{\mathsf{Pull}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Push}{\mathsf{Push}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Psh}[1]{\mathsf{Psh}\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pt}{\text{pt.}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sh}[1]{\mathsf{Sh}\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sh}{\text{sh}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Tor}{\text{\text{Tor}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\XoY}{\nicefrac{X}{Y}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\XtY}{X\times Y}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Yon}{\Yo}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebra Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\Ab}{\mathsf{Ab}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\AbGrp}{\text{\ensuremath{\mathsf{AbGrp}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\alg}{\mathsf{alg}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ann}{\text{ann}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ass}{{\rm Ass}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ch}{\mathsf{Ch}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\CR}{\mathsf{ComRing}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Gal}{\text{Gal}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Grp}{\mathsf{Grp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Inn}{\mathsf{Inn}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Frac}{\text{Frac}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\mod}{\text{\ensuremath{\mathsf{mod}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\norm}{\text{Norm}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Norm}{\mathsf{Norm}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Orb}{\mathsf{Orb}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rad}{\text{\text{rad}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ring}{\mathbb{\mathsf{Ring}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sgn}{\text{sgn}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Stab}{\mathsf{Stab}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Syl}{\text{Syl}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ZpZ}{\nicefrac{\mathbb{\mathbf{Z}}}{p\bZ}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Homological Algebra Macros %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\CompR}{_{R}\mathsf{Comp}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% General Geometry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\clm}{\RR=\left(\sR,\mathbf{U},\cL,\bA\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ebar}{\overline{\sE}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\lrs}{\mathsf{LocRngSpc}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\LRS}{\mathsf{LRS}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sHom}{\mathscr{H}om}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\RRing}{\overline{\sR}\mathsf{-Ring}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebro-Geometric Macros %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\Ae}{\nicefrac{A\left[\varepsilon\right]}{\left(\e^{2}\right)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Aff}{\mathsf{Aff}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\AX}{\nicefrac{\Aff}{X}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\AY}{\nicefrac{\Aff}{Y}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Der}{\text{Der}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\et}{\text{\ensuremath{\acute{e}}t}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\etale}{\acute{\text{e}}\text{tale}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Et}{\mathsf{\acute{E}t}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ke}{\nf{k\left[\varepsilon\right]}{\varepsilon^{2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Pic}{\text{Pic}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\proj}{\text{Proj}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Qcoh}[1]{\mathsf{QCoh}\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\rad}{\text{\text{rad}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\red}{\text{red.}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\aScheme}[1]{\left(\spec\left(#1\right),\cO_{\spec\left(#1\right)}\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\resScheme}[2]{\left(#2,\sd{\cO_{#1}}_{#2}\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sch}{\mathbb{\mathsf{Sch}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\scheme}[1]{\left(#1,\cO_{#1}\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\SCR}{\S^{\CR}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Schs}{\mathsf{\nicefrac{\Sch}{S}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ShAb}[1]{\mathsf{Sh}_{\AbGrp}\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Spec}{\text{Spec}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sym}{\text{Sym}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Zar}{\mathsf{Zar}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Analysis Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\co}[2]{\left[#1,#2\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\oc}[2]{\left(#1,#2\right]}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\loc}{\mathsf{\text{loc.}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\nn}[1]{\left\Vert #1\right\Vert }
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Re}{\text{Re}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\supp}{\text{supp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\XSM}{\left(X,\cS,\mu\right)}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\grad}{\text{grad}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Homrv}{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Differential Geometric Macros %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Topology Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\Cech}{{\rm \check{C}ech}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cCC}{\check{\mathcal{C}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\CC}{\check{C}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\CH}{\mathsf{CHaus}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Cov}{\mathsf{Cov}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\CW}{\mathsf{CW}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\HT}{\mathsf{HTop}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Homt}{\text{\text{Hom}}_{\mathsf{Top}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Homrv}{\text{\text{Hom}}_{\mathbb{R}-\mathsf{Vect}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\MT}{\text{\ensuremath{\mathsf{Mor}}}_{\T}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Open}{\text{\ensuremath{\mathsf{Open}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\PT}{\mathsf{P-Top}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\T}{\mathsf{Top}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% Homotopy Theory specific macros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\Ad}{\mathsf{Ad}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Cell}{\mathsf{Cell}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Cov}{\mathsf{Cov}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sp}{\mathsf{Sp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Spectra}{\mathsf{Spectra}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ss}{\widehat{\triangle}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Tn}{\mathbb{T}^{n}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sk}[1]{\textrm{Sk}^{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\smash}{\wedge}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\wp}{\vee}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% HoTT specific macros
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\base}{\mathsf{base}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\comp}{\mathsf{comp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\funext}{\mathsf{funext}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\hfib}{\text{\ensuremath{\mathsf{hfib}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\I}{\mathbf{I}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ind}{\mathsf{ind}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+% LOOP as 
+\backslash
+mathsf WHAT THE FUCK!!!!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\lp}{\mathsf{loop}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pair}{\mathsf{pair}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pr}{\mathbf{\mathsf{pr}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rec}{\mathsf{rec}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\refl}{\mathsf{refl}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\transport}{\mathsf{transport}}
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNSORTED! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset FormulaMacro
+\newcommand{\is}{\triangle\raisebox{2mm}{\mbox{\ensuremath{\infty}}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Cof}{\mathsf{Cof}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sfW}{\mathsf{W}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Cyl}{\mathsf{Cyl}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\Mono}{\mathsf{Mono}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}{\triangle}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tl}{\triangleleft}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tr}{\triangleright}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Shift}{\mathrm{Shift}_{+1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Shiftd}{\mathrm{Shift}_{-1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\out}{\mathrm{out}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cN}{\mathcal{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fC}{\mathcal{\mathfrak{C}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ev}{\mathsf{ev}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Map}{\mathsf{Map}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\whp}[1]{\wh{#1}_{\bullet}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bfTwo}{\mathbf{2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bfL}{\mathbf{L}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bfR}{\mathbf{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sJ}{\mathscr{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sing}{\mathsf{Sing}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Sph}{\mathsf{Sph}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\whfin}[1]{\widehat{#1}_{\mathrm{fin}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\whpfin}[1]{\widehat{#1}_{\mathrm{\bullet fin}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fin}{\mathsf{fin}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cT}{\mathcal{T}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Alg}{\mathsf{Alg}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\st}{\mathsf{st}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\IN}{\mathsf{in}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\hr}{\mathsf{hr}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Fun}{\mathsf{Fun}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Th}{\mathsf{Th}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sT}{\mathscr{T}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Lex}{\mathsf{Lex}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\FinSet}{\mathsf{FinSet}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Fib}{\mathsf{Fib}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\FPS}{\mathsf{FinPos}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Mod}{\mathsf{Mod}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sfA}{\mathsf{A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\renewcommand{\sfV}{\mathsf{V}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\inner}{\mathsf{inner}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bfI}{\mathbf{I}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Kan}{\mathsf{Kan}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Berger}{\mathsf{Berger}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%ancient paul macros...leave them...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%macros for free prop section
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\fF}{\mathfrak{F}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\cG}{\mathcal{G}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\cR}{\mathcal{R}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\cD}{\mathcal{D}}
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newcommand{
+\backslash
+Ob}{
+\backslash
+mathsf{Ob}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\evmap}{\mathsf{ev}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\coev}{\mathsf{coev}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+From domain to foundations
+\end_layout
+
+\begin_layout Standard
+While in the cases of 
+\begin_inset Formula $\mathsf{HoTT}$
+\end_inset
+
+ or intuitionistic linear logic we have a particular form of reason or computati
+on we wish to model, and only afterwards are we trying to use these type
+ theories to reason 
+\emph on
+about 
+\emph default
+
+\begin_inset Formula $\left(\infty,1\right)$
+\end_inset
+
+-toposes or closed symmetric monoidal categories, Shulman's project with
+ practical type theory is to start with a domain and reverse engineer a
+ syntax; we have a sort of category, symmetric monoidal categories, and
+ wish to ask them to provide us with a type theory.
+ This is not to say however that we have 
+\emph on
+no
+\emph default
+ hand in specifying the type theory.
+\end_layout
+
+\begin_layout Subsection
+Criteria for practicality
+\end_layout
+
+\begin_layout Itemize
+syntax semantics correspondence satisfying the following criteria...
+ 
+\end_layout
+
+\begin_layout Standard
+First, for any symmetric monoidal category, not merely concrete and familiar
+ ones, the type theory we get should permit us to leverage our intuition
+ and experience with reasoning about sets with elements
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+A possibly enlightening parallel to this program can be found in the history
+ of algebraic geometry.
+ Just as the Zariski topology extends the interpretation, beyond the rings
+ of polynomial functions on algebraic varieties, of rings as rings of functions
+ on spaces, a philosophical perspective on the goal of Shulman's practical
+ type theory extends the formal metaphor of symmetric monoidal categories
+ of vector spaces to arbitary symetric monoidal categories.
+\end_layout
+
+\end_inset
+
+.
+ As such our type theory and its semantics should correlate 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{objects} & \longleftrightarrow & \mathrm{contexts}\\
+\mathrm{morphisms} & \longleftrightarrow & \mathrm{typing\ judgements}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Second, we must not: 
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes eld
+\end_inset
+
+(strike) a Map of the Empire whose size was that of the Empire
+\begin_inset Quotes erd
+\end_inset
+
+ - J.L.Borges 
+\begin_inset Quotes eld
+\end_inset
+
+On Exactitude in Science
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+https://kwarc.info/teaching/TDM/Borges.pdf
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+so we ask that this type theory be specified not by a symmetric monoidal
+ categories directly but instead by elegant presentations thereof.
+\end_layout
+
+\begin_layout Standard
+Lastly, we wish to be assured that the theory is complete in the sense that
+ everything which holds in a particular symmetric monoidal category is derivable
+ as a judgement.
+\end_layout
+
+\begin_layout Subsection
+Sweedler's notation for co-algebras and Shulman's term judgements
+\end_layout
+
+\begin_layout Standard
+We cannot simply bend some cartesian type theory to our will to develop
+ a practical type theory for symmetric monoidal categories, because, while
+ 
+\begin_inset Formula $\times$
+\end_inset
+
+ enjoys a universal property characterized in terms of projection maps,
+ the universal property of 
+\begin_inset Formula $\otimes$
+\end_inset
+
+ is characterized in terms of co-projection maps.
+ So, while in a cartesian monoidal category like 
+\begin_inset Formula $\S$
+\end_inset
+
+, for any 
+\begin_inset Formula $z\in X\times Y$
+\end_inset
+
+, we have that
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Type theoretically, this is precisely the derived judgement of the 
+\begin_inset Formula $\eta$
+\end_inset
+
+-computation rule for the product type.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+z=\mathsf{pair}\left(\pr_{1}\left(z\right),\pr_{2}\left(z\right)\right)
+\]
+
+\end_inset
+
+no such characterization of the elements of 
+\begin_inset Formula $X\otimes Y$
+\end_inset
+
+ is immediately available.
+\end_layout
+
+\begin_layout Standard
+Locating the concern in the familiar terrain of vector spaces provides this
+ categorical phenomenon with concrete intuition: the tensor product 
+\begin_inset Formula $\bigotimes_{i\in\left\{ 1,\dots,n\right\} }V_{i}$
+\end_inset
+
+ of vector spaces is comprised not of simple tensors 
+\begin_inset Formula 
+\[
+v=v_{1}\otimes\cdots\otimes v_{n}=\mathsf{tuple}\left(v_{1},\dots,v_{n}\right)
+\]
+
+\end_inset
+
+but of linear combinations of them.
+ We can however pretend that every tensor is a tuple, provided we are very
+ careful; this is exactly the power of Sweedler's notation for co-algebras
+ which Shulman's expands into a syntax for symmetric monoidal categories.
+\end_layout
+
+\begin_layout Standard
+The co-multiplication of a co-algebra in vector spaces may be written elementari
+ly as follows.
+ 
+\begin_inset Formula 
+\[
+\vcenter{\vbox{\xyR{0pc}\xyC{3pc}\xymatrix{C\ar[r]^{\t} & C\otimes C\\
+c\ar@{|->}[r] & \sum_{i=1}^{k}c_{\left(1\right)}^{i}\otimes c_{\left(2\right)}^{i}
+}
+}}
+\]
+
+\end_inset
+
+Sweedler long ago noted that it was convenient to drop summation and even
+ to drop indices.
+ Going further and replacing 
+\begin_inset Formula $\left(\_\right)\otimes\cdots\otimes\left(\_\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\left(\_,\dots,\_\right)$
+\end_inset
+
+, both in the formation of tensor products and for 'simple tensors', we
+ then denote maps into arbitrary tensor products as follows.
+ 
+\begin_inset Formula 
+\[
+\vcenter{\vbox{\xyR{0pc}\xyC{3pc}\xymatrix{A\ar[r]^{f} & \left(B_{1},\dots,B_{n}\right)\\
+a\ar@{|->}[r] & \left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right)
+}
+}}
+\]
+
+\end_inset
+
+Shulman translates this notation into term formation rules: for example
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+For expository purposes we've replaced 
+\begin_inset Formula $f\in\mathcal{G}\left(A_{1},\dots,A_{m};B_{1},\dots,B_{m}\right)$
+\end_inset
+
+, which is the hypothesis that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a 
+\emph on
+generating 
+\emph default
+morphism, with the more general hypothesis that 
+\begin_inset Formula $f\in\Hom\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\frac{\begin{array}{c}
+\Gamma\vdash M_{1}\ \mathsf{term}\dots\Gamma\vdash M_{m}\ \mathsf{term}\\
+f\in\Hom\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)\ m\geq1\ n\geq2\ 1\leq k\leq n
+\end{array}}{\Gamma\vdash f_{\left(k\right)}\left(M_{1},\dots,M_{m}\right)}
+\]
+
+\end_inset
+
+which in the case 
+\begin_inset Formula $m=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma\vdash a\ \mathsf{term}$
+\end_inset
+
+ allows us to form the bare terms 
+\begin_inset Formula $f_{\left(k\right)}\left(a\right)$
+\end_inset
+
+ as in Sweedler's notation and then the rules for our typing judgements,
+ which we'll cover later, will allow us to derive 
+\begin_inset Formula 
+\[
+a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(k\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
+\]
+
+\end_inset
+
+the typing judgement which corresponds to the morphism 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What's more, just as the syntactic limits on defineable expressions in 
+\begin_inset Formula $\mathsf{HoTT}$
+\end_inset
+
+ grant that any expression is born invariant, the term formation rules of
+ our type theory will make sure that only permissable expressions using
+ Sweedler's notation will be syntactically accessible.
+\end_layout
+
+\begin_layout Subsection
+A suitable choice of presentation
+\end_layout
+
+\begin_layout Standard
+It is 'well known' that every symmetric monoidal category is equivalent
+ to a symmetric strict monoidal category.
+ Signifigantly less well known is that every symmetric strict monoidal category
+ is equivalent to a PROP.
+\end_layout
+
+\begin_layout Definition
+A 
+\series bold
+PROP
+\series default
+ 
+\begin_inset Formula $\left(P,\mathscr{P}\right)$
+\end_inset
+
+ is comprised of:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a set 
+\begin_inset Formula $P$
+\end_inset
+
+ of generating objects; and
+\end_layout
+
+\begin_layout Itemize
+a symmetric strict monoidal category 
+\begin_inset Formula $\mathscr{P}=\left(\mathscr{P},\otimes,\mathbf{1}\right)$
+\end_inset
+
+ for which 
+\begin_inset Formula $\left(\Ob\left(\mathscr{P}\right),\otimes,\mathbf{1}\right)$
+\end_inset
+
+ is the free commutative monoid on the set 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+A morphism of props is a pair 
+\begin_inset Formula $\left(f,F\right):\left(P,\mathscr{P}\right)\longrightarrow\left(Q,\mathscr{Q}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $f:P\longrightarrow Q$
+\end_inset
+
+ is a function and 
+\begin_inset Formula $F:\mathscr{P}\longrightarrow\mathscr{Q}$
+\end_inset
+
+ is a strong symmetric monoidal functor with 
+\begin_inset Formula $\Ob\left(F\right)$
+\end_inset
+
+ being the morphism of commutative monoids induced by the function 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ We denote the category of PROPs by 
+\begin_inset Formula $\mathsf{PROP}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Indeed we've an equivalence of categories
+\begin_inset Formula 
+\[
+\mathsf{SymStrMonCat_{strong}\liso\mathsf{PROP}}
+\]
+
+\end_inset
+
+The utility of this observation for our ends is two-fold:
+\end_layout
+
+\begin_layout Itemize
+syntactically, finite lists up to symmetry are far si
+\end_layout
+
+\begin_layout Itemize
+a presentation of a 
+\begin_inset Formula $\mathsf{PROP}$
+\end_inset
+
+ need only be comprised of three sorts of data:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+a generating set of objects;
+\end_layout
+
+\begin_layout Itemize
+a generating set of morphisms, formal arrows between finite lists of generating
+ objects;
+\end_layout
+
+\begin_layout Itemize
+a generating sets of equalities of morphisms, between formal composites
+ and tensors generating morphism.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+An elegant packaging of this second fact follows.
+\end_layout
+
+\begin_layout Definition
+Let 
+\begin_inset Formula $\mathcal{G}=\left(G_{0},G_{1}\right)$
+\end_inset
+
+ be a 
+\end_layout
+
+\begin_layout Remark
+AThose familiar with the theory of computads will note that the data enumerated
+ above are exactly a 2-computad for a PROPs.
+\end_layout
+
+\begin_layout Subsection
+On initiality and the admissability of structural rules
+\end_layout
+
+\begin_layout Standard
+In this framework the completeness result desired takes the form of an 
+\emph on
+initiality theorem
+\emph default
+, a theorem which here will posit that:
+\end_layout
+
+\begin_layout Itemize
+for 
+\begin_inset Formula $\sC$
+\end_inset
+
+ be a symmetric monoidal category and 
+\begin_inset Formula $\mathbf{T}_{\sC}$
+\end_inset
+
+ the associated type theory,
+\end_layout
+
+\begin_layout Itemize
+the term model of 
+\begin_inset Formula $\mathbf{T}_{\sC}$
+\end_inset
+
+, the initial semantic interpretation of 
+\begin_inset Formula $\mathbf{T}_{\sC}$
+\end_inset
+
+, is equivalent as a symmetric monoidal category to 
+\begin_inset Formula $\sC$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+In particular this 
+\end_layout
+
+\begin_layout Section
+Architecture of the paper
+\end_layout
+
+\begin_layout Subsection
+Idea of the content of the paper
+\end_layout
+
+\begin_layout Standard
+What is the general idea for obtaining this practical type theory?
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\shape italic
+Start with some input data (which we will call signature)
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Our input data for constructing type theories will consist of a set of objects
+ together with a set of arrows whose domain and codomain consist of finite
+ lists of objets.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+We build a type theory for the free prop generated by a signature
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+This is done by defining rules for terms and rules for typing judgements.
+ 
+\end_layout
+
+\begin_layout Itemize
+Much care is taken while defining these rules to ensure, among other things,
+ that the composition and the exchange rules are admissible, therefore ensuring
+ that any judgement has a unique derivation.
+ This is a key requirement to prove the initiality theorem that we discussed
+ earlier.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+The term model of this type theory can be proven to be the prop freely generated
+ by the input signature.
+ Hence we now have the initiality theorem
+\shape default
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+item modulo by equality rule
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Taking the contexts of this type theory as objects and the derivable term
+ judgement (modulo an equality rule) as morphisms forms a strict symmetric
+ monoidal category, which we denote 
+\begin_inset Formula $\fF\cG$
+\end_inset
+
+.
+ It is also easy to show that 
+\begin_inset Formula $\fF\cG$
+\end_inset
+
+ is in fact also a prop.
+ 
+\end_layout
+
+\begin_layout Itemize
+We can then show that 
+\begin_inset Formula $\fF\cG$
+\end_inset
+
+ is actually the free prop generate by 
+\begin_inset Formula $\cG$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Great.
+ Now we have a type theory for props freely generated by a signature.
+ But, what about all the other props? Or in other words, how do we deal
+ with SMC that have additional equality relations? Well, since we know that
+ the category of prop is monadic over the category of signatures, we have
+ that every prop 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ admit a presentation in terms of signatures (i.e.
+ a coequaliser diagram 
+\begin_inset Formula $\fF\cR\rightrightarrows\fF\cG\rightarrow\mathcal{P}$
+\end_inset
+
+), where 
+\begin_inset Formula $\cR$
+\end_inset
+
+ is a signature that provides equality axioms.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+We then essentially redo the two previous steps, but this time we also quotient
+ by these additional equality axioms provided by the signature 
+\begin_inset Formula $\cR$
+\end_inset
+
+ in the presentation of the prop
+\shape default
+ 
+\end_layout
+
+\begin_layout Standard
+That's it! Following these steps gives us a type theory for the prop presented
+ by 
+\begin_inset Formula $(\cG,\cR)$
+\end_inset
+
+, which, as proven in the paper, allows us to reason about structures in
+ any props, and hence also in any symmetric monoidal category.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Illustrating the content of the paper using the free dual pair example
+\end_layout
+
+\begin_layout Standard
+Start with the duality 
+\begin_inset Formula $(D,D^{*},\textsf{ev},\textsf{coev})$
+\end_inset
+
+ (and its associated free dual pair 
+\begin_inset Formula $\cD$
+\end_inset
+
+) given above.
+\end_layout
+
+\begin_layout Enumerate
+
+\shape italic
+Start with some input data
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Starting with the duality 
+\begin_inset Formula $(D,D^{*},\textsf{ev},\textsf{coev})$
+\end_inset
+
+, we define some input data (signature) 
+\begin_inset Formula $\cG$
+\end_inset
+
+ as follows: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Objects: 
+\begin_inset Formula $\{D,D^{*}\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Arrows: 
+\begin_inset Formula $\{\msf{ev}:(D^{*},D)\to(),\quad\msf{coev}:()\to(D,D^{*})\}$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+Build a type theory from the input data
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The arrows in the input data become the rules in the type theory 
+\begin_inset Formula $\mathbf{T}_{\cG}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "42text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Formula 
+\[
+\begin{tikzcd}[ampersandreplacement=\&,rowsep=small]\mathsf{ev}:(D^{\star},D)\longrightarrow()\arrow[d,mapsto]\end{tikzcd}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "c"
+hor_pos "l"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "42text%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Formula 
+\[
+\begin{tikzcd}[ampersandreplacement=\&,rowsep=small]\mathsf{coev}:()\longrightarrow(D^{\star},D)\arrow[d,mapsto]\end{tikzcd}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+***HOW CAN WE EXPRESS THE EQUALITY RULE IN THIS EXAMPLE? 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+Prove initiality theorem
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+By the theorems in the paper the context and derivable typing judgements
+ in the type theory 
+\begin_inset Formula $\mathbf{T}_{\cG}$
+\end_inset
+
+ form a prop which is in fact the free prop generated by the input data
+ 
+\begin_inset Formula $\cG$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\shape italic
+Account for equality relations by using a presentation as a coequaliser
+\shape default
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The free dual pair 
+\begin_inset Formula $\cD$
+\end_inset
+
+ admits a presentation as the following colimit: 
+\begin_inset Formula 
+\begin{align*}
+\underset{\longrightarrow}{\textrm{lim}}\left\{ \fF\cR\rightrightarrows\fF\cG\right\} \overset{\sim}{\longrightarrow}\cD
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $R$
+\end_inset
+
+ is the signature of relations that imposes the following two axioms (these
+ correspond to the commutative diagrams introduced above): 
+\begin_inset Formula 
+\begin{align*}
+(\mathsf{ev}\otimes\mathsf{id}_{D})\circ(\mathsf{id}_{D}\otimes\mathsf{coev})=\mathsf{id}_{D}\qquad\qquad(\mathsf{ev}\otimes\mathsf{id}_{D})\circ(\mathsf{id}_{D}\otimes\mathsf{coev})=\mathsf{id}_{D}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+First translation: 
+\begin_inset Formula 
+\begin{align*}
+x:D\vdash(\eta_{(1)}\;|\;\varepsilon(\eta_{(2)},x))=x:D\qquad y:D^{*}\vdash(\eta_{(2)}\;|\;\varepsilon(y,\eta_{(1)}))=y:D^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Second translation: 
+\begin_inset Formula 
+\begin{align*}
+x:D\vdash(u\;|\;\lambda^{D}u\triangleleft x)=x:D\qquad y:D^{*}\vdash(\lambda^{D}u\;|\;y\triangleleft x)=D^{*}
+\end{align*}
+
+\end_inset
+
+***NEEDS FIXING!!! 
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
