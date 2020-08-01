@@ -1,0 +1,721 @@
+\documentclass[pra,floatfix,
+amsmath,superscriptaddress, 12pt]{article}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{layout}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{enumerate,bbm}
+\usepackage{latexsym, graphics, graphicx, epsfig, bm}
+\usepackage{esvect}
+\usepackage{verbatim}
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[all]{xy}
+\usepackage{xfrac}   
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri,positioning}
+
+%Tikz commands
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
+
+\tikzstyle{none}=[inner sep=0pt]
+\tikzstyle{port}=[inner sep=0pt]
+\tikzstyle{component}=[circle,fill=white,draw=black]
+\tikzstyle{integral}=[inner sep=0pt]
+\tikzstyle{differential}=[inner sep=0pt]
+\tikzstyle{codifferential}=[inner sep=0pt]
+\tikzstyle{function}=[regular polygon,regular polygon sides=4,fill=white,draw=black]
+\tikzstyle{function2}=[regular polygon,regular polygon sides=4,fill=white,draw=black, inner sep=1pt]
+\tikzstyle{duplicate}=[circle,fill=white,draw=black, inner sep=1pt]
+\tikzstyle{wire}=[-,draw=black,line width=1.000]
+\tikzstyle{object}=[inner sep=2pt]
+%\input{NuiokStyle.tikzstyles}
+
+
+\usepackage{tikz-cd}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{ mathrsfs }
+\usepackage{physics}
+
+%\setlength\parindent{0pt}
+%\setlength{\parskip}{1em}
+
+
+%\usepackage[round]{natbib}
+%\bibliographystyle{natbib-oup}
+
+
+
+\newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+
+
+\newtheorem{df}[thm]{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{obs}[thm]{Observation}
+
+
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{example}{Example}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\cD}{\mathbf{D}}
+\newcommand{\cC}{\mathbf{C}}
+\newcommand{\obC}{\mathsf{Ob}(\mathbf{C})}
+\newcommand{\obD}{\mathsf{Ob}(\mathbf{D})}
+\newcommand{\Tst}{T(s\leq t)}
+\newcommand{\LAst}{\overleftarrow{A}(s\leq t)}
+\newcommand{\RAst}{\overrightarrow{A}(s\leq t)}
+%\newcommand{\id}{\id}
+
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\p}{\mathcal{P}}
+
+\DeclareMathOperator{\NICM}{\mathrm{NICM}\;}
+\DeclareMathOperator{\ICM}{\mathrm{ICM}\;}
+\DeclareMathOperator{\POVM}{\mathrm{POVM}\;}
+
+
+\DeclareMathOperator{\bmath}{\boldsymbol}
+\DeclareMathOperator{\cone}{\mathrm{cone}}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\Pos}{\mathrm{Pos}\;}
+\DeclareMathOperator{\one}{\mathbbm{1}}
+\DeclareMathOperator{\Prok}{\text{Proj}}
+
+
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\newcommand{\xra}[1]{\xrightarrow{#1}}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+
+%macros for free prop section
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\Ob}{\mathsf{Ob}}
+\newcommand{\evmap}{\mathsf{ev}}
+\newcommand{\coev}{\mathsf{coev}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+%circled number obsession
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+
+%\newcommand{\braket}[3]{\langle #1|#2|#3\rangle}
+%inner product
+%\newcommand{\ip}[2]{\langle #1|#2\rangle}
+%outer product
+%\newcommand{\op}[2]{|#1\rangle \langle #2|}
+%\newcommand{\slocc}{\overset{\underset{\mathrm{SLOCC}}{}}{\longrightarrow}}
+%\newcommand{\N}{\mathbb{N}}
+%\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\projset}{\mathbb{P}}
+\DeclareMathOperator{\union}{\mathbb{U}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\CP}{\text{CP}}
+\newcommand{\dep}{\mathcal{D}}
+\newcommand{\aLOCC}{\overline{\text{LOCC}}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\msf}[1]{\mathsf{#1}}
+\newcommand{\U}{\overset{\underset{\text{NICM}}{}}{\longrightarrow}}
+%\newcommand{\ol}[1]{\overline{#1}}
+
+\newcommand{\proj}{\text{Proj}}
+
+\DeclareMathOperator{\LOCC}{LOCC}
+\DeclareMathOperator{\LOCCN}{LOCC_{\N}}
+\DeclareMathOperator{\SEP}{SEP}
+
+
+\DeclareMathOperator{\pre}{\normalfont\text{pre}}
+\DeclareMathOperator{\post}{\normalfont\text{post}}
+\DeclareMathOperator{\id}{{\normalfont\text{id}}}
+
+\DeclarePairedDelimiter\name{\ulcorner}{\urcorner}
+\DeclarePairedDelimiter\coname{\llcorner}{\lrcorner}
+
+\newcommand{\no}[1]{$^{#1}$}
+
+\setlength\parindent{0pt}
+
+
+
+\begin{document}
+\title{Blog Post}
+\author{Nuiok Dicaire and Paul Lessard}
+\date{\today}
+
+
+\maketitle
+
+
+
+How I see things right now:
+\textbf{ 
+\begin{enumerate}
+	\item Intro/Motivation (1 and 2 below)
+	\item How it will be done (3, 4)
+	\item Actually doing it using simple example (5, 6, 7)
+	\item Concluding on what it gives and what is next (8, 9)
+\end{enumerate}}
+
+
+
+\section{Revised Outline}
+
+
+\begin{enumerate}
+	\item Intro/Motivation
+		\begin{enumerate}
+			\item relationship between categories and TT. How does the paper fit in this context?
+			\item examples from linear type theories and *-autonomous categories, HTT and infinity 1 toposes, MLTT (Martin-Lof)
+			\item Which of those are practical? 
+			\item What is this blog post about?
+			\item two requirements we focus on 1) Logically well-behaved (initiality theorem) and 2) leverage intuition (sets with elements)
+			\item illustrate this using dual pair example. (and introduce this example here)
+		\end{enumerate}
+		
+		\item Transition between intro and the rest of the blog (i.e. dual example): What maps to what between PTT and SMC.
+		
+		\item Dual example
+		\begin{enumerate}
+			\item A lot goes here!
+			\item Free dual pairs, coequaliser
+			\item instances of generator rules
+		\end{enumerate}
+		
+		\item Translation of the type theory (ie how to use) with examples
+		
+		\item Conclusion about getting more info/reading the paper/how this paper is structured: Diagram figure of how things are connected
+\end{enumerate}
+
+
+
+
+
+\section{(Old) Outline}
+
+
+\begin{enumerate}
+
+\item A paragraph about what a good, i.e. practical type theory is, in particular, focus on having a term calculus, and typing and other judgements such that careful elementary reasoning is equivalent to categorical reasoning. Say something about this being the real magic of "synthetic mathematics"
+	\begin{itemize}
+		\item Explain what the goal of this post is. i.e. The paper goes through a lot of examples about how to use the newly constructed PTT, we don't plan on regoing through all of that or on repeating the proofs provided in the paper. Rather we will approach the construction of the PTT from a different perspective, going through the basics and motivation and context, etc.
+		
+\item talk about: initiality, what it really means,
+
+\item talk about: terms and types
+
+\item leave out the stuff which compares his PTT's to linear logica and linear type theory, i.e. same tensor on both sides etc. anyone who knows/wants to know about that will be better served by reading the paper.
+	\end{itemize}
+
+\item Explain that mike Shulman's type theory does exactly this for SMC's. {\color{red} (What is "this" here?)}
+
+
+\item Behold the coequalizer: recall that coequalizers in categorical universal algebra serve the same role as congruences in classical universal algebra, with examples of congruences being eq relations for sets, natural eq. relations on hom sets for small categories, etc.
+
+\item Say we'll use this universal form to extract a type theory whose:
+\begin{enumerate}
+	\item term judgemnts come from the second thing in the co-eq,
+	\item typing judgements come from the second this in the co-eq
+	\item equality judgemnts come from the first things in the co-eq
+\end{enumerate}
+\begin{itemize}
+	\item Cite relevant theorems from the paper
+	\item Also put in the "Grand Outline" figure and explain it.
+\end{itemize}
+
+
+\item Build example of free dual pair as a quotient of free props. Don't make a big deal about props, just say how they are smcs whose objects are the free the monoid generated by a signature (define those also).
+
+\item Show the generator rule and identity rule give us the composites relevant to the triangle identities
+	\begin{itemize}
+		\item Also add some details about how they "take care of everything that needed to be taken care of"
+	\end{itemize}
+
+\item show how we get axioms for equality from the the first thing in the co-eq for free props.
+\begin{itemize}
+	\item explain how we build a PTT for free props then "lift it" to obtain the desired PTT.
+\end{itemize}
+
+\item Compare the complexity of the proofs of cyclicity of trace.
+	\begin{itemize}
+		\item Explain that actually, it is not necessarily that useful for this simple example since string diagrams are often best for structures that "don't change the topology" but for things like coalgebraic and Hopf-type structures it can be better to reason using type theories.
+	\end{itemize}
+
+\item Conclude with some comments about bigger context, usefulness of this PTT, and possible future work.
+
+\end{enumerate}
+
+
+
+
+
+
+\newpage
+
+
+
+\section{Draft}
+
+\subsection{Introducing the free dual pair example}
+
+
+
+
+To illustrate the ideas of this paper, we will look at how they take form in the free prop generated by dual pairs (example 7.1 of the paper). \\
+
+First, let's introduce the notions of duality and free dual pair. A duality in a SMC $\cC$ consists firstly of a dual pair, that is a pair of objects $D$ and $D^*$. The object $D$ can be thought of as ``things of functions'' and $D^*$ as being ``things of functionals''. A duality also contains two maps, the evaluation and coevaluation, which are defined as follows.
+					$$\textsf{coev}: \mathbf{1} \longrightarrow D \otimes D^\star \qquad \qquad
+					\textsf{ev}: D^\star \otimes D \longrightarrow \mathbf{1}$$
+and such that the following diagrams commute:\\
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+						\begin{math}
+							\begin{tikzcd}[ampersand replacement=\&]
+								\mathbf{1} \otimes D
+								\arrow[r,"\mathsf{coev}\otimes D"]
+								\arrow[d,"\mathsf{id}"]
+									\& \left( D \otimes D^{\star} \right) \otimes D \arrow[d,"\alpha"] \\
+								D \otimes \mathbf{1}
+									\& D \otimes \left( D^{\star} \otimes D \right)
+									\arrow[l, "D \otimes \mathsf{ev}"]
+							\end{tikzcd}
+						\end{math}
+						\end{center}
+\end{minipage}
+				\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{math}
+							\begin{tikzcd}[ampersand replacement=\&]
+								D^{\star} \otimes \mathbf{1}
+								\arrow[r, "D^{\star} \otimes \mathsf{coev}"]
+								\arrow[d, "\mathsf{id}"]
+									\& D^{\star} \otimes \left( D \otimes D^{\star} \right)
+									\arrow[d, "\alpha^{-1}"] \\
+								\mathbf{1} \otimes D^{\star}
+									\& \left( D^{\star} \otimes D \right) \otimes A^{\star} 
+									\arrow[l, "\mathsf{ev} \otimes D^{\star}"]
+							\end{tikzcd}
+						\end{math}
+						\end{center}
+\end{minipage}
+\smallskip
+
+For any duality $(D,D^*,\textsf{ev},\textsf{coev})$, we consider the minimal SMC that contains the duality, which we will call the free dual pair $\cD$ associated with that duality.\\
+
+%This is great, but dualities are not the notion we need in our working example. Rather, we will be working with a SMC, for which will we build a practical type theory. Instead, we want to start with a SMC and build a PTT for this SMC. For this, for any duality, we will take the free dual pair associated with that duality, that is, the minimal SMC that contains the duality. Note that the universal property for this free dual pairs says that there is an equivalence of categories between the monoidal functor category $\mathsf{Fun}_\otimes(\cD,\cC)$ and the dualities in $C$, allowing us to reason with free dual pairs whenever we want to reason about dualities. This is exactly what we are going to do!
+
+
+
+
+%Pick a signature $\cG_{\cD}$ such that $|\fF\cG_{\cD}|$ is the free SMC generated by:
+%\begin{itemize}
+%	\item $\Ob(\cD)=\{D,D^*\}$
+%	\item $\{\msf{ev}:(D^*,D)\to (), \msf{coev}:()\to (D, D^*)\}$
+%\end{itemize}
+
+%We pick $\cG_\cD$ to be the signature with the same objects and with $\msf{ev}$ and $\msf{coev}$ as arrows.\\
+
+
+
+
+%****************************************\\
+
+
+%Start with a duality $(D, D^*, \coev, \evmap)$ and take the free SMC on it, which we call the free dual pair $\cD$. This induces a signature $\cG_cD$ with the same objects and the maps $\msf{ev}$ and $\msf{coev}$ as arrows. We will denote by $\fF\cG_\cD$ the free prop generated by this signature and by $|\fF\cG_\cD|$, the SMC contained in this prop. Note that $|\fF\cG_\cD|$ is in fact the free SMC generated by the objects $D$ and $D^*$ and the maps $\coev$, and $\evmap$. \\
+
+
+
+
+%\begin{enumerate}
+%	\item Firstly, we recall that every symmetric monoidal category (SMC) is equivalent to a strict symmetric monoidal category (SSMC).
+%	\item ***SSMC are essentially monadic over Props****
+%	\item The category of props is monadic over the category of signatures, hence every prop has a presentation as a coequalizer of a pair of maps.
+%\end{enumerate}
+
+\subsection{Idea of the content of the paper}
+
+
+What is the general idea for obtaining this practical type theory?\\
+\begin{enumerate}
+	\item \textit{Start with some input data (which we will call signature)}
+		\begin{itemize}
+			\item Our input data for constructing type theories will consist of a set of objects together with a set of arrows whose domain and codomain consist of finite lists of objets.
+		\end{itemize}
+	\item \textit{We build a type theory for the free prop generated by a signature}
+		\begin{itemize}
+			\item This is done by defining rules for terms and rules for typing judgements.
+			\item Much care is taken while defining these rules to ensure, among other things, that the composition and the exchange rules are admissible, therefore ensuring that any judgement has a unique derivation. This is a key requirement to prove the initiality theorem that we discussed earlier.		
+		\end{itemize}
+	\item \textit{The term model of this type theory can be proven to be the prop freely generated by the input signature. Hence we now have the initiality theorem}
+		\begin{itemize}
+			%\item modulo by equality rule
+			\item Taking the contexts of this type theory as objects and the derivable term judgement (modulo an equality rule) as morphisms forms a strict symmetric monoidal category, which we denote $\fF\cG$. It is also easy to show that $\fF\cG$ is in fact also a prop.
+			\item We can then show that $\fF\cG$ is actually the free prop generate by $\cG$.
+		\end{itemize}
+	Great. Now we have a type theory for props freely generated by a signature. But, what about all the other props? Or in other words, how do we deal with SMC that have additional equality relations? Well, since we know that the category of prop is monadic over the category of signatures, we have that every prop $\mathcal{P}$ admit a presentation in terms of signatures (i.e. a coequaliser diagram $\fF\cR \rightrightarrows \fF\cG\rightarrow\mathcal{P}$), where $\cR$ is a signature that provides equality axioms.
+	\item \textit{We then essentially redo the two previous steps, but this time we also quotient by these additional equality axioms provided by the signature $\cR$ in the presentation of the prop}
+\end{enumerate}
+That's it! Following these steps gives us a type theory for the prop presented by $(\cG,\cR)$, which, as proven in the paper, allows us to reason about structures in any props, and hence also in any symmetric monoidal category.\\
+
+
+\subsection{Illustrating the content of the paper using the free dual pair example}
+
+
+Start with the duality $(D,D^*,\textsf{ev},\textsf{coev})$ (and its associated free dual pair $\cD$) given above.
+
+\begin{enumerate}
+	\item \textit{Start with some input data}
+	\begin{itemize}
+	\item Starting with the duality $(D,D^*,\textsf{ev},\textsf{coev})$, we define some input data (signature) $\cG$ as follows:
+	\begin{itemize}
+		\item Objects: $\{D, D^*\}$
+		\item Arrows: $\{\msf{ev}:(D^*,D)\to (), \quad \msf{coev}:()\to (D, D^*)\}$
+	\end{itemize}
+	\end{itemize}
+		
+	\item \textit{Build a type theory from the input data}
+		\begin{itemize}	
+		\item The arrows in the input data become the rules in the type theory $\mathbf{T}_\cG$:
+		
+			\begin{minipage}{0.42\textwidth}
+				\begin{displaymath}
+					\begin{tikzcd}[ampersand replacement=\&, row sep=small]
+						\mathsf{ev}:(D^{\star},D)\longrightarrow ()
+						\arrow[d, mapsto]
+							\\
+						\frac{\Gamma \vdash x:(D^{\star},D)}{\Gamma \vdash \mathsf{ev}(x):()}
+					\end{tikzcd}
+				\end{displaymath}
+			\end{minipage}
+			\begin{minipage}{0.42\textwidth}
+				\begin{displaymath}
+					\begin{tikzcd}[ampersand replacement=\&, row sep=small]
+						\mathsf{coev}:()\longrightarrow (D^{\star},D) 
+						\arrow[d, mapsto]
+							\\
+						\frac{\Gamma \vdash x:()}{\Gamma \vdash \mathsf{coev}(x):(D^{\star},D)}
+					\end{tikzcd}
+				\end{displaymath}
+			\end{minipage}
+		\end{itemize}	
+		***HOW CAN WE EXPRESS THE EQUALITY RULE IN THIS EXAMPLE?
+	\item \textit{Prove initiality theorem}
+\begin{itemize}
+	\item By the theorems in the paper the context and derivable typing judgements in the type theory $\mathbf{T}_\cG$ form a prop which is in fact the free prop generated by the input data $\cG$.
+	\end{itemize}	
+
+	\item \textit{Account for equality relations by using a presentation as a coequaliser}
+	\begin{itemize}
+		\item The free dual pair $\cD$ admits a presentation as the following colimit:
+		\begin{align*}
+			\underset{\longrightarrow}{\textrm{lim}}
+			\left\{
+				\fF \cR\rightrightarrows \fF \cG
+			\right\}
+			\overset{\sim}{\longrightarrow}
+			\cD
+		\end{align*}
+		where $R$ is the signature of relations that imposes the following two axioms (these correspond to the commutative diagrams introduced above):
+		\begin{align*}	      
+	     (\mathsf{ev}\otimes\mathsf{id}_{D})\circ (\mathsf{id}_{D} \otimes \mathsf{coev})=\mathsf{id}_{D} \qquad\qquad(\mathsf{ev} \otimes \mathsf{id}_{D}) \circ (\mathsf{id}_{D} \otimes \mathsf{coev})=\mathsf{id}_{D}
+\end{align*}
+
+First translation:
+\begin{align*}
+	x:D \vdash (\eta_{(1)} \;|\; \varepsilon (\eta_{(2)},x)) = x: D \qquad y:D^* \vdash (\eta_{(2)} \;|\; \varepsilon (y,\eta_{(1)})) = y: D^*
+\end{align*}
+
+
+Second translation:
+\begin{align*}
+	x:D \vdash (u \;|\;\lambda^D u\triangleleft x) = x: D \qquad y:D^* \vdash (\lambda^D u \;|\; y \triangleleft x) = D^*
+\end{align*}
+		***NEEDS FIXING!!!
+\end{itemize}		
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+%\section{Draft}
+%
+%
+%
+%
+%
+%\subsection{Intro to type theories - About terms and judgements}
+%
+%Let us first look at some of the terminology associated with type theories. 
+%%
+%Firstly, judgements are expressions that look something like this:
+%\begin{equation}
+%	\includegraphics[width=0.25\linewidth]{figures/judgement.jpg}
+%\end{equation}
+%%
+%	  In this expression, $x$ is a variable, $A$ and $B$ are types and $M$ is a term. This reads the variable $x$ of type $A$ judges the term M to be of type $B$. 
+%	%
+% A variable is what you think it is. A type refers to the kind of thing that we have, and terms can be thought of as "covariables" with the important notion being the fact that they are the things that come after the "judges" part.
+% %
+%	 Contexts are lists of hypotheses. These could be listed as variables $x_i$ of type $A_i$, but it could also be hypothesis like ``$n$ is a natural number'' or ``the sky is blue''. We will often write these lists as $\Gamma$.\\
+%	
+%	
+%	 Let us talk more about judgements. Syntactically, they are comprised of a context and a consequent. There are three kinds of judgements that concern us. 
+%	 
+%	 \begin{enumerate}	 
+%	 \item Judgements of hood, of which there are also three kinds:
+%	 \begin{enumerate}
+%	 \item Type-hood judgements, such as $\Gamma \vdash A: \mathtt{type}$, allow us to say that things like $A$ is a type in the type theory. 
+%	
+%	 \item Context-hood tell us that expressions $\Gamma$ are contexts. 
+%	
+%	 \item Term-hood judgement, such as $\Gamma \vdash x : A$, tells use that expressions are terms. %For example, we could have that the variable x of type A judges x to be a term, so that variables can also be terms. Basically terms are valid combinations of symbols.
+%	 \end{enumerate}
+%	
+%	 \item Judgement of type. These tell us that something is of a given type, for example $\Gamma \vdash x : A$.
+%	
+%	 \item Judgements of equality. They allow us to declare that two terms are equal, for example is $\Gamma \vdash x=y : A$.
+%		 \end{enumerate}
+%
+%	 Lastly, type theories contain rules of inference. These look something like this:
+%	\begin{align*}
+%	\frac{\Gamma \vdash c: C}{\Gamma \vdash g(c):D}
+%\end{align*}	 
+%	 This rule says that form the premise $\Gamma \vdash c: C$, we conclude that $\Gamma \vdash g(c):D$, where here $g$ is a function from $C$ to $D$. Derivations are obtained by combining many rules into trees of rules ending with a judgement, of which the following is an example.
+%	 %
+%	 \begin{equation}
+%	\includegraphics[width=0.55\linewidth]{figures/composition3.jpg}
+%\end{equation}
+%Finally, an important notion for today's discussion is that of admissible rule. 
+%	 By this we simply mean a rule that can always be rederived from the rules of the type theory.
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%
+%\subsection{Duals and free dual pairs}
+%
+%To illustrate the ideas of this paper, we will look at how they take form in the free prop generated by dual pairs (example 7.1 of the paper). \\
+%
+%A duality in a SMC $\cC$ consists firstly of a dual pair, that is a pair of objects $A$ and $A^*$. The object $A$ can be thought of as ``things of functions'' and $A^*$ as being ``things of functionals''. A duality also contains two maps, the evaluation and coevaluation, which are defined as follows.
+%					$$\textsf{coev}: \mathbf{1} \longrightarrow A \otimes A^\star \qquad \qquad
+%					\textsf{ev}: A^\star \otimes A \longrightarrow \mathbf{1}$$
+%and such that the following diagrams commute:\\
+%
+%\begin{minipage}{0.5\textwidth}
+%\begin{center}
+%						\begin{math}
+%							\begin{tikzcd}[ampersand replacement=\&]
+%								\mathbf{1} \otimes A
+%								\arrow[r,"\mathsf{coev}\otimes A"]
+%								\arrow[d,"\mathsf{id}"]
+%									\& \left( A \otimes A^{\star} \right) \otimes A \arrow[d,"\alpha"] \\
+%								A \otimes \mathbf{1}
+%									\& A \otimes \left( A^{\star} \otimes A \right)
+%									\arrow[l, "A \otimes \mathsf{ev}"]
+%							\end{tikzcd}
+%						\end{math}
+%						\end{center}
+%\end{minipage}
+%				\begin{minipage}{0.5\textwidth}
+%\begin{center}
+%\begin{math}
+%							\begin{tikzcd}[ampersand replacement=\&]
+%								A^{\star} \otimes \mathbf{1}
+%								\arrow[r, "A^{\star} \otimes \mathsf{coev}"]
+%								\arrow[d, "\mathsf{id}"]
+%									\& A^{\star} \otimes \left( A \otimes A^{\star} \right)
+%									\arrow[d, "\alpha^{-1}"] \\
+%								\mathbf{1} \otimes A^{\star}
+%									\& \left( A^{\star} \otimes  A \right) \otimes A^{\star} 
+%									\arrow[l, "\mathsf{ev} \otimes A^{\star}"]
+%							\end{tikzcd}
+%						\end{math}
+%						\end{center}
+%\end{minipage}
+%\smallskip
+%
+%Morally, this is as close as we can come to saying that the composition of the coev and the ev should be the identity map, given how these maps are defined.
+%%
+%	 To get a sense for what these maps and identities mean, think of vector spaces. Here, the triangle identities mean that if we take a vector $x$ and decompose it over a basis then take the sum of these components we get $x$ back, or simply:
+%	 $$
+%\left[
+%\mathrm{triangle\; identities}
+%\right] \leftrightarrow
+%\left[ x=\sum \mathsf{decomp}(x)\right]
+%$$
+%
+%This is great, but dualities are not the notion we need in our working example. Rather, we will be working with a SMC, for which will we build a practical type theory. Instead, we want to start with a SMC and build a PTT for this SMC. For this, for any duality, we will take the free dual pair associated with that duality, that is, the minimal SMC that contains the duality. Note that the universal property for this free dual pairs says that there is an equivalence of categories between the monoidal functor category $\mathsf{Fun}_\otimes(\cD,\cC)$ and the dualities in $C$, allowing us to reason with free dual pairs whenever we want to reason about dualities. This is exactly what we are going to do!
+%	
+%
+%
+%
+%
+%
+%
+%\subsection{Notes on the content of the paper}	
+%	
+%	
+%	
+%	
+%	
+%		\[
+%		\begin{tikzcd}[ampersand replacement=\&, row sep=normal, column sep=normal]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-----------ROW 1-------------------------------
+%			%\bullet
+%				\& %\bullet				
+%						\& \mathsf{SymMonCat}_{\mathsf{strong}} %(3,1)
+%						\ar[d, shift right=2.5pt] \\   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-----------ROW 2-------------------------------
+%			\left\{ \mathsf{PTT's} \right\}	%(1,1)
+%			\arrow[rr, bend left=35pt, "\circled{7}" description]
+%			%\arrow[r, shift left=2.5pt, lightgray]
+%				\& \left\{ 							%(2,1)the R,FG co-equalizer diagram
+%						\fF \cR\rightrightarrows \fF\cG
+%					\right\}
+%				\arrow[l, shift left=2.5pt, "\circled{6}" description]
+%				\arrow[r, shift right=2.5pt]
+%					\& \mathsf{Prop}
+%					\arrow[u, shift right=2.5pt, "\circled{1}"']
+%					\arrow[l, shift right=2.5pt,"\circled{3}"']
+%					\arrow[d, shift left=2.5pt, "\circled{2}"]\\ 	%(3,2)
+%%%%%%%%%%%%%%%%%%%%%%%%%---------------ROW 3--------------------------------
+%			\left\{ 								%(1,3)
+%				\begin{tabular}{c}
+%			  		\textsf{ PTT's w. }\\
+%			  		\textsf{axiom free }\\	
+%					\textsf{equality}
+%				\end{tabular}
+%			\right\}
+%			\arrow[u]
+%			\arrow[urr,"\circled{5}" description]
+%				\& 	%EMPTY SPACE					%(2,3)
+%					\& \mathsf{Sign}				%(3,3)
+%					\arrow[u, shift left=2.5pt]
+%					\arrow[ll, "\circled{4}" description] \\
+%		\end{tikzcd}
+%	\]
+%	
+%	
+%	
+%	
+%	
+%	
+%	
+%	
+%	
+%	
+%	
+%	\begin{align*}
+%		\begin{tikzcd}[ampersand replacement=\&, row sep=normal, column sep=normal]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-----------ROW 1-------------------------------
+%			%\bullet
+%				\& %\bullet				
+%						\& \mathsf{SymMonCat}_{\mathsf{strong}} %(3,1)
+%						\ar[d, shift right=2.5pt] \\   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%-----------ROW 2-------------------------------
+%			\left\{ \mathsf{PTT's} \right\}	%(1,1)
+%			\arrow[rr, bend left=20pt, "semantics" description]				
+%				\& \left\{ 							%(2,1)the R,FG co-equalizer diagram
+%						\fF \cR\rightrightarrows \fF\cG
+%					\right\}
+%				\arrow[l, shift left=2.5pt, "syntax" description]
+%				\arrow[r, shift right=2.5pt]
+%					\& \mathsf{Prop}
+%					\arrow[u, shift right=2.5pt, "rep."']
+%					\arrow[l, shift right=2.5pt, "pres." description]
+%					\arrow[d, shift left=2.5pt, "mon."]\\ 	%(3,2)
+%%%%%%%%%%%%%%%%%%%%%%%%%---------------ROW 3--------------------------------
+%			\left\{ 								%(1,3)
+%				\begin{tabular}{c}
+%			  		\textsf{ PTT's w. }\\
+%			  		\textsf{axiom free }\\	
+%					\textsf{equality}
+%				\end{tabular}
+%			\right\}
+%			\arrow[u, "impose\;axioms\;for\;eq." description]
+%			\arrow[urr, "free\;prop\;semantics" description]
+%				\& 	%EMPTY SPACE					%(2,3)
+%					\& \mathsf{Sign}				%(3,3)
+%					\arrow[u, shift left=2.5pt]
+%					\arrow[ll, "syntax\;with\;axiom\;free\;eq." description] \\
+%		\end{tikzcd}
+%	\end{align*}
+%
+%
+%
+
+
+
+
+
+%\bibliographystyle{ieeetr}      % mathematics and physical sciences
+%\bibliography{bibliography}
+%
+
+
+
+\end{document}
+
+
+
+.
