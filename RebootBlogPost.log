@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  21 APR 2021 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  21 APR 2021 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1099,17 +1099,17 @@ LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [2] [3]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 262
+LaTeX Font Info:    Trying to load font information for U+euf on input line 264
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [4]
 
-LaTeX Warning: Citation `Shulman' on page 5 undefined on input line 311.
+LaTeX Warning: Citation `Shulman' on page 5 undefined on input line 313.
 
 [5]
-Overfull \hbox (1.82292pt too wide) in paragraph at lines 416--417
+Overfull \hbox (1.82292pt too wide) in paragraph at lines 418--419
 \T1/cmr/m/n/12 An im-por-tant in-gre-di-ent in the syn-tax of the type the-o-ri
 es de-scribed in this pa-per is Sweedler's
  []
