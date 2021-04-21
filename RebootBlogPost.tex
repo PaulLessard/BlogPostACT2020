@@ -1,0 +1,917 @@
+\documentclass[pra,floatfix,
+amsmath,superscriptaddress, 12pt]{article}
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{palatino}
+\usepackage{layout}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{enumerate,bbm}
+\usepackage{latexsym, graphics, graphicx, epsfig, bm}
+\usepackage{esvect}
+\usepackage{verbatim}
+\usepackage{lipsum}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[all]{xy}
+\usepackage{xfrac}   
+\usepackage{prftree}
+\usepackage{braket}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri,positioning}
+
+\usepackage{setspace}
+\doublespacing
+
+%Tikz commands
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{shapes,shapes.geometric,shapes.misc}
+\pgfdeclarelayer{edgelayer}
+\pgfdeclarelayer{nodelayer}
+\pgfsetlayers{edgelayer,nodelayer,main}
+
+\tikzstyle{none}=[inner sep=0pt]
+\tikzstyle{port}=[inner sep=0pt]
+\tikzstyle{component}=[circle,fill=white,draw=black]
+\tikzstyle{integral}=[inner sep=0pt]
+\tikzstyle{differential}=[inner sep=0pt]
+\tikzstyle{codifferential}=[inner sep=0pt]
+\tikzstyle{function}=[regular polygon,regular polygon sides=4,fill=white,draw=black]
+\tikzstyle{function2}=[regular polygon,regular polygon sides=4,fill=white,draw=black, inner sep=1pt]
+\tikzstyle{duplicate}=[circle,fill=white,draw=black, inner sep=1pt]
+\tikzstyle{wire}=[-,draw=black,line width=1.000]
+\tikzstyle{object}=[inner sep=2pt]
+%\input{NuiokStyle.tikzstyles}
+
+
+\usepackage{tikz-cd}
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage{ mathrsfs }
+\usepackage{physics}
+
+%\setlength\parindent{0pt}
+%\setlength{\parskip}{1em}
+
+
+%\usepackage[round]{natbib}
+%\bibliographystyle{natbib-oup}
+
+
+
+\newtheorem{thm}{Theorem}
+\theoremstyle{definition}
+
+
+\newtheorem{df}[thm]{Definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem*{df*}{Definition}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{rem*}{Remark}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{lem*}{Lemma}
+\newtheorem{obs}[thm]{Observation}
+
+
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{example}{Example}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+%\newcommand{\cD}{\mathbf{D}}
+\newcommand{\cC}{\mathbf{C}}
+\newcommand{\obC}{\mathsf{Ob}(\mathbf{C})}
+\newcommand{\obD}{\mathsf{Ob}(\mathbf{D})}
+\newcommand{\Tst}{T(s\leq t)}
+\newcommand{\LAst}{\overleftarrow{A}(s\leq t)}
+\newcommand{\RAst}{\overrightarrow{A}(s\leq t)}
+%\newcommand{\id}{\id}
+
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\p}{\mathcal{P}}
+\newcommand{\liso}{\overset{\sim}{\longrightarrow}}
+
+\DeclareMathOperator{\NICM}{\mathrm{NICM}\;}
+\DeclareMathOperator{\ICM}{\mathrm{ICM}\;}
+\DeclareMathOperator{\POVM}{\mathrm{POVM}\;}
+
+
+\DeclareMathOperator{\bmath}{\boldsymbol}
+\DeclareMathOperator{\cone}{\mathrm{cone}}
+\DeclareMathOperator{\coker}{\mathrm{coker}}
+\DeclareMathOperator{\Pos}{\mathrm{Pos}\;}
+\DeclareMathOperator{\one}{\mathbbm{1}}
+\DeclareMathOperator{\Prok}{\text{Proj}}
+
+
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\newcommand{\xra}[1]{\xrightarrow{#1}}
+\newcommand{\xto}[1]{\xrightarrow{#1}}
+
+%macros for free prop section
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\Ob}{\mathsf{Ob}}
+\newcommand{\evmap}{\mathsf{ev}}
+\newcommand{\coev}{\mathsf{coev}}
+\newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+
+%circled number obsession
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+
+%\newcommand{\braket}[3]{\langle #1|#2|#3\rangle}
+%inner product
+%\newcommand{\ip}[2]{\langle #1|#2\rangle}
+%outer product
+%\newcommand{\op}[2]{|#1\rangle \langle #2|}
+%\newcommand{\slocc}{\overset{\underset{\mathrm{SLOCC}}{}}{\longrightarrow}}
+%\newcommand{\N}{\mathbb{N}}
+%\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\projset}{\mathbb{P}}
+\DeclareMathOperator{\union}{\mathbb{U}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\CP}{\text{CP}}
+\newcommand{\dep}{\mathcal{D}}
+\newcommand{\aLOCC}{\overline{\text{LOCC}}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\msf}[1]{\mathsf{#1}}
+\newcommand{\U}{\overset{\underset{\text{NICM}}{}}{\longrightarrow}}
+%\newcommand{\ol}[1]{\overline{#1}}
+
+\newcommand{\proj}{\text{Proj}}
+
+\DeclareMathOperator{\LOCC}{LOCC}
+\DeclareMathOperator{\LOCCN}{LOCC_{\N}}
+\DeclareMathOperator{\SEP}{SEP}
+
+
+\DeclareMathOperator{\pre}{\normalfont\text{pre}}
+\DeclareMathOperator{\post}{\normalfont\text{post}}
+\DeclareMathOperator{\id}{{\normalfont\text{id}}}
+
+\DeclarePairedDelimiter\name{\ulcorner}{\urcorner}
+\DeclarePairedDelimiter\coname{\llcorner}{\lrcorner}
+
+\newcommand{\no}[1]{$^{#1}$}
+
+%\setlength\parindent{0pt}
+
+\title{Blog Post}
+\author{Nuiok and Paul }
+\date{Way too late...}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Introduction}
+
+Many well-known type theories, e.g. Martin-L\"{o}f dependent type theory or linear type theory, have as their starting points particular forms of reasoning that we wish to treat syntactically. In a sense, it is only a happy accident that these type theories then provide means to reason \emph{about} locally cartesian closed categories or $\star$-autonomous categories.
+
+Mike Shulman's 
+\begin{quotation}
+    "A Practical Type Theory for Symmetric Monoidal Categories"
+\end{quotation}
+revererses this; he starts with symmetric monoidal categories as the intended semantics and then (reverse)-engineers a syntax in which in which it is \emph{practical} to reason about such categories.
+
+But which properties of type theory make it practical? Shulman, sythesizing various observations settles on a few basic tenets to guide the invention of the syntax; we reduce thus further to the conditions that the type theory be: (1) intuitive, (2) economical, and (3) effective
+
+\paragraph{intuitive} First, a practical type theory should permit us to leverage our intuition with reasoning about 'sets with elements'. What this means in practice is that we require our type theory, and the desired internal-language/term-model relationship with symmetric monoidal categories, to provide one-to-one correspondences:
+\begin{eqnarray*}
+\mathrm{objects}                & \longleftrightarrow & \mathrm{contexts}\\
+\mathrm{morphisms}              & \longleftrightarrow & \mathrm{typing\ judgements}\\
+\mathrm{commuting\ polygons}     & \longleftrightarrow & \mathrm{equality\ judgements}
+\end{eqnarray*}
+It is by doing so that we'll be free to think of types as sets, and to think of typed terms as elements in a way that applies to all symmetric monoidal categories.
+
+\paragraph{economical} Second, when working with a specific category, one usually works, whether we acknowledge it or not, with a presentation in terms of generators in relations, e.g. $\bigtriangleup$ as generated by face and degeneracy maps subject to the simplicial identities. As such, our type theory should not be directly specified in terms of a symmetric monoidal category, but rather in terms of a economical presentation of it. 
+
+\paragraph{effective} Lastly, we ask that, given a presentation for a symmetric monoidal category, the type theory we get therefrom should be complete for that symmetric monoidal category. By this we mean that something should hold in a particular symmetric monoidal category if and only if it is derivable as a judgement in the associated type theory.
+
+\section{Symmetric Monoidal Categories and Presentations of \textsf{PROP}s}
+
+Shulman builds a practical type theory for each symmetric monoidal from a particularly economical description (of it); Shulman builds a practical type theory for each symmetic monoidal category from \emph{a presentation by free} \textsf{PROP}s.
+
+While it is `well known' that every symmetric monoidal category is equivalent
+to a symmetric \emph{strict} monoidal category, it is probably less well known
+that every symmetric strict monoidal category is equivalent to
+a PROP.
+
+\begin{definition} A PROP, $\mc{P}$, consists of a set $P$ of generating objects and a symmetric strict monoidal category whose underlying monoid of objects is the free monoid on the set $P$.
+\end{definition}
+
+\begin{example}
+Given a set $X$, the \textbf{free permutative category on} $X$, $\Sigma_{X}$, whose monoid of objects is the monoid of lists drawn from $X$ and whose morphisms are given by the expression
+\[
+    \Sigma_{X}\left(\overrightarrow{x},\overrightarrow{y}\right)
+    =
+    \Set{\sigma \in S_{n} | \overrightarrow{x_\sigma}=\overrightarrow{y}}
+\]
+(where by $\overrightarrow{x_\sigma}$ we mean the reorganization of the list $\overrightarrow{x}$ according to the permutation $\sigma$) is a \textsf{PROP}.
+    For a more complicated example, let $X_0$ be a set and let $X_1=\Set{(\overrightarrow{x})_i | i \in I}$ be a set of pairs of lists valued in $X_0$. The
+\end{example}
+While we haven't gotten there yet, it's worth mentioning in advance this has immediate benefits for our type theory - we will never need to judge any two types to be equal - they are merely the same list or they are not.
+This means that we can replace any symmetric monoidal category with a PROP, that is, a monoidally equivalent symmetric monoidal category in which the monoidal structure is at once as free and as strict as possible. 
+
+However, to define a PROP whose morphisms obey specific equations it is better to talk about a presentation of a prop.
+Intuitively, a presentation for a $\mathsf{PROP}$ need only be comprised of three sets:
+\begin{itemize}
+\item a set of generating objects;
+\item a set of generating morphisms, formal arrows between finite lists
+of generating objects; and
+\item a set of generating identities of morphisms, between formal composites
+and tensors generating morphisms.
+\end{itemize}
+Formally, this is defined using the notion of signatures. A signature $\mc{G}$ for a PROP consists of a set of generating objects, as well as a set of formal arrows between lists of these objects. The presentation of a PROP $\mc{P}$ is then defined as the following coequaliser: 
+$$\mathfrak{F}\mc{R} \rightrightarrows \mathfrak{F}\mc{G} \rightarrow \mc{P}$$ where $\mc{G}$ and $\mc{R}$ are signatures whose sets of objects are the same as that of $\mc{P}$, $\mathfrak{F}$ is the free PROP on a signature functor, and the two morphisms of PROPs acting as the identity on objects.
+We note that every PROP $\mc{P}$ admits such a presentation. This will be central to the method used to define a practical type theory for symmetric monoidal categories. Those familiar with the theory of computads will note that the data enumerated above exactly describes a 2-computad for a PROP.
+
+%But what if one would like to add additional relations *** {\color{red} If every SMC is equivalent to a SSMC and those are equivalent to props, why do we need presentations of props? I understand that we need them to reason about structures in arbitrary props defined by generators and relations, while somehow props (without looking at their presentations) are only sufficient to reason about free props. HOW DOES THIS MAKE SENSE? why aren't props to enough to reason about props?}
+
+
+
+
+
+
+
+
+% \begin{lem*}
+%     Every PROP $\mc{P}$ admits a presentation of the form
+%     \[
+%         \mathfrak{F}\mc{R} \rightrightarrows \mathfrak{F}\mc{G} \rightarrow \mc{P}
+%     \]
+%     where $\mc{G}$ and $\mc{R}$ are signatures whose sets of objects are the same as that of $\mc{P}$, $\mathfrak{F}$ is the free PROP on a signature functor, and the two morphisms of PROPs acting as the identity on objects ({\color{red} clarify?}).
+% \end{lem*}
+
+
+
+
+
+
+\section{From Presentation to Type Theory and Back}
+
+
+We now give a brief overview of the general approach needed to obtain a practical type theory for 
+
+
+\begin{enumerate}
+    \item \textit{Start with the SMC for which we would like to build a PTT and consider its presentation as a (monoidally equivalent) representable (i.e has tensor and has unit) PROP $\mc{P}$:}
+        \[
+        \mathfrak{F}\mc{R} \rightrightarrows \mathfrak{F}\mc{G} \rightarrow \mc{P}
+    \]
+    \begin{itemize}
+        \item Here $\cG$ and $\cR$ are, respectively, the signatures of generators and relations that appear in the presentation of $\mc{P}$ as a coequalizer of free PROPs over signatures.
+    \end{itemize}
+    
+    
+    \item \textit{Given a presentation $\mathfrak{F}\mathcal{R} \rightrightarrows\mathfrak{F}\mathcal{G}\rightarrow \mc{P}$
+ of a symmetric monoidal category as a PROP $\mc{P}$ we define a practical type theory. This is done by specifying rules for term judgements, for typing judgements, and for equality judgements. The very rough idea is that contexts in the type theory are obtained from objects of the signature $\mc{G}$, while typing judgements are obtained from the morphisms. We present a few more details below:}
+ \begin{itemize}
+    \item %Given a presentation $\mathfrak{F}\mathcal{R} \rightrightarrows\mathfrak{F}\mathcal{G}$ of a symmetric monoidal category
+    The contexts (usually denoted $\Gamma,\;\Delta$, etc.) of the type theory are specified as being lists $x_{1}:A_{1},\dots,x_{n}:A_{n}$ of variables (where the $A_i$'s are objects in the signature $\cG$)
+    \item The next step is to rules for the judgements. There are three kinds of judgements defined in this type theory: term judgements, typing judgements, and equality (of typed terms) judgements. 
+    
+    \begin{itemize}
+    \item Term judgements allows us to judge that some terms (for example $x$, or the application of $f$ to a $x$) are terms (Figure 4 in \cite{Shulman})
+    \item The second kind of judgements are typing judgement and are obtained from the morphisms in the SMC, e.g. $x:A\vdash f\left(x\right):B$ corresponding to a morphism $f:A\longrightarrow B$. This obviously generalizes to more complex examples.   
+    \item Lastly equality judgements allow us to express when two functions are equal in the type theory. This is best understood by looking at the following example: take the simple example of two stating that the composite of two functions $g$ and $h$ is equal to the function $f$. This is expressed by the following equality judgement: $x:A\vdash\left(f\left(g_{\left(1\right)}\left(x\right)\right),g_{\left(2\right)}\left(x\right)\right)=\left(h_{\left(1\right)}\left(x\right),h_{\left(2\right)}\left(x\right)\right):\left(B_{1},B_{2}\right)$
+     \end{itemize}
+   % \item We note that the paper actually defines general rules for theses judgements (i.e. rules from which the *rules/derivations/judgements* in each type theories are specific instances).
+	%\item \textit{We start by building a type theory for the free prop generated by a signature (i.e. for $\fF\cG$). This is done by specifying rules for term judgements, for typing judgements and for equality judgements.}
+	\item Much care is taken while defining these rules to ensure, among other things, that the composition and the exchange rules are admissible, therefore ensuring that any judgement has a unique derivation. We will come back to this point later. %This is a key requirement to prove the initiality theorem that we discussed earlier.	
+		\end{itemize}
+
+	%Great, now we have a type theory for the prop $\fF\cG$ freely generated by a signature. But, what about the arbitrary PROP $\mc{P}$? Or in other words, how do we deal with SMC that have additional equality relations? %Well, since we know that the category of prop is monadic over the category of signatures, we have that every prop $\mathcal{P}$ admit a presentation in terms of signatures (i.e. a coequaliser diagram $\fF\cR \rightrightarrows \fF\cG\rightarrow\mathcal{P}$), where $\cR$ is a signature that provides equality axioms.
+
+
+% \item term judgements, e.g. 
+% \[
+% \Gamma\vdash x\ \mathsf{term} \qquad \textrm{ or } \qquad \Gamma\vdash f_{\left(k\right)}\left(M\right)\ \mathsf{term};
+% \]
+
+ 
+% \item typing judgements, e.g. 
+% $x:A\vdash f\left(x\right):B$
+% corresponding to a morphism $f:A\longrightarrow B$ or
+% $ x:A\vdash\left(h_{\left(1\right)}\left(x\right),h_{\left(2\right)}\left(x\right)\right):B$
+%  corresponding to a morphism $h:A\longrightarrow\left(B_{1},B_{2}\right)$
+% or 
+% \[
+% \vdash\left(|z^{a}\right):\left(\right)
+% \]
+%  corresponding to a scalar constant, an endomorphism $z:\left(\right)\longrightarrow\left(\right)$
+% of the unit object; and
+% \item equality (of typed terms) judgements, e.g. 
+% \[
+% x:A\vdash f\left(x\right)=h\left(g\left(x\right)\right):B
+% \]
+% corresponding to a commuting triangle 
+% \[
+% \xymatrix{A\ar[r]^{g}\ar[dr]_{f} & C\ar[d]^{h}\\
+%  & B
+% }
+% \]
+% or 
+% \[
+% x:A\vdash\left(f\left(g_{\left(1\right)}\left(x\right)\right),g_{\left(2\right)}\left(x\right)\right)=\left(h_{\left(1\right)}\left(x\right),h_{\left(2\right)}\left(x\right)\right):\left(B_{1},B_{2}\right)
+% \]
+% corresponding to a commuting triangle
+% \[
+% \xymatrix{A\ar[r]^{g}\ar[dr]_{h} & \left(C,B_{2}\right)\ar[d]^{\left(f,\id_{B_{2}}\right)}\\
+%  & \left(B_{1},B_{2}\right)
+% }
+% \]
+ 
+	%\item \textit{The next step is to go the other way, and show that the term model of this type theory is the prop freely generated by the input signature.}
+	%	\begin{itemize}
+			%\item modulo by equality rule
+		%\item Taking the contexts of this type theory as objects and the derivable term judgement (modulo an equality rule) as morphisms forms a strict symmetric monoidal category, which we denote $\fF\cG$. It is also easy to show that $\fF\cG$ is in fact also a prop.
+		%\item We can then show that $\fF\cG$ is actually the free prop generate by $\cG$.
+		%\item The idea here is to consider the category formed by the term model of the practical type theory, and to note that its objects are associated with the contexts of the type theory, and that its morphisms are associated with the derivable typing judgements modulo the derivable equality judgements.
+		%\item We can then prove that the term model of the type theory has the universal property of the free PROP on a signature (\textbf{Theorem 5.17}).
+		%\item Moreover, the derivable equality judgements of $\mathsf{PTT}_{\langle\mathcal{G}|\mathcal{R}\rangle}$ comprise a congruence $\sim_{R}$ on $\mathfrak{F}\mathcal{G}$ (\textbf{Proposition 6.1}).
+        %\item Finally, the PROP $\mathfrak{F}G_{\sim_{R}}$ is equivalent to the PROP $\mc{P}$ presented by  $\xymatrix{\mathfrak{F}\mathcal{R}\ar@<.25pc>[r]\ar@<-.25pc>[r] & \mathfrak{F}\mathcal{G}}$ (\textbf{Theorem 6.2}).
+%\end{itemize}
+\end{enumerate}	
+		
+% 		Going the other way, to any practical type theory,  $\mathsf{PTT}_{\left\langle \cG\cR\right\rangle }$,
+% we may associate its term model, $\mathbb{\mathbf{TM}\left(\mathsf{PTT}_{\left\langle |\mathcal{G}\mathcal{R}\right\rangle }\right)}$,
+% the category with
+% \begin{itemize}
+% \item $\Ob\left(\mathbb{\mathbf{TM}\left(\mathsf{PTT}_{\left\langle |\mathcal{G}\mathcal{R}\right\rangle }\right)}\right)$
+% being the contexts of $\mathbb{\mathsf{PTT}_{\left\langle \mathcal{G}\mathcal{R}\right\rangle }}$;
+% and
+% \item $\mathsf{Mor}\left(\mathbb{\mathbf{TM}\left(\mathsf{PTT}_{\left\langle \mathcal{G}\mathcal{R}\right\rangle }\right)}\right)$
+% being the derivable typing judgments modulo derivable equality judgements.
+% \end{itemize}
+% 		\end{itemize}
+% \begin{itemize}
+% \item the term model of the type theory$\mathsf{PTT}_{\left\langle \mathcal{G}| \emptyset\right\rangle }$
+% enjoys the universal property of the free PROP on a signature (\textbf{Theorem
+% 5.17});
+% \item the derivable equality judgements of $\mathsf{PTT}_{\langle\mathcal{G}|\mathcal{R}\rangle}$
+% comprise a congruence $\sim_{R}$ on $\mathfrak{F}\mathcal{G}$ (\textbf{Proposition
+% 6.1}); and
+% \item the PROP $\mathfrak{F}G_{\sim_{R}}$ is equivalent to the PROP $\mathscr{C}$
+% presented 
+% \[
+% \xymatrix{\mathfrak{F}\mathcal{R}\ar@<.25pc>[r]\ar@<-.25pc>[r] & \mathfrak{F}\mathcal{G}}
+% \]
+% (\textbf{Theorem 6.2}) 
+	%\item \textit{We then essentially redo the two previous steps, but this time we also quotient by these additional equality axioms provided by the signature $\cR$ in the presentation of the prop}
+
+That's it! Following these steps gives us a type theory for the prop presented by $(\cG,\cR)$, which, as proven in the paper, allows us to reason about structures in any props, and hence also in any symmetric monoidal category.
+
+%If you've had a quick look at Shulman's paper already, you might notice that he is proceeding somewhat differently when defining the practical type theory. Indeed, instead of directly finding a practical type theory for the PROP $\mc{P}$, Shulman starts by building a type theory for the free PROP $\fF\cG$ obtained from the signature of generators $\cG$. He then essentially redoes these steps, but this time he also quotients by the additional equality axioms provided by the signature $\cR$ in the presentation of the prop.
+
+%{\color{red} **add comment about **what we intuitively want** vs what is easy to prove**}
+
+Before we illustrate this with an example, there are two notions that are worth exploring in more details. First is Sweedler's notation and how it connects to the definition of the judgements and second is the notion of accessibility of structural rules. 
+
+
+
+\subsection{Sweedler's notation and Shulman's judgements}
+
+%- enough to define out function on simple tensors as long as linear in all terms
+
+%- cartesian tt for product, here we have a tt for non product
+
+
+An important ingredient in the syntax of the type theories described in this paper is Sweedler's notation. To explain this, we first note that the practical type theory for a SMC is not cartesian. Indeed, while products enjoy a universal property characterised in terms of projection maps, this is not the case for arbitrary symmetric monoidal products. To illustrate this, think of vector spaces, where we know that any element  $z\in X \times Y$ is uniquely specified by the pair of elements $x\in X$ and $y\in Y$. However, elements $w$ of the tensor product $X\otimes Y$ do not need to be a simple tensors of the form $x\times y$ and can instead consist of linear combinations of simple tensors. 
+
+Consider the general term $ \sum_{i=1}^{k}x^{i}\otimes y^{i} \in X \otimes Y$, which in Sweedler's notation is written as $(x, y)$ with the summation, indices, and tensor symbols all dropped from the notation. We are effectively pretending that every element of $X\otimes Y$ is a simple tensor of the form $x \otimes y$, which we can do, provided that any expression involving a simple tensor $x\otimes y$ is linear in both $x$ and $y$. In essence, this premise is what Shulman develops into the core of his practical type theory. To see how this plays out, suppose that we have a function $f$ that has domain A and codomain consisting of the tensor product $(B_1,...,B_n)$. Then, in Sweedler's notation we have the following judgement:
+\[
+a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
+\]
+%This allows us to create a rule in the type theory that, under the assumption that a context $\Gamma$ judges some $M$ to be a term, then we obtain the derivable judgement:
+%$$\Gamma \vdash  f_{(k)}(M) \;\; \mathsf{term}$$
+%which states that $f_{(k)}(M)$ is a term.
+In the case of $n=1$, Sweedler's notation then allows us to consider bare terms $f_{(k)}(M)$ corresponding to the $k^{th}$ component of the morphism $f$ (under the premise that a context $\Gamma$ judges some $M$ to be a term). Now, as we have already mentioned, the typing judgements are derived from rules specified by the arrows of the signature $\cG$. For example, if
+in the signature $\mathcal{G}$ we find a formal morphism
+$$ f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)$$ 
+we will then have a rule for the typing judgement which corresponds to applying that morphism to a list  $\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)$ of typed terms. 
+%
+This rule for the typing judgements will formalize, for general symmetric monoidal categories, the way in which we could pretend above that every element of a tensor product of vector spaces was a simple tensor provided we only ever considered expressions which were linear in each variable.
+
+{\color{red} ****This is still not a very clear explanation****}
+
+
+
+
+
+%The rules for this typing judgement will formalize, for general symmetric monoidal categories, the way in which we could pretend above that every element of a tensor product of vector spaces was a simple tensor provided we only ever considered expressions which were linear in each variable.
+
+
+
+
+
+% The typing judgements of $\mathsf{PTT}_{\langle G|R\rangle}$ are
+% derived from rules specified by the generating
+% formal morphisms of the signature $\mathcal{G}$. For example, if
+% in the signature $\mathcal{G}$ we find a formal morphism
+% $$ f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)$$ 
+% then, we will have a rule for the typing judgement which corresponds to applying that morphism to a list  $\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)$ of typed terms.
+
+%Lastly, it is worth to mention a few words about the other two kinds of rules of deriveable judgements that appear in this type theory.
+% As we have already mentioned, the typing judgements are
+% derived from rules specified by the arrows of the signature $\cG$. For example, if
+% in the signature $\mathcal{G}$ we find a formal morphism
+% $$ f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)$$
+% then we have a rule for the typing judgement which corresponds to
+% applying that morphism to a list of typed terms $\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)$.
+% %
+%Concerning the rules for the equality judgement, they are simply written as to assert the generating identities as axioms and build a congruence from them.
+
+
+% All we really need 
+
+%  we then denote maps into arbitrary
+% tensor products as follows. 
+% \[
+% \xymatrixrowsep{0pc}
+% \xymatrix{
+%                 A\ar[r]^{f} & \left(B_{1},\dots,B_{n}\right)\\
+% a\ar@{|->}[r] & \left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right)
+% }
+% \]
+
+
+
+%Now, for a variety of reasons, we cannot simply bend some cartesian type theory to our will to develop a practical type theory for symmetric monoidal categories. Perhaps chief among these reasons is that while the product enjoys a universal property characterized in terms of projection maps, the same cannot be said of symmetric monoidal products in general. Indeed, the universal properties of many monoidal products of interest, co-products, tensor products of algebras, etc. are characterized in terms of co-projection maps.
+
+%\par
+
+%Consider the category $\mathsf{Vect}_{\mathbf{R}}$ of real vector spaces. In that category, for any objects $X$ and $Y$ we have that any element  $z\in X \times Y$ is uniquely specified by a pair of elements $x\in X$ and $y\in Y$. 
+%We have both that, for every $x \in X$ and $y \in Y$,
+% \[
+%     \mathsf{pr}_{1}\left( \mathsf{pair}\left(x,y\right)\right) = x
+%     \quad \textrm{and} \quad
+%     \mathsf{pr}_{2}\left( \mathsf{pair}\left(x,y\right)\right) = y
+% \]
+% and that, for every $z \in X\times Y$,
+% \[
+%     z=\mathsf{pair}\left(
+%         \mathsf{pr}_{1}\left( z \right),
+%         \mathsf{pr}_{2}\left( z \right)
+%         \right)
+% \]
+%However, in general, for the tensor product $X\otimes Y$ not only do we not have access to projection maps, but what is more, a general element $z\in X \otimes Y$ need not be of the form $x\otimes y = \mathsf{pair}\left(x,y\right)$.%; not every vector in a tensor product of vector spaces is a simple tensor, instead they are linear combinations of such.
+
+
+% Consider that the co-multiplication of a co-algebra in vector spaces may be written
+% elementarily as follows.
+% \[
+%     \xymatrixrowsep{0pc}
+%     \xymatrix{C\ar[r]^{\Delta} & C\otimes C\\
+%         c\ar@{|->}[r] & \sum_{i=1}^{k}c_{\left(1\right)}^{i}\otimes c_{\left(2\right)}^{i}
+%     }
+% \]
+% Sweedler long ago noted that it was convenient to drop summation and
+% even to drop indices. Going further and replacing $\left(\_\right)\otimes\cdots\otimes\left(\_\right)$
+% with $\left(\_,\dots,\_\right)$, both in the formation of tensor
+% products and for 'simple tensors', we then denote maps into arbitrary
+% tensor products as follows. 
+% \[
+% \xymatrixrowsep{0pc}
+% \xymatrix{
+%                 A\ar[r]^{f} & \left(B_{1},\dots,B_{n}\right)\\
+% a\ar@{|->}[r] & \left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right)
+% }
+% \]
+
+%***************************************************************************************************************************************
+
+% This notation then informs Shulman's term formation rules: for example%\footnote{For expository purposes we've replaced $f\in\mathcal{G}\left(A_{1},\dots,A_{m};B_{1},\dots,B_{m}\right)$,
+% %which is the hypothesis that $f$ is a \emph{generating} morphism,
+% %with the more general hypothesis that $f\in \mathsf{Hom} \left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)$.} 
+% \[
+% \frac{\begin{array}{c}
+% \Gamma\vdash M_{1}\ \mathsf{term}\dots\Gamma\vdash M_{m}\ \mathsf{term}\\
+% f\in\mathsf{Hom}\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)\ m\geq1\ n\geq2\ 1\leq k\leq n
+% \end{array}}{\Gamma\vdash f_{\left(k\right)}\left(M_{1},\dots,M_{m}\right)}
+% \]
+% which in the case $m=1$ and $\Gamma\vdash a\ \mathsf{term}$ allows
+% us to form the bare terms $f_{\left(k\right)}\left(a\right)$ as in
+% Sweedler's notation and then the rules for our typing judgements will allow us to derive 
+% \[
+% a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(k\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
+% \]
+% the typing judgement which corresponds to the morphism $f$. The rules for this typing judgement will formalize, for general symmetric monoidal categories, the way in which we could pretend above that every element of a tensor product of vector spaces was a simple tensor provided we only ever considered expressions which were linear in each variable.
+
+
+
+
+
+% \subsubsection{Rules for the term judgement}
+
+% The term judgments of $\mathsf{PTT}_{\langle\mathcal{G}|\mathcal{R}\rangle}$
+% are derived by way of rules combining Sweedler's notation and the
+% generating morphisms of the signature $\mathcal{G}$, for example
+% we have the rule
+% \[
+% \frac{\begin{gathered}\Gamma\vdash M_{1}\quad\dots\quad\Gamma\vdash M_{n}\\
+% f\in\mathcal{G}\left(A_{1},\dots,A_{m};B_{1},\dots,B_{n}\right)\quad m\geq1\quad n\geq2\quad1\leq k\leq n
+% \end{gathered}
+% }{\Gamma\vdash f_{\left(k\right)}\left(M_{1},\dots,M_{n}\right)\ \mathsf{term}}
+% \]
+% which permits us to form the term $f_{\left(k\right)}\left(M_{1},\dots,M_{n}\right)$
+% which corresponds to the $k^{th}$ Sweedler component of a morphism
+% \[
+% f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)
+% \]
+%  in the signature $\mathcal{G}$. When the generator $f$ has nullary
+% domain, we introduce a subtly different term formation rule which
+% add labels drawn from an alphabet $\mathfrak{A}$, syntactic sugar
+% which Shulman uses to great effect later on.
+
+% \[
+% \frac{\begin{gathered}\\
+% f\in\mathcal{G}\left(;B_{1},\dots,B_{n}\right)\quad\mathfrak{a}\in\mathfrak{A}\quad n\geq2\quad1\leq k\leq n
+% \end{gathered}
+% }{\Gamma\vdash f_{\left(k\right)}^{\mathfrak{a}}\ \mathsf{term}}
+% \]
+
+%***************************************************************************************************************************************
+% \subsubsection{Rules for the typing judgement}
+
+% The typing judgements of $\mathsf{PTT}_{\langle G|R\rangle}$ are
+% derived from rules specified by the elements of $G_{1}$, the generating
+% formal morphisms of the signature $\mathcal{G}$. For example, if
+% in the signature $\mathcal{G}$ we find a formal morphism
+% \[
+% f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)
+% \]
+%  then, we've a rule for the typing judgement which corresponds to
+% applying that morphism to a list of typed terms $\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)$.
+% The foreboding vaguery will be addressed shortly.
+
+% \subsubsection{Rules for the equality judgement}
+
+% Lastly, the rules for the equality judgement assert the generating
+% identities as axioms and build a congruence from them.
+
+
+
+
+\subsection{On the meaning of generation and the admissibility of structural
+rules}
+
+% Since, the derivable judgements of a type theory are, in a sense,
+% generated by the rules of that type theory it is easy enough then
+% to believe that, for any presentation 
+% \[
+% \xymatrix{\mathfrak{F}\mathcal{R}\ar@<.25pc>[r]\ar@<-.25pc>[r] & \mathfrak{F}\mathcal{G}}
+% \]
+%  of a PROP $\mathcal{C}$, the term model $\mathsf{TM}\left(\mathsf{PTT}_{\langle\mathcal{G}|\mathcal{R}\rangle}\right)$
+% is equivalent to $\mathcal{C}$.
+
+% Indeed, Shulman shows that:
+% \begin{itemize}
+% \item the term model of the type theory$\mathsf{PTT}_{\left\langle \mathcal{G}| \emptyset\right\rangle }$
+% enjoys the universal property of the free PROP on a signature (\textbf{Theorem
+% 5.17});
+% \item the derivable equality judgements of $\mathsf{PTT}_{\langle\mathcal{G}|\mathcal{R}\rangle}$
+% comprise a congruence $\sim_{R}$ on $\mathfrak{F}\mathcal{G}$ (\textbf{Proposition
+% 6.1}); and
+% \item the PROP $\mathfrak{F}G_{\sim_{R}}$ is equivalent to the PROP $\mathscr{C}$
+% presented 
+% \[
+% \xymatrix{\mathfrak{F}\mathcal{R}\ar@<.25pc>[r]\ar@<-.25pc>[r] & \mathfrak{F}\mathcal{G}}
+% \]
+%  (\textbf{Theorem 6.2}) 
+% \end{itemize}
+% Before one makes the jump from appreciating the naturality of the
+% work to thinking it obvious, we must acknowledge something we've intentionally
+% obscured: exactly how a signature $G$ generates the rules of the
+% typing judgement. The 'obvious' way to define the rules of the typing judgement such that
+% we could expect a result like Theorem 5.17 would be to specify:
+
+Let us now have a deeper look at exactly how a signature $G$ generates the rules of the typing judgement. The 'obvious' way would be to define a series of rule which would respectively allow us to:
+\begin{enumerate}
+    \item match the application of a morphism $f$ to a term $(M_{1},\dots,M_{n})$;
+    \item concatenate terms (i.e. effectively tensoring lists) to obtain terms of type $$\left(M_{1},\dots,M_{n},N_{1},\dots,N_{m}\right):\left(A_{1},\dots,A_{n},B_{1},\dots,B_{m}\right)$$ from two distinct terms in $A_i$ and $B_j$;
+    \item describe permutations inside the lists of terms, i.e. something that allows us to incorporate things like $\left(M_{\sigma\left(1\right)},\dots,M_{\sigma\left(n\right)}\right):\left(A_{\sigma\left(1\right)},\dots,A_{\sigma\left(n\right)}\right)$ in the type theory.
+\end{enumerate}
+
+
+% What does the typing judgement rules need to allow? 
+
+% Need a rule that matches the application of a morphism $f$ to a term $(M_{1},\dots,M_{n})$.
+
+% Need a rule that concatenates terms (i.e. effectively tensoring lists) to obtain terms of type $\left(M_{1},\dots,M_{n},N_{1},\dots,N_{m}\right):\left(A_{1},\dots,A_{n},B_{1},\dots,B_{m}\right)$ from two distinct terms in $A_i$ and $B_j$.
+
+% Need a rule to describe permutations inside the lists of terms, i.e. something that allows us to incorporate things like $\left(M_{\sigma\left(1\right)},\dots,M_{\sigma\left(n\right)}\right):\left(A_{\sigma\left(1\right)},\dots,A_{\sigma\left(n\right)}\right)$ in the type theory.
+
+% \begin{itemize}
+% \item a rule something like 
+% \[
+% \frac{\begin{gathered}\Gamma\vdash\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)\\
+% f\in\mathcal{G}\left(A_{1},\dots,A_{n};B_{1},\dots,B_{m}\right)
+% \end{gathered}
+% }{\Gamma\vdash\left(f_{\left(1\right)}\left(M_{1},\dots,M_{n}\right),\dots,f_{\left(m\right)}\left(M_{1},\dots,M_{n}\right)\right):\left(B_{1},\dots,B_{m}\right)}
+% \]
+% which would allow us to 'apply' a morphism 
+% \[
+% f\in\mathcal{G}\left(A_{1},\dots,A_{n};B_{1},\dots,B_{m}\right)
+% \]
+%  to a term $\left(M_{1},\dots,M_{n}\right)$ of $\left(A_{1},\dots,A_{n}\right)$;
+% \item a rule something like 
+% \[
+% \frac{\Gamma\vdash\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)\quad\Delta\vdash\left(N_{1},\dots N_{m}\right):\left(B_{1},\dots,B_{m}\right)}{\Gamma,\Delta\vdash\left(M_{1},\dots,M_{n},N_{1},\dots,N_{m}\right):\left(A_{1},\dots,A_{n},B_{1},\dots,B_{m}\right)}
+% \]
+% which would allow us to tensor two morphisms together; and
+% \item a rule something like
+% \[
+% \frac{\Gamma\vdash\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)\quad\sigma\in S_{n}}{\Gamma\vdash\left(M_{\sigma\left(1\right)},\dots,M_{\sigma\left(n\right)}\right):\left(A_{\sigma\left(1\right)},\dots,A_{\sigma\left(n\right)}\right)}
+% \]
+% corresponding to the exchange isomorphisms permuting the generating
+% objects in a list thereof $\left(A_{1},\dots,A_{n}\right)$.
+% \[
+% \prftree{\Gamma\vdash M:A}{f\in\mathcal{G}\left(A;B_{1},B_{2}\right)}{B}
+% \]
+% \end{itemize}
+The problem with this 'obvious' way however is that derivations for typing
+judgements would be non-unique. For example, we see that with this logic, the two different associations of three composable morphisms $f:A\longrightarrow B$,
+$g:B\longrightarrow C$, and $h:C\longrightarrow D$ would yield distinct derivations of the same typing judgement, notably:
+\[
+\prftree{\prftree{x:A\vdash f\left(x\right):B}{y:B\vdash g\left(y\right):C}{x:A\vdash g\left(f\left(x\right)\right):C}}{z:C\vdash h\left(z\right):D}{x:A\vdash h\left(g\left(f\left(x\right)\right)\right)}
+\]
+and
+\[
+\prftree{x:A\vdash f\left(x\right):A}{\prftree{y:B\vdash g\left(y\right):C}{z:C\vdash h\left(z\right):D}{y:A\vdash h\left(g\left(y\right)\right):D}}{x:A\vdash h\left(g\left(f\left(x\right)\right)\right)}
+\]
+As induction over derivations is far more cumbersome than induction
+over derivable judgements Shulman opts for a more sophisticated tack by defining the rules for the typing judgements such that:
+\begin{itemize}
+\item derivations of typing judgements are unique; and
+\item the structural rules, i.e. the rules corresponding to composition,
+tensorings, and exchange are admissible which allow us to reason with them even if they are not the actual rules of the type theory. %{\color{red} We need to define `admissible' i.e. meaning that we can reason with them but do not introduce new derivations.}
+\end{itemize}
+%As such, not only are Theorem 5.17, Proposition 6.1, and Proposition 6.2 provable by way of a much tamer induction, but
+Any user of the
+type theory may invoke these more naive 'structural' rules in derivations
+and then freely ignore the multiplicity of derivations such reasoning
+may bring about. 
+
+\section{Example: The Free Dual Pair}
+%\newcommand{\ev}{\mathsf{ev}}
+%\newcommand{\coev}{\mathsf{coev}}
+
+Recall that for a vector space $V$ and its dual vector space $V^{*}$,
+we've a bijection 
+\[
+\mathsf{Hom}\left(A\otimes V,B\right)\liso\mathsf{Hom}\left(A,V^{*}\otimes B\right)
+\]
+ natural in vector spaces $A$ and $B$. This example is abstracted
+into the usual defintion of a dual pair in a symmetric strict monoidal
+category as follows.
+\begin{defn}
+A dual pair $\left(D,D^{*},\coev,\evmap\right)$ in a symmetric monoidal
+category $\left(\mathcal{C},\left(\_,\_\right),\left(\right)\right)$
+is comprised of:
+\begin{itemize}
+\item a pair of objects $D$ and $D^{*}$ of $\mathcal{C}$;
+\item a morphism $\coev:\mathbf{1}\longrightarrow D\otimes D^{*}$; and
+\item a morphism $\evmap:D^{*}\otimes D\longrightarrow\mathbf{1}$
+\end{itemize}
+satisfying the triangle identities:
+\[
+\begin{split}\vcenter{\vbox{\xymatrix{D\ar@{=}[dd]\ar[dr]^{\left(\coev,D\right)}\\
+ & \left(D,D^{*},D\right)\ar[dl]^{\left(D,\evmap\right)}\\
+D
+}
+}} & \vcenter{\vbox{\xymatrix{D^{*}\ar@{=}[dd]\ar[dr]^{\left(D^{*},\coev\right)}\\
+ & \left(D^{*},D,D^{*}\right)\ar[dl]^{\left(\evmap,D^{*}\right)}\\
+D^{*}
+}
+}}\end{split}
+\]
+\end{defn}
+
+What's more, these data clearly suggest a presentation of the PROP
+generated by a dual pair. We set 
+\[
+\mathcal{G}=\left(\left\{ D,D^{*}\right\} ,\left\{ \coev:\left(\right)\longrightarrow\left(D,D^{*}\right),\evmap:\left(D^{\star},D\right)\longrightarrow\left(\right)\right\} \right),
+\]
+ we set 
+\[
+\mathcal{R}=\left(\left\{ D,D^{*}\right\} ,\left\{ \mathsf{triangle}:D\longrightarrow D,\mathsf{triangle}^{*}:D^{*}\longrightarrow D^{*}\right\} \right),
+\]
+and for the maps defining the presentation we pick the ones generated
+by the assignments
+\[
+\xymatrixrowsep{0pc}
+\xymatrix{\mathsf{triangle}\ar@{|->}[r] & \id_{D}\\
+\mathsf{triangle^{*}}\ar@{|->}[r] & \id_{D^{*}}
+}
+\]
+and
+\[
+\xymatrixrowsep{0pc}\xymatrix{\mathsf{triangle}\ar@{|->}[r] & \left(D,\evmap\right)\circ\left(\coev,D\right)\\
+\mathsf{triangle^{*}}\ar@{|->}[r] & \left(\evmap,D^{*}\right)\circ\left(D^{*}\coev\right)
+}
+\]
+The rules for the term judgment are few:
+\begin{itemize}
+\item $\vcenter{\vbox{\prftree{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$;
+\item $\vcenter{\vbox{\prftree{\mathfrak{a}\in\mathfrak{A}}{1\leq k\leq2}{\coev_{\left(k\right)}^{\mathfrak{a}}\ \mathsf{term}}}}$;
+and
+\item $\vcenter{\vbox{\prftree{\Gamma\vdash M\ \mathsf{term}}{\Gamma\vdash N\ \mathsf{term}}{\Gamma\vdash\evmap\left(M,N\right)\ \mathsf{term}}}}.$
+\end{itemize}
+FILL IN ADMISSIBLE RULES FOR TYPING JUDGEMENTS
+
+note that we may derive the typing judgments corresponding the compositions
+\[
+\xymatrixcolsep{4pc}\xymatrix{\left(D\right)\ar[r]^{\left(\coev,D\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
+\]
+and 
+\[
+\xymatrixcolsep{4pc}\xymatrix{\left(D^{*}\right)\ar[r]^{\left(D^{*},\coev\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
+\]
+Using the admissible rulessing the actual rules for the type theory
+(modulo the consideration of 'activeness') the canonical derivation
+for that first morphism follows.
+\[
+\prftree{\prftree{\coev\in\mathcal{G}\left(;D,D^{*}\right)}{\mathfrak{a}\in\mathfrak{A}}{\left(132\right):\left(D,D,D^{*}\right)\liso\left(D,D^{*},D\right)}{x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}},\coev_{\left(2\right)}^{\mathfrak{a}},x\right):D}}{\ev\in\mathcal{G}\left(D^{*},D\right)}{x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}}|\evmap\left(\coev_{\left(2\right)}^{\mathfrak{a}},x\right)\right)}
+\]
+
+Lastly, we have the axioms 
+\[
+\prftree{}{M:D\vdash\left(\coev_{\left(1\right)}|\evmap\left(\coev_{\left(2\right)},M\right)\right)=M:D}
+\]
+and 
+\[
+\prftree{}{N:D^{*}\vdash\left(\coev_{\left(2\right)}|\evmap\left(N,\coev_{\left(1\right)}\right)\right)=N:D^{*}}
+\]
+rules enough to generate a congruence.
+
+\subsection{'Elements' of dual objects}
+We have now developed a type theory for the free dual pair which endows
+the dual objects $D$ and $D^{*}$ with a universal notion of element.
+Since the notion of dual pair abstracted the instance of a pair of
+dual vector spaces, which in particular have actual elements, it behooves
+us to ask:
+\begin{quotation}
+``how much like a vector is an term of type $D$''
+\end{quotation}
+The answer is both practical and electrifying (though perhaps the
+authors of this blog post are too easily electrified).
+
+\par
+
+It's easy enough to believe that the evaluation map 
+\[
+\evmap:\left(D,D^{\star}\right)\longrightarrow\left(\right)
+\]
+ endows the terms of type $D$, or $D^{*}$ for that matter, with
+structure of scalar valued functions on the other. The triangle idenities impose the unique determination of terms of type $D$ or $D^*$ in terms of their values as given by $\evmap$.
+
+\par
+
+Consider that, for a finite dimensional vector space $V$ over a field
+$k$, a basis $\left\{ \mathbf{e}_{i}\right\} _{i=1}^{n}$ for $V$
+and a dual basis $\left\{ \mathbf{e}_{i}^{*}\right\} _{i=1}^{n}$
+for $V^{*}$ give us an elegant way to write $\coev$ and the the
+first triangle identity. We write
+\[
+\xymatrixrowsep{0pc}\xymatrix{k\ar[r]^{\coev} & V\otimes V^{*}\\
+x\ar@{|->}[r] & \sum_{i=1}^{n}\mathbf{e}_{i}\otimes\mathbf{e}_{i}^{*}
+}
+\]
+and see that
+\[
+\begin{split}\vcenter{\vbox{\xymatrix{V\ar@{=}[dd]\ar[dr]^{\coev\otimes V}\\
+ & V\otimes V^{*}\otimes V\ar[dl]^{V\otimes\evmap}\\
+V
+}
+}}
+\end{split}
+\]
+
+\[
+\vcenter{\vbox{\xymatrix{\mathbf{v}\ar@{|->}[dd]\ar@{|->}[dr]\\
+ & \left(\sum_{i=1}^{n}\mathbf{e}_{i}\otimes\mathbf{e}_{i}^{*}\right)\otimes\mathbf{v}\ar@{|->}[dl]\\
+\mathbf{v}=\sum_{i=1}^{n}\mathbf{e}_{i}^{*}\left(\mathbf{v}\right)\cdot\mathbf{e}_{i}
+}
+}}
+\]
+
+\par
+
+The observation, for dual vector spaces defined by way of the equality \[
+V^*=\mathsf{Hom}_{\mathsf{Vect}_k}\left(V,k \right)
+\]
+that the triangle identities hold is just the observation that a vector is precisely determined by its values: every vector $\mathbf{v}$  is equal to the un-named vector
+\[
+\sum_{i=1}^{n}\mathbf{e}_i^*\left( \mathbf{v}\right)\cdot \mathbf{e}_i
+\]
+which is defined by taking the values $\mathbf{e}^*_{i}\left( \mathbf{v} \right)$ at the dual vectors $\mathbf{e}_i^*$.
+As part of the definition of a dual pair in an arbitrary symmetric strict monoidal category then, the triangle identities imposes this as a relationship between $\evmap$ and $\coev$. But within type theory, this sort of relationship between an un-named function and its values is familiar, indeed it is something very much like $\beta$-reduction.
+
+\par To see this more clearly, let's make a pair of notational changes
+to bring the parallel to the fore. In place of writing 
+\[
+\left(x,y\right):\left(D^{*},D\right)\vdash\evmap\left(x,y\right):\left(\right)
+\]
+we'll denote $\evmap$ infix by $\_\triangleleft\_$ and write
+\[
+\left(x,y\right):\left(D^{*},D\right)\vdash x\triangleleft y:\left(\right).
+\]
+Similarly, in place of writing 
+\[
+\vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)}\right):\left(D,D^{*}\right)
+\]
+ we'll denote $\coev$ by the pair $\left(u,\lambda^{D}u\right)$
+and write
+\[
+\vdash\left(u,\lambda^{D}u\right):\left(D,D^{*}\right).
+\]
+With this choice of notation then, the axiom which corresponds to
+the first triangle identity is 
+\[
+x:D\vdash\left( u | \lambda^{D}u\triangleleft x\right)=x:D.
+\]
+
+\par
+
+Then, as Shulman points out, since $=$ is a congruence with respect
+to substitution, if we've, for some term $M$, the term $\lambda^{D}u\triangleleft M$
+appearing in the scalars of a list of terms, then we may replace all
+instances of $u$ in the rest of the term with $M$. While a mouthful,
+this is a sort of '$\beta$-reduction for duality' as Shulman identifies it. Conceptually interesting in its own right, this obeservation also yields a one line
+proof for a familiar theorem.
+\begin{lem}
+(cite original result)(cyclicity of trace)Let $\left(\mathsf{C},\left(\_,\_\right),\left(\right)\right)$
+be a symmetric strict monoidal category, let 
+\[
+\left(A,A^{*},\left(u,\lambda^{A}u\right),\_\triangleleft\_\right)
+\]
+ and 
+\[
+\left(B,B^{*},\left(v,\lambda^{B}v\right),\_\triangleleft\_\right)
+\]
+ be dual pairs in $\mathsf{C}$, and let $f:A\longrightarrow B$ and $g:B\longrightarrow A$
+be morphisms in $\mathsf{C}$. Let $\mathsf{tr}\left(f\circ g\right)$ be
+the composition 
+\[
+\xymatrixrowsep{0pc}\xymatrix{\left(\right)\ar[r]^{\left(v,\lambda^{B}v\right)} & \left(B,B^{*}\right)\ar[r]^{f\circ g} & \left(B,B^{*}\right)\ar[r]^{\left(12\right)} & \left(B^{*},B\right)\ar[r]^{\_\triangleleft\_} & \left(\right)}
+\]
+and likewise let $\mathsf{tr}\left(g\circ f\right)$ be the composition.
+\[
+\xymatrixrowsep{0pc}\xymatrix{\left(\right)\ar[r]^{\left(u,\lambda^{A}u\right)} & \left(A,A^{*}\right)\ar[r]^{g\circ f} & \left(A,A^{*}\right)\ar[r]^{\left(12\right)} & \left(A^{*},A\right)\ar[r]^{\_\triangleleft\_} & \left(\right)}
+.
+\]
+Then, $\mathsf{tr}\left(f\circ g\right)=\mathsf{tr}\left(g\circ f\right)$.
+\end{lem}
+
+\begin{proof}
+\begin{eqnarray*}
+\mathsf{tr}\left(f\circ g\right) & \overset{\mathsf{def}}{=} & \left(\left|\lambda_{u}^{B}\triangleleft f\left(g\left(u\right)\right)\right.\right)\\
+ & = & \left(\left|\lambda_{u}^{B}\triangleleft f\left(v\right)\right.,\lambda_{v}^{A}\triangleleft g\left(u\right)\right)\\
+ & = & \left(\left|\lambda_{v}^{A}\triangleleft g\left(f\left(v\right)\right)\right.\right)\\
+ & \overset{\mathsf{def}}{=} & \mathsf{tr}\left(g\circ f\right)
+\end{eqnarray*}
+Where the judged equalities are application of '$\beta$-reduction
+for a duality'.
+\end{proof}
+
+
+\end{document}
