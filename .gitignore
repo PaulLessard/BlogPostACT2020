@@ -1,0 +1,17 @@
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.out
+*.tex.orig
+*.*~
+*.toc
+*.run.xml
+*.*#
+*.bcf
+auto/
+.DS_Store
