@@ -383,29 +383,30 @@ A little later on we'll illustrate the type theory with an example - in Section 
 
 Until this point it's not actually terribly clear what makes this type theory specifically adapted to symmetric monoidal categories as opposed to cartesian monoidal categories. After all, we've written contexts as lists, precisely how we write contexts in a cartesian type theory. 
 
-While we don't always think about it, we write contexts in cartesian type theories as lists because of the universal property of the product - a universal property characterised in terms of projection maps. We write contexts as lists because they can be recovered from their projections. This is not the case for arbitrary symmetric monoidal products however - in general there are no projection maps.
+\subsection{Of lists and cartesian/symmetric-monoidal products}
 
-To illustrate this in the context of mathematics, consider a pair of vector spaces $U_1$ and $U_2$. Any element  $z\in U_1 \times U_2$ is uniquely specified by the pair of elements $\msf{pr}_{1}(z) \in U_1$ and $\msf{pr}_{2}(z)\in U_2$. However, elements $w$ of the tensor product $U_1 \otimes U_2$ need not be simple tensors of the form $x \otimes y$ and, instead, generally consist of linear combinations $\sum_{i=1}^{k}x^{i} \otimes y^{i}$ of simple tensors. Provided we are careful however, we can still use lists - this is what Shulman, following Sweedler does.
+While we don't always think about it, we write contexts in cartesian type theories as lists of typed variables because of the universal property of the product - a universal property characterised in terms of projection maps. Indeed, in a cartesian type theory we write contexts as lists because lists can be recovered from the list of their projections. This is not the case for arbitrary symmetric monoidal products however - in general there are no projection maps.
 
-Consider a general element $\sum_{i=1}^{k}x_{1,i}\otimes x_{2,i} \in U_1 \otimes U_2$. In Sweedler's notation this is written as $(x_{(1)}, x_{(2)})$ with the summation, indices, and tensor symbols all dropped from the notation. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming wrecklessness introduces no problems.
+To illustrate this in the context of mathematics, consider a pair of vector spaces $U_1$ and $U_2$. Any element  $z\in U_1 \times U_2$ is uniquely specified by the pair of elements $\msf{pr}_{1}(z) \in U_1$ and $\msf{pr}_{2}(z)\in U_2$. However, elements $w$ of the tensor product $U_1 \otimes U_2$ need not be simple tensors of the form $x \otimes y$ and, instead, are generally linear combinations $\sum_{i=1}^{k}x_{1,i} \otimes x_{2,i}$ of simple tensors. Provided we are careful however, we can still use lists - this is what Shulman, following Sweedler does.
 
-This premise is what Shulman develops into the core of his practical type theory. To see how this plays out, suppose that we have a function $f$ that has domain A and codomain consisting of the tensor product $(B_1,...,B_n)$. In Shulman's adaptation of Sweedler's notation this corresponds to the judgement:
+Consider a general element $\sum_{i=1}^{k}x_{1,i}\otimes x_{2,i} \in U_1 \otimes U_2$. In Sweedler's notation this is written as $(x_{(1)}, x_{(2)})$ with the summation, indices, and tensor symbols all dropped. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming wrecklessness introduces no errors. This practice is what Shulman develops into the core of his practical type theory.
+
+To see how this plays out, suppose that we have a morphism $f$ with domain A and codomain consisting of the tensor product $(B_1,...,B_n)$. In Shulman's adaptation of Sweedler's notation this corresponds to the judgement:
+
 \[
 a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
 \]
-%This allows us to create a rule in the type theory that, under the assumption that a context $\Gamma$ judges some $M$ to be a term, then we obtain the derivable judgement:
-%$$\Gamma \vdash  f_{(k)}(M) \;\; \mathsf{term}$$
-%which states that $f_{(k)}(M)$ is a term.
-% In the case of $n=1$, Sweedler's notation then allows us to consider bare terms $f_{(k)}(M)$ corresponding to the $k^{th}$ component of the morphism $f$ (under the premise that a context $\Gamma$ judges some $M$ to be a term).
 
-The Now, as we have already mentioned, the typing judgements are derived from rules specified by the generators in the set $\msf{X}_{1}$ and the subtelty of these subscripts we obscured with the notation $\overrightarrow{M}:\overrightarrow{A}$ before.
+Now, as our rules which derive typing judgements come from the generating arrows in the set $\msf{X}_1$ unless we find in $\msf{X}_1$ some $p:(B_1,\dots,B_n) \rightarrow B_k$ which acts like projection, a property encoded by relations in $\msf{R}$, we simply cannot derive the judgment $a:A \dashv f_{(k)}:B_k$. Unless our presentation provides us with projection maps, we do not have access to them.
 
-. For example, if
-in the signature $\msf{X}_{1}$ we find a formal morphism
-$$ f:\left(A_{1},\dots,A_{m}\right)\longrightarrow\left(B_{1},\dots,B_{n}\right)$$ 
-we have a rule for the deriving the typing judgement which corresponds to applying that morphism to a list  $\left(M_{1},\dots,M_{n}\right):\left(A_{1},\dots,A_{n}\right)$ of typed terms. This is part of the subtlety 
-
-
+Since this type theory allows us to pretend, in a sense, that types were ``sets with elements'', the symmetric monoidal aspect of the type theory is that:
+\begin{itemize}
+    \item terms of product types are not-necessarly-decomposeable tuples;
+\end{itemize}
+whereas in a cartesian ``sets with elements'' style type theory:
+\begin{itemize}
+    \item terms of product types are decomposeable tuples.
+\end{itemize}
 
 %The rules for this typing judgement will formalize, for general symmetric monoidal categories, the way in which we could pretend above that every element of a tensor product of vector spaces was a simple tensor provided we only ever considered expressions which were linear in each variable.
 
@@ -664,7 +665,7 @@ we have a rule for the deriving the typing judgement which corresponds to applyi
 \section{Example: The Free Dual Pair}\label{ex:TheFreeDualPair}
 %\newcommand{\ev}{\mathsf{ev}}
 %\newcommand{\coev}{\mathsf{coev}}
-
+\subsection{A Presentation for the free dual pair}
 Recall that for a vector space $V$ and its dual vector space $V^{*}$,
 we've a bijection 
 \[
@@ -696,37 +697,57 @@ D^{*}
 \]
 \end{defn}
 
-What's more, these data clearly suggest a presentation of the PROP
-generated by a dual pair. We set 
-\[
-\mathcal{G}=\left(\left\{ D,D^{*}\right\} ,\left\{ \coev:\left(\right)\longrightarrow\left(D,D^{*}\right),\evmap:\left(D^{\star},D\right)\longrightarrow\left(\right)\right\} \right),
-\]
- we set 
-\[
-\mathcal{R}=\left(\left\{ D,D^{*}\right\} ,\left\{ \mathsf{triangle}:D\longrightarrow D,\mathsf{triangle}^{*}:D^{*}\longrightarrow D^{*}\right\} \right),
-\]
-and for the maps defining the presentation we pick the ones generated
-by the assignments
-\[
-\xymatrixrowsep{0pc}
-\xymatrix{\mathsf{triangle}\ar@{|->}[r] & \id_{D}\\
-\mathsf{triangle^{*}}\ar@{|->}[r] & \id_{D^{*}}
-}
-\]
-and
-\[
-\xymatrixrowsep{0pc}\xymatrix{\mathsf{triangle}\ar@{|->}[r] & \left(D,\evmap\right)\circ\left(\coev,D\right)\\
-\mathsf{triangle^{*}}\ar@{|->}[r] & \left(\evmap,D^{*}\right)\circ\left(D^{*}\coev\right)
-}
-\]
-The rules for the term judgment are few:
+These these data suggest a presentation $(\msf{R},\msf{X}_1,\msf{X}_0)$ for the \textsf{PROP}
+generated by a dual pair. We set:
+
 \begin{itemize}
-\item $\vcenter{\vbox{\prftree{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$;
-\item $\vcenter{\vbox{\prftree{\mathfrak{a}\in\mathfrak{A}}{1\leq k\leq2}{\coev_{\left(k\right)}^{\mathfrak{a}}\ \mathsf{term}}}}$;
-and
-\item $\vcenter{\vbox{\prftree{\Gamma\vdash M\ \mathsf{term}}{\Gamma\vdash N\ \mathsf{term}}{\Gamma\vdash\evmap\left(M,N\right)\ \mathsf{term}}}}.$
+    \item $\msf{X}_0 = \Set{D,D^\star}$;
+    \item $\msf{X}_1 = \Set{
+        \coev:\left(\right) \longrightarrow \left(D,D^{*}\right),
+        \evmap:\left(D^{\star},D\right)\longrightarrow \left(\right)
+    }$; and
+    \item $\msf{R} =
+    \Set{
+        \mathsf{triangle}:\id_{D}=(D,\evmap)\circ (\coev,D),
+        \mathsf{triangle}^{*}:\id_{D^\star}= (\evmap,D^\star)\circ(D^\star,\coev)
+    }$
 \end{itemize}
-FILL IN ADMISSIBLE RULES FOR TYPING JUDGEMENTS
+
+% \[
+% \mathcal{G}=\left(\left\{ D,D^{*}\right\} ,\left\{ \coev:\left(\right)\longrightarrow\left(D,D^{*}\right),\evmap:\left(D^{\star},D\right)\longrightarrow\left(\right)\right\} \right),
+% \]
+%  we set 
+% \[
+% \mathcal{R}=\left(\left\{ D,D^{*}\right\} ,\left\{ \mathsf{triangle}:D\longrightarrow D,\mathsf{triangle}^{*}:D^{*}\longrightarrow D^{*}\right\} \right),
+% \]
+% and for the maps defining the presentation we pick the ones generated
+% by the assignments
+% \[
+% \xymatrixrowsep{0pc}
+% \xymatrix{\mathsf{triangle}\ar@{|->}[r] & \id_{D}\\
+% \mathsf{triangle^{*}}\ar@{|->}[r] & \id_{D^{*}}
+% }
+% \]
+% and
+% \[
+% \xymatrixrowsep{0pc}\xymatrix{\mathsf{triangle}\ar@{|->}[r] & \left(D,\evmap\right)\circ\left(\coev,D\right)\\
+% \mathsf{triangle^{*}}\ar@{|->}[r] & \left(\evmap,D^{*}\right)\circ\left(D^{*}\coev\right)
+% }
+% \]
+
+\subsection{The Type theory of the free dual pair}
+While we haven't bothered with them until now, practical type theory has rules for term formation. In the case of teh practical type theory for the free dual pair, the rules for the term judgment are few. We present a streamlined version of them:
+\begin{itemize}
+\item $\vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$ which is the usual variable rule;
+\item $\vcenter{\vbox{\inferrule{1\leq k\leq2}{\coev_{\left(k\right)} \ \mathsf{term}}
+}}$
+% $\vcenter{\vbox{\prftree{\mathfrak{a}\in\mathfrak{A}}{1\leq k\leq2}{\coev_{\left(k\right)}^{\mathfrak{a}}\ \mathsf{term}}}}$
+which allows us to form the terms with which we'll be able to derive co-evaluation as a typing judgement;
+and
+\item $\vcenter{\vbox{\prftree{\Gamma\vdash M\ \mathsf{term}}{\Gamma\vdash N\ \mathsf{term}}{\Gamma\vdash\evmap\left(M,N\right)\ \mathsf{term}}}}$ which allows us to form the terms with which we'll eb able to derive evaluation as a typing judgement.
+\end{itemize}
+
+{\color{red} FILL IN ADMISSIBLE RULES FOR TYPING JUDGEMENTS}
 
 note that we may derive the typing judgments corresponding the compositions
 \[
@@ -760,7 +781,7 @@ Since the notion of dual pair abstracted the instance of a pair of
 dual vector spaces, which in particular have actual elements, it behooves
 us to ask:
 \begin{quotation}
-``how much like a vector is an term of type $D$''
+``how much like a vector is a term of type $D$''
 \end{quotation}
 The answer is both practical and electrifying (though perhaps the
 authors of this blog post are too easily electrified).
