@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  22 APR 2021 17:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  23 APR 2021 07:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1118,58 +1118,58 @@ ss/m/n/17.28 X[]\OT1/cmr/m/n/17.28 )$ \T1/cmr/bx/n/17.28 to Type The-ory $[][]$
 
 <xymatrix 2x1 44> <xymatrix 2x1 44> <xymatrix 2x1 44> [4] [5] <xymatrix 2x2
 141> [6] [7] <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix 2x3 134>
-<xymatrix 2x3 134> <xymatrix 2x2 86> [8] <xymatrix 2x2 86>
-LaTeX Font Info:    Trying to load font information for U+euf on input line 725
+<xymatrix 2x3 134> [8] <xymatrix 3x1 96> <xymatrix 3x1 96>
+LaTeX Font Info:    Trying to load font information for U+euf on input line 765
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) <xymatrix 3x1
-96> <xymatrix 3x1 96> [9] <xymatrix 2x2 93> [10] <xymatrix 2x3 134> <xymatrix
-2x3 134> <xymatrix 2x3 120> [11] [12] <xymatrix 5x1 186> <xymatrix 5x1 186>
-[13] (./RebootBlogPost.aux) ) 
+) [9] [10]
+<xymatrix 2x2 93> <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix 2x3 120>
+[11] [12] <xymatrix 5x1 186> <xymatrix 5x1 186> [13] (./RebootBlogPost.aux) ) 
 Here is how much of TeX's memory you used:
  24597 strings out of 480608
  502830 string characters out of 5903630
- 888432 words of memory out of 5000000
+ 888431 words of memory out of 5000000
  39917 multiletter control sequences out of 15000+600000
  563653 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,30n,84p,3243b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvip
-s/cm-super/cm-super-t1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/
-cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss1
-2.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17
-.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.p
-fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.
-pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pf
-b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/lo
-cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texl
-ive/2020/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/public/xypic/xydash10.pfb>
-Output written on RebootBlogPost.pdf (13 pages, 330817 bytes).
+{/
+usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/us
+r/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr
+/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
+local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/l
+ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/lo
+cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texliv
+e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/2020/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2020/texmf-
+dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2020/texmf-dist
+/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-dist/f
+onts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2020/texmf-dist/fonts
+/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
+ype1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/public/cm-super/sfti1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1
+/public/xypic/xyatip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
+ic/xypic/xybtip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xy
+pic/xydash10.pfb>
+Output written on RebootBlogPost.pdf (13 pages, 332319 bytes).
 PDF statistics:
  179 PDF objects out of 1000 (max. 8388607)
  131 compressed objects within 2 object streams
