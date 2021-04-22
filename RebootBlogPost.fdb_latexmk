@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1619006183 "RebootBlogPost.tex" "RebootBlogPost.pdf" "RebootBlogPost" 1619064829
+["pdflatex"] 1619075325 "RebootBlogPost.tex" "RebootBlogPost.pdf" "RebootBlogPost" 1619075327
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -263,6 +263,7 @@
   "/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex" 1546728170 98047 c6fa29828cc60471827afe275c8bd77f ""
   "/usr/local/texlive/2020/texmf-dist/tex/latex/lipsum/lipsum.sty" 1546638616 18060 8cf65af2c4529eed91b5d364b50d3ada ""
+  "/usr/local/texlive/2020/texmf-dist/tex/latex/mathpartir/mathpartir.sty" 1456439960 14401 0712448ba80da5750b26552c69bbf0c8 ""
   "/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mathtools.sty" 1585083035 55731 4347f70fb23a75dbacb3c5fd21dd2675 ""
   "/usr/local/texlive/2020/texmf-dist/tex/latex/mathtools/mhsetup.sty" 1585083035 5437 39f2bba90502a381bd48d78339c1a5f0 ""
   "/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty" 1177890616 3878 6aa7c08ff2621006e0603349e40a30a8 ""
@@ -290,9 +291,9 @@
   "/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1586288239 4811913 0be9a7e86c70a26e5e3042966bcd7097 ""
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1595230169 2432460 c2095929275ef0127c2630fad87a7cf5 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
-  "RebootBlogPost.aux" 1619006184 1639 1d428b20f5adfb597272d4a1f127d786 "pdflatex"
-  "RebootBlogPost.tex" 1619006269 48421 7fa8dfc6a7c5299962049ac5add38b69 ""
+  "RebootBlogPost.aux" 1619075326 1450 87a3b5735e9a3d68313014f9d7fc7626 "pdflatex"
+  "RebootBlogPost.tex" 1619075325 43302 12d759cdeb4b88a69c4992a7b94883ee ""
   (generated)
-  "RebootBlogPost.log"
   "RebootBlogPost.pdf"
+  "RebootBlogPost.log"
   "RebootBlogPost.aux"
