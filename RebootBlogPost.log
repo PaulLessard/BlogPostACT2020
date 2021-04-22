@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  21 APR 2021 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  22 APR 2021 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -482,19 +482,29 @@ Package: prftree 2019/06/19 Natural Deduction Proofs
 \prf@@@@proofbox=\box64
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/braket/braket.sty)
+(/usr/local/texlive/2020/texmf-dist/tex/latex/mathpartir/mathpartir.sty
+Package: mathpartir 2016/02/24 version 1.3.2 Math Paragraph for Typesetting Inf
+erence Rules
+\mpr@andskip=\skip62
+\mpr@lista=\toks40
+\mpr@listb=\toks41
+\mpr@hlist=\box65
+\mpr@vlist=\box66
+\mpr@right=\box67
+)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks40
+\pgfutil@everybye=\toks42
 \pgfutil@tempdima=\dimen274
 \pgfutil@tempdimb=\dimen275
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box65
+\pgfutil@abb=\box68
 (/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 ))
@@ -509,12 +519,12 @@ Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks41
-\pgfkeys@temptoks=\toks42
+\pgfkeys@pathtoks=\toks43
+\pgfkeys@temptoks=\toks44
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks43
+\pgfkeys@tmptoks=\toks45
 ))
 \pgf@x=\dimen276
 \pgf@y=\dimen277
@@ -532,9 +542,9 @@ ode.tex
 \c@pgf@countb=\count313
 \c@pgf@countc=\count314
 \c@pgf@countd=\count315
-\t@pgf@toka=\toks44
-\t@pgf@tokb=\toks45
-\t@pgf@tokc=\toks46
+\t@pgf@toka=\toks46
+\t@pgf@tokb=\toks47
+\t@pgf@tokc=\toks48
 \pgf@sys@id@count=\count316
 
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
@@ -585,10 +595,10 @@ Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen286
 \pgfmath@count=\count319
-\pgfmath@box=\box66
-\pgfmath@toks=\toks47
-\pgfmath@stack@operand=\toks48
-\pgfmath@stack@operation=\toks49
+\pgfmath@box=\box69
+\pgfmath@toks=\toks49
+\pgfmath@stack@operand=\toks50
+\pgfmath@stack@operation=\toks51
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -644,9 +654,9 @@ File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box67
-\pgf@hbox=\box68
-\pgf@layerbox@main=\box69
+\pgfpic=\box70
+\pgf@hbox=\box71
+\pgf@layerbox@main=\box72
 \pgf@picture@serial@count=\count321
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
@@ -692,7 +702,7 @@ File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
 code.tex
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box70
+\pgfexternal@startupbox=\box73
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
 de.tex
@@ -713,7 +723,7 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
 e.tex
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box71
+\pgfnodeparttextbox=\box74
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
@@ -740,8 +750,8 @@ Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen313
 \pgffor@skip=\dimen314
-\pgffor@stack=\toks50
-\pgffor@toks=\toks51
+\pgffor@stack=\toks52
+\pgffor@toks=\toks53
 ))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
 e.tex
@@ -761,10 +771,10 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@lastmovetoy=\dimen321
 \tikzleveldistance=\dimen322
 \tikzsiblingdistance=\dimen323
-\tikz@figbox=\box72
-\tikz@figbox@bg=\box73
-\tikz@tempbox=\box74
-\tikz@tempbox@bg=\box75
+\tikz@figbox=\box75
+\tikz@figbox@bg=\box76
+\tikz@tempbox=\box77
+\tikz@tempbox@bg=\box78
 \tikztreelevel=\count325
 \tikznumberofchildren=\count326
 \tikznumberofcurrentchild=\count327
@@ -839,26 +849,26 @@ File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
 shapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodepartlowerbox=\box76
-\pgfnodeparttwobox=\box77
-\pgfnodepartthreebox=\box78
-\pgfnodepartfourbox=\box79
-\pgfnodeparttwentybox=\box80
-\pgfnodepartnineteenbox=\box81
-\pgfnodeparteighteenbox=\box82
-\pgfnodepartseventeenbox=\box83
-\pgfnodepartsixteenbox=\box84
-\pgfnodepartfifteenbox=\box85
-\pgfnodepartfourteenbox=\box86
-\pgfnodepartthirteenbox=\box87
-\pgfnodeparttwelvebox=\box88
-\pgfnodepartelevenbox=\box89
-\pgfnodeparttenbox=\box90
-\pgfnodepartninebox=\box91
-\pgfnodeparteightbox=\box92
-\pgfnodepartsevenbox=\box93
-\pgfnodepartsixbox=\box94
-\pgfnodepartfivebox=\box95
+\pgfnodepartlowerbox=\box79
+\pgfnodeparttwobox=\box80
+\pgfnodepartthreebox=\box81
+\pgfnodepartfourbox=\box82
+\pgfnodeparttwentybox=\box83
+\pgfnodepartnineteenbox=\box84
+\pgfnodeparteighteenbox=\box85
+\pgfnodepartseventeenbox=\box86
+\pgfnodepartsixteenbox=\box87
+\pgfnodepartfifteenbox=\box88
+\pgfnodepartfourteenbox=\box89
+\pgfnodepartthirteenbox=\box90
+\pgfnodeparttwelvebox=\box91
+\pgfnodepartelevenbox=\box92
+\pgfnodeparttenbox=\box93
+\pgfnodepartninebox=\box94
+\pgfnodeparteightbox=\box95
+\pgfnodepartsevenbox=\box96
+\pgfnodepartsixbox=\box97
+\pgfnodepartfivebox=\box98
 )))
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarysnakes.code.tex
@@ -884,7 +894,7 @@ s.code.tex
 \pgfdecorationsegmentamplitude=\dimen330
 \pgfdecorationsegmentlength=\dimen331
 )
-\tikz@lib@dec@box=\box96
+\tikz@lib@dec@box=\box99
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathmorphing.code.tex))
@@ -903,8 +913,8 @@ File: tikzlibraryautomata.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@layerbox@background=\box97
-\pgf@layerboxsaved@background=\box98
+\pgf@layerbox@background=\box100
+\pgf@layerboxsaved@background=\box101
 )
 (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarypetri.code.tex
@@ -917,10 +927,10 @@ File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (/usr/local/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-\pgf@layerbox@edgelayer=\box99
-\pgf@layerboxsaved@edgelayer=\box100
-\pgf@layerbox@nodelayer=\box101
-\pgf@layerboxsaved@nodelayer=\box102
+\pgf@layerbox@edgelayer=\box102
+\pgf@layerboxsaved@edgelayer=\box103
+\pgf@layerbox@nodelayer=\box104
+\pgf@layerboxsaved@nodelayer=\box105
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
 Package: tikz-cd 2018/11/19 v0.9f Commutative diagrams with TikZ
@@ -959,7 +969,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen341
 \Gm@layouthoffset=\dimen342
 \Gm@layoutvoffset=\dimen343
-\Gm@dimlist=\toks52
+\Gm@dimlist=\toks54
 )
 (/usr/local/texlive/2020/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
@@ -978,34 +988,34 @@ LaTeX Warning: Unused global option(s):
 (./RebootBlogPost.aux)
 \openout1 = `RebootBlogPost.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count339
 \scratchdimen=\dimen344
-\scratchbox=\box103
+\scratchbox=\box106
 \nofMPsegments=\count340
 \nofMParguments=\count341
-\everyMPshowfont=\toks53
+\everyMPshowfont=\toks55
 \MPscratchCnt=\count342
 \MPscratchDim=\dimen345
 \MPnumerator=\count343
 \makeMPintoPDFobject=\count344
-\everyMPtoPDFconversion=\toks54
+\everyMPtoPDFconversion=\toks56
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1017,41 +1027,41 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 199
+LaTeX Font Info:    Trying to load font information for U+msa on input line 200
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 199
+LaTeX Font Info:    Trying to load font information for U+msb on input line 200
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 19
-9.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 20
+0.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 199.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 200.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 199.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 200.
 LaTeX Font Info:    Trying to load font information for U+esvect on input line 
-199.
+200.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/esvect/uesvect.fd
 File: uesvect.fd 
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19
-9.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 20
+0.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Package xypdf Info: Line width: 0.47998pt on input line 199.
+Package xypdf Info: Line width: 0.47998pt on input line 200.
 
 ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
@@ -1089,92 +1099,80 @@ ABD: EveryShipout initializing macros
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 201.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 202.
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
-29.
+30.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ) [2] [3]
-Overfull \hbox (14.74728pt too wide) in paragraph at lines 270--270
-[]\T1/cmr/bx/n/17.28 From Pre-sen-ta-tion $\OT1/cmr/m/n/17.28 (\OML/cmm/m/it/17
-.28 R; X[]; X[]\OT1/cmr/m/n/17.28 )$ \T1/cmr/bx/n/17.28 to Type The-ory $[][]$ 
-
+Overfull \hbox (0.24818pt too wide) in paragraph at lines 277--277
+[]\T1/cmr/bx/n/17.28 From Pre-sen-ta-tion $\OT1/cmr/m/n/17.28 (\OT1/cmss/m/n/17
+.28 R\OML/cmm/m/it/17.28 ; \OT1/cmss/m/n/17.28 X[]\OML/cmm/m/it/17.28 ; \OT1/cm
+ss/m/n/17.28 X[]\OT1/cmr/m/n/17.28 )$ \T1/cmr/bx/n/17.28 to Type The-ory $[][]$
+ 
  []
 
-<xymatrix 2x1 44> <xymatrix 2x1 44> <xymatrix 2x1 44> [4] <xymatrix 2x2 141>
-LaTeX Font Info:    Trying to load font information for U+euf on input line 347
+<xymatrix 2x1 44> <xymatrix 2x1 44> <xymatrix 2x1 44> [4] [5] <xymatrix 2x2
+141> [6] [7] <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix 2x3 134>
+<xymatrix 2x3 134> <xymatrix 2x2 86> [8] <xymatrix 2x2 86>
+LaTeX Font Info:    Trying to load font information for U+euf on input line 725
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [5]
-
-LaTeX Warning: Citation `Shulman' on page 6 undefined on input line 354.
-
-[6] <xymatrix 2x2 141> <xymatrix 2x2 141>
-Overfull \hbox (1.82292pt too wide) in paragraph at lines 459--460
-\T1/cmr/m/n/12 An im-por-tant in-gre-di-ent in the syn-tax of the type the-o-ri
-es de-scribed in this pa-per is Sweedler's
- []
-
-[7] [8] [9] <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix
-2x3 134> [10] <xymatrix 2x2 86> <xymatrix 2x2 86> [11] <xymatrix 3x1 96>
-<xymatrix 3x1 96> [12] <xymatrix 2x2 93> <xymatrix 2x3 134> <xymatrix 2x3 134>
-<xymatrix 2x3 120> [13] [14] <xymatrix 5x1 186> <xymatrix 5x1 186> [15]
-[16] (./RebootBlogPost.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) <xymatrix 3x1
+96> <xymatrix 3x1 96> [9] <xymatrix 2x2 93> [10] <xymatrix 2x3 134> <xymatrix
+2x3 134> <xymatrix 2x3 120> [11] [12] <xymatrix 5x1 186> <xymatrix 5x1 186>
+[13] (./RebootBlogPost.aux) ) 
 Here is how much of TeX's memory you used:
- 24405 strings out of 480608
- 499976 string characters out of 5903630
- 885930 words of memory out of 5000000
- 39729 multiletter control sequences out of 15000+600000
+ 24597 strings out of 480608
+ 502830 string characters out of 5903630
+ 888432 words of memory out of 5000000
+ 39917 multiletter control sequences out of 15000+600000
  563653 words of font info for 135 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,30n,84p,3243b,567s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<
-/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2020
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texm
-f-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/202
-0/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2020/
-texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2020/te
-xmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2020/texm
-f-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2020/texmf-
-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2020/texmf-dist/f
-onts/type1/public/cm-super/sfss1200.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/public/xypic/xyatip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
-public/xypic/xybtip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publi
-c/xypic/xydash10.pfb>
-Output written on RebootBlogPost.pdf (16 pages, 343142 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvip
+s/cm-super/cm-super-t1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/
+cm-super/cm-super-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss1
+2.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17
+.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.p
+fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.
+pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pf
+b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb>
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></
+usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></us
+r/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/
+local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/lo
+cal/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/loca
+l/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfss1200.pfb></usr/local/
+texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb></usr/local/texlive/2020/t
+exmf-dist/fonts/type1/public/xypic/xydash10.pfb>
+Output written on RebootBlogPost.pdf (13 pages, 330817 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 137 compressed objects within 2 object streams
+ 179 PDF objects out of 1000 (max. 8388607)
+ 131 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
