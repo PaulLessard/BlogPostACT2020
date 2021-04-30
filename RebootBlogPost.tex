@@ -770,7 +770,21 @@ Using the admissible rulessing the actual rules for the type theory
 (modulo the consideration of 'activeness') the canonical derivation
 for that first morphism follows.
 \[
-\prftree{\prftree{\coev\in\mathcal{G}\left(;D,D^{*}\right)}{\mathfrak{a}\in\mathfrak{A}}{\left(132\right):\left(D,D,D^{*}\right)\liso\left(D,D^{*},D\right)}{x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}},\coev_{\left(2\right)}^{\mathfrak{a}},x\right):D}}{\ev\in\mathcal{G}\left(D^{*},D\right)}{x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}}|\evmap\left(\coev_{\left(2\right)}^{\mathfrak{a}},x\right)\right)}
+\prftree{
+    \prftree{
+        \coev\in\mathcal{G}\left(;D,D^{*}\right)
+    }{
+        \mathfrak{a}\in\mathfrak{A}
+    }{ 
+        \left(132\right):\left(D,D,D^{*}\right)\liso\left(D,D^{*},D\right)
+    }{
+        x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}},\coev_{\left(2\right)}^{\mathfrak{a}},x\right):D
+    }
+    }{
+        \evmap \in \mathcal{G}(\left(D^{*},D\right),())
+    }{
+        x:D\vdash\left(\coev_{\left(1\right)}^{\mathfrak{a}}|\evmap\left(\coev_{\left(2\right)}^{\mathfrak{a}},x\right)\right)
+    }
 \]
 
 Lastly, we have the axioms 
