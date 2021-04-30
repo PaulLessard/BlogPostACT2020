@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  27 APR 2021 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.20)  30 APR 2021 17:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,7 +1119,7 @@ ss/m/n/17.28 X[]\OT1/cmr/m/n/17.28 )$ \T1/cmr/bx/n/17.28 to Type The-ory $[][]$
 <xymatrix 2x1 44> <xymatrix 2x1 44> <xymatrix 2x1 44> [4] [5] <xymatrix 2x2
 141> [6] [7] <xymatrix 2x3 134> <xymatrix 2x3 134> <xymatrix 2x3 134>
 <xymatrix 2x3 134> [8] <xymatrix 3x1 96> [9] <xymatrix 3x1 96>
-LaTeX Font Info:    Trying to load font information for U+euf on input line 774
+LaTeX Font Info:    Trying to load font information for U+euf on input line 788
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -1169,7 +1169,7 @@ blic/cm-super/sfti1200.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/publ
 ic/xypic/xyatip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xy
 pic/xybtip10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/xypic/x
 ydash10.pfb>
-Output written on RebootBlogPost.pdf (14 pages, 334021 bytes).
+Output written on RebootBlogPost.pdf (14 pages, 333708 bytes).
 PDF statistics:
  182 PDF objects out of 1000 (max. 8388607)
  133 compressed objects within 2 object streams
