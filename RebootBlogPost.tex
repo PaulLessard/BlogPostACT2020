@@ -28,7 +28,7 @@ amsmath,superscriptaddress, 12pt]{article}
 \usetikzlibrary{arrows,shapes,snakes,automata,backgrounds,petri,positioning}
 
 \usepackage{setspace}
-\doublespacing
+%\doublespacing
 
 %Tikz commands
 \usetikzlibrary{shapes,snakes}
@@ -203,7 +203,6 @@ amsmath,superscriptaddress, 12pt]{article}
 
 
 
-\section{Introduction}
 
 Many well-known type theories, e.g. Martin-L\"{o}f dependent type theory or linear type theory, have as their starting points particular forms of reasoning that we wish to treat syntactically - constructive mathematical reasoning in the case of \textsf{MLTT} and resource dependent computation in the case of linear type theory. In a sense, it is only a happy accident that these type theories then provide means to reason \emph{about} locally Cartesian closed categories or $\star$-autonomous categories.
 
@@ -238,7 +237,7 @@ For each symmetric monoidal category, Shulman builds a type theory from a partic
 
 While it is arguably well-known that every symmetric monoidal category is equivalent
 to a symmetric \emph{strict} monoidal category, it is probably less well-known that every symmetric strict monoidal category is equivalent to
-a \textsf{PROP}. This is not however too hard to see: the equivalence between \textsf{PROP}s and symmetric monoidal categories simply "unwinds" {\color{red} what does unwind refer too exactly?} every equality of objects $A\otimes B = C$ into an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, rendering free the monoidal product.
+a \textsf{PROP}. This is not however too hard to see: the equivalence between \textsf{PROP}s and symmetric monoidal categories simply "unwinds" {\color{red} what does unwind refer too exactly?} every equality of objects $A\otimes B = C$ into an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, rendering free the monoidal product. This might not make mush sense yet, but the following examples should help you understand \textsf{PROP}s better.
 
 
 \begin{example}
@@ -251,7 +250,7 @@ Given a set $\mathbf{X}$, the \textbf{free permutative category on} $\mathbf{X}$
 (where by $\overrightarrow{X_\sigma}$ we mean the reorganization of the list $\overrightarrow{X}$ according to the permutation $\sigma$) is a \textsf{PROP}.
 \end{example}
 
-\begin{example}
+\begin{example} {\color{red} Define notation $\mathsf{List}(\mathbf{X}_0)^2$****}
 For a more complicated example, let $\mathbf{X}_0$ be a set and let
 \[
     \mathbf{X}_1
@@ -276,14 +275,14 @@ As you might hope, this last example is fully general. Every $\mathsf{PROP}$, he
 \begin{remark} If (generalized) computads are familiar to you, you may notice that our three examples here are free $\mathsf{PROP}$s on $0$, $1$, and $2$-computads.
 \end{remark}
 
-\section{From Presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ to Type Theory $\mathsf{PTT}_{(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)}$}
+\section{From Presentations to Type Theories}
 
-It is from these presentations of $\mathsf{PROP}s$, the triples $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$, that we'll build type theories $\mathsf{PTT}_{(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)}$ for the symmetric monoidal categories $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. Indeed, reading $\rightsquigarrow$ as ``gives rise to'', we will see
+It is from these presentations $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ of $\mathsf{PROP}s$ that we will build type theories $\mathsf{PTT}_{(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)}$ for the symmetric monoidal categories $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. Indeed, reading $\rightsquigarrow$ as ``gives rise to'', we will see the following:
     \begin{eqnarray*}
       \mathbf{Generators}
         &
             &
-            \mathbf{judgments}
+            \mathbf{Judgments}
                 \\
       \mathbf{X}_0
         & \xymatrix@C=3em{{}\ar@{~>}[r]&{}}
@@ -302,7 +301,7 @@ of typed variables, where the $A_i$ are elements of the set $\mathbf{X}_{0}$. It
 
 \subsection{Typing Judgments}
 
-Typing judgments, as promised, correspond to morphisms in $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. For example:
+Typing judgments, as promised, correspond to morphisms in $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. Here are some examples of this correspondence:
 %
 % \begin{eqnarray*}
 %     \mathbf{Typing \ judgments}
@@ -369,24 +368,16 @@ in which:
 	\item $\sigma$ is the avatar in $\Sigma_{\mathbf{X}_0}$ of some permutation.
 \end{itemize}
 
-Now, it's pretty clear that we're hiding something - the gory details of the rules from which the typing judgments are derived (the so-called identity and generator rules in Shulman's paper). However the reader should rest assured that:
-\begin{itemize}
-    \item not only are the details not that onerous; but
-    \item the more naive structural rules corresponding precisely to:
-    \begin{itemize}
-        \item tensoring;
-        \item composition; and
-        \item braiding
-    \end{itemize}
-    are admissible. In practical terms, this means that one is free to work with these more intuitive rules, and let the careful magic of the type theory do the rest {\color{red} clarify what is meant by the rest} behind the scenes.
-\end{itemize}
+{\color{blue} The expression above can essentially be read as follows: ****}
+%
+Now, it's pretty clear that we're hiding something - the gory details of the rules from which the typing judgments are derived (the so-called identity and generator rules in Shulman's paper). However the reader should rest assured that not only are the details not that onerous, but the more naive structural rules corresponding to tensoring,         composition, and braiding are admissible. In practical terms, this means that one is free to work with these more intuitive rules, and let the careful magic of the type theory do the rest {\color{red} clarify what is meant by the rest} behind the scenes.
 
 
 
 
 \subsection{Equality judgments}
 
-Equality judgments, for example something of the form $$x:A\vdash f\left(x\right)=h\left(g\left(x\right)\right):B,$$ which in categorical terms corresponds to a diagram
+Equality judgments, for example something of the form $x:A\vdash f\left(x\right)=h\left(g\left(x\right)\right):B,$ which in categorical terms corresponds to a diagram
 %
 \begin{eqnarray*}
     \vcenter{
@@ -436,10 +427,10 @@ are similarly derived from rules coming from the set $\mathbf{R}$. We'll be more
 
 
 %Below we will illustrate the type theory with an example and describe Shulman's type theoretical proof of the cyclicity of the trace in the practical type theory for the free dual pair. Before we do so however we'll expound on what is perhaps the central insight of Shulman's paper.
-
+{\color{red} Improve title****}
 Until this point it's not actually terribly clear what makes this type theory specifically adapted to symmetric monoidal categories as opposed to Cartesian monoidal categories. After all, we've written contexts as lists, precisely as we would write contexts in a Cartesian type theory. 
-
-
+%
+%
 While we don't always think about it, we write contexts in Cartesian type theories as lists of typed variables because of the universal property of the product - a universal property characterized in terms of projection maps. That is, in a Cartesian type theory lists can be recovered from the list of their projections. This is not the case for arbitrary symmetric monoidal products and in general there are no projection maps and even when there are, there is no guarantee that they have a similar computation rule. {\color{red} what similar computation rule?}
 
 %  (for the cognoscenti we have $\beta$-rules
@@ -464,13 +455,7 @@ Provided we are careful however, we can still use lists - this is what Shulman d
     \[
         \sum_{i=1}^{k}x_{1,i}\otimes x_{2,i} \in U_1 \otimes U_2
     \]
-In Sweedler's notation this is written as
-
-    \[
-    (x_{(1)}, x_{(2)})
-    \]
-
-with the summation, indices, and tensor symbols all dropped. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming recklessness introduces no errors. This practice is what Shulman develops into the core of his practical type theory.
+In Sweedler's notation this is written as $  (x_{(1)}, x_{(2)})$ with the summation, indices, and tensor symbols all dropped. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming recklessness introduces no errors. This practice is what Shulman develops into the core of his practical type theory.
 
 To see how this plays out, suppose that we have a morphism $f$ with domain $A$ and co-domain being the tensor product $(B_1,...,B_n)$. In Shulman's adaptation of Sweedler's notation this corresponds to the judgment:
 %
@@ -478,9 +463,9 @@ To see how this plays out, suppose that we have a morphism $f$ with domain $A$ a
 a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right):\left(B_{1},\dots,B_{n}\right)
 \]
 %
-Now, as our rules which derive typing judgments come from the generating arrows in the set $\mathbf{X}_1$ unless we find some $p:(B_1,\dots,B_n) \rightarrow B_k$ in $\mathbf{X}_1$ which acts like a projection, a property encoded by relations in $\mathbf{R}$ {\color{red} (what property?)}, we simply cannot derive a ``sub-judgment" $a:A \dashv f_{(k)}:B_k$ for some $k$ between $1$ and $n$. %Unless our presentation provides us with projection maps, we do not have access to them.
+Now, as our rules which derive typing judgments come from the generating arrows in the set $\mathbf{X}_1$ unless we find some $p:(B_1,\dots,B_n) \rightarrow B_k$ in $\mathbf{X}_1$ which acts like a projection, a property encoded by relations in $\mathbf{R}$ {\color{red} (what property?)}, we simply cannot derive a ``sub-judgment'' $a:A \dashv f_{(k)}:B_k$ for some $k$ between $1$ and $n$. %Unless our presentation provides us with projection maps, we do not have access to them.
 
-Since this type theory allows us to pretend, in a sense, that types were ``sets with elements'', the symmetric monoidal aspect of the type theory can be moralized as:
+Since this type theory allows us to pretend, in a sense, that types are ``sets with elements'', the symmetric monoidal aspect of the type theory can be moralized as:
 \begin{itemize}
     \item terms of product types are not-necessarily-decomposable tuples;
 \end{itemize}
@@ -490,11 +475,11 @@ whereas in a Cartesian ``sets with elements'' style type theory:
 \end{itemize}
 
 \begin{remark}
-	The purpose of the parentheses around the sub-scripts is to remind us that we cannot treat the $x_{(k)}$ individually - a priori $(x_{(1)},\dots,x_{(n)})$ is not decomposable into a list - and to separate the subscripts of typed terms
+	The purpose of the parentheses around the subscripts is to remind us that we cannot treat the $x_{(k)}$ individually - a priori $(x_{(1)},\dots,x_{(n)})$ is not decomposable into a list - and to separate the subscripts of typed terms
         \[
             (x_{(i_1)},\dots,x_{(i_n)}):(X_1,\dots,X_n)
         \]
-    from the subscripts of their types.
+    from the subscripts of their types. {\color{red} What???}
 \end{remark}
 
 %The rules for this typing judgment will formalize, for general symmetric monoidal categories, the way in which we could pretend above that every element of a tensor product of vector spaces was a simple tensor provided we only ever considered expressions which were linear in each variable.
@@ -743,14 +728,14 @@ whereas in a Cartesian ``sets with elements'' style type theory:
 \section{Example: The Free Dual Pair}\label{ex:TheFreeDualPair}
 %\newcommand{\ev}{\mathsf{ev}}
 %\newcommand{\coev}{\mathsf{coev}}
-\subsection{A Presentation for the free dual pair}
-Recall that for a vector space $V$ and its dual vector space $V^{*}$,
-we have a bijection 
+
+We have now covered all the theory and important concepts related to the construction of a type theory for an arbitrary symmetric monoidal category. The rest of this blog post will now focus on working out the details of a very simple example, namely the type theory associated to a dual pair in a symmetric monoidal category. This corresponds to the categorification of the bijection 
 \[
 \mathsf{Hom}\left(A\otimes V,B\right)\liso\mathsf{Hom}\left(A,V^{*}\otimes B\right)
 \]
- natural in vector spaces $A$ and $B$. We can generalize this into the definition of a dual pair in a symmetric strict monoidal
-category as follows.
+between a vector space $V$ and its dual vector space $V^{*}$, which is natural in vector spaces $A$ and $B$.
+
+
 \begin{defn}
 A dual pair $\left(D,D^{*},\coev,\evmap\right)$ in a symmetric monoidal
 category $\left(\mathfrak{C},\left(\_,\_\right),\left(\right)\right)$
@@ -792,7 +777,7 @@ satisfying the triangle identities:
     \end{align*}
 \end{defn}
 
-These these data suggest a presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ for the \textsf{PROP}
+These data suggest a presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ for the \textsf{PROP}
 generated by a dual pair. We set:
 
 \begin{itemize}
@@ -831,19 +816,29 @@ generated by a dual pair. We set:
 % \]
 
 \subsection{The type theory of the free dual pair}
-While we haven't bothered with them until now, Shulman's practical type theory has rules for term formation. Here is a streamlined version of the rules for the term judgments in the type theory for the free dual pair:
+Let's now look at what the rules of the type theory for this presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. While we haven't bothered with them until now, Shulman's practical type theory does have rules for term formation. Let's have a quick look at a streamlined version of the rules for the term judgments in the type theory for the free dual pair. There are three such rules:
 %
 %In the case of the practical type theory for the free dual pair, the rules for the term judgment are few. We present a streamlined version of them:
 %
-\begin{itemize}
-\item the rule $$\vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$$ is the usual variable rule giving us the terms in which we'll be able to derive the typing judgments corresponding to identities;
-\item the rule $$\vcenter{\vbox{\inferrule{1\leq k\leq2}{\coev_{\left(k\right)} \ \mathsf{term}}
-}}$$
-which gives us terms in which we'll be able to derive co-evaluation as a typing judgment; and
-\item the rule $$\vcenter{\vbox{\prftree{\Gamma\vdash m\ \mathsf{term}}{\Gamma\vdash n\ \mathsf{term}}{\Gamma\vdash\evmap\left(m,n\right)\ \mathsf{term}}}}$$ gives us the terms with which we'll be able to derive evaluation as a typing judgment.
-\end{itemize}
-
-We have two (streamlined) rules for typing judgments:
+\begin{align}
+\vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}
+&&
+\vcenter{\vbox{\inferrule{1\leq k\leq2}{\coev_{\left(k\right)} \ \mathsf{term}}
+}}
+&&
+\vcenter{\vbox{\prftree{\Gamma\vdash m\ \mathsf{term}}{\Gamma\vdash n\ \mathsf{term}}{\Gamma\vdash\evmap\left(m,n\right)\ \mathsf{term}}}}
+\end{align}
+The first rule is the usual variable rule giving us the terms in which we'll be able to derive the typing judgments corresponding to identities. The second one gives us terms in which we'll be able to derive co-evaluation as a typing judgment, while the last one gives us the terms with which we'll be able to derive evaluation as a typing judgment.
+%
+%\begin{itemize}
+%\item the rule $$\vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$$ is the usual variable rule giving us the terms in which we'll be able to derive the typing judgments corresponding to identities;
+%\item the rule $$\vcenter{\vbox{\inferrule{1\leq k\leq2}{\coev_{\left(k\right)} \ \mathsf{term}}
+%}}$$
+%which gives us terms in which we'll be able to derive co-evaluation as a typing judgment; and
+%\item the rule $$\vcenter{\vbox{\prftree{\Gamma\vdash m\ \mathsf{term}}{\Gamma\vdash n\ \mathsf{term}}{\Gamma\vdash\evmap\left(m,n\right)\ \mathsf{term}}}}$$ gives us the terms with which we'll be able to derive evaluation as a typing judgment.
+%\end{itemize}
+%
+For the typing judgments, we have two (again slightly streamlined) rules:
 \begin{itemize}
     \item the rule
         \[
@@ -915,16 +910,19 @@ We have two (streamlined) rules for typing judgments:
                               \right)
             }
         \]
-        which corresponds to applying a tensor product of:
-        \begin{itemize}
-            \item generating scalar-valued functions  $h,\dots,k$ , which can only be some number of copies of $\evmap$ in our case; and
-            \item the identity on some object, here $\overrightarrow{E}$
-        \end{itemize}
-        followed by:
-        \begin{itemize}
-            \item a braiding $\sigma$; and
-            \item shuffling of scalars (in a symmetric strict monoidal category all scalars commute on the nose)
-        \end{itemize} and
+        corresponds to applying a tensor product followed by a braiding $\sigma$ and a shuffling of scalars. The tensor product is taken between generating scalar-valued functions $h,\dots,k$ (which can only be some number of copies of $\evmap$ in our case) and the identity on some object, here $\overrightarrow{E}$.
+ %       
+ %       
+%        of:
+%        \begin{itemize}
+%            \item generating scalar-valued functions  $h,\dots,k$ , which can only be some number of copies of $\evmap$ in our case; and
+%            \item the identity on some object, here $\overrightarrow{E}$
+%        \end{itemize}
+%        followed by:
+%        \begin{itemize}
+%            \item a braiding $\sigma$; and
+%            \item shuffling of scalars (in a symmetric strict monoidal category all scalars commute on the nose)
+%        \end{itemize} and
         \item the rule
             \[
             \inferrule{
@@ -959,55 +957,24 @@ We have two (streamlined) rules for typing judgments:
                                                              \right):\bigtriangleup
             }
             \]
-            which corresponds to:
-            \begin{itemize}
-                \item applying a braiding $\sigma$
-            \end{itemize}
-            to the tensoring of:
-            \begin{itemize}
-                \item some number of generating constants, here $f,\dots,g$, which can only be some number of copies of $\coev$; and
-                \item the identity on some object $\overrightarrow{A}$
-            \end{itemize}
+            corresponds to applying a braiding $\sigma$ to the tensoring of some number of generating constants, here $f,\dots,g$ (which can only be some number of copies of $\coev$), and the identity on some object $\overrightarrow{A}$.
+%            \begin{itemize}
+%                \item applying a braiding $\sigma$
+%            \end{itemize}
+%            to the tensoring of:
+%            \begin{itemize}
+%                \item some number of generating constants, here $f,\dots,g$, which can only be some number of copies of $\coev$; and
+%                \item the identity on some object $\overrightarrow{A}$
+%            \end{itemize}
 \end{itemize}
 
-\begin{remark} In recording these rules for the typing judgment we obscured the technical consideration of ``activeness'' - a technical device introduced to rigidify the type theory into one with unique derivations (of judgments) - and some syntactic sugar which acts like formal variables for the unit type.
+\begin{remark} Here we are ignoring the notion consideration of ``activeness'' (a technical device introduced to rigidify the type theory into one with unique derivations (of judgments)). We also ignore some additional syntactic sugar which acts like formal variables for the unit type.
 \end{remark}
-
-\begin{example}
-To illustrate the operation of these rules we will derive the typing judgment corresponding to the following composition.
-
-$$(D)\xrightarrow{(\coev,D)} (D,D^{*},D) \xrightarrow{(D,\evmap)} (D)$$
-
-%\[
-%\xymatrixcolsep{4pc}\xymatrix{\left(D\right)\ar[r]^{\left(\coev,D\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
-%\]
-% and 
-% \[
-% \xymatrixcolsep{4pc}\xymatrix{\left(D^{*}\right)\ar[r]^{\left(D^{*},\coev\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
-% \]
 %
-The typing judgment corresponding to that morphism admits the following derivation 
-\[
-\inferrule*{
-    \inferrule*{
-        \coev:() \rightarrow (D,D^*) \in \mathbf{X}_1
-            \\
-            \left(132\right):\left(D,D,D^{*}\right)\liso\left(D,D^{*},D\right)
-    }{
-        x:D\vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)},x\right):D
-    }
-        \\
-        \evmap: (D^*,D) \rightarrow () \in \mathbf{X}_1
-    }{
-        x:D\vdash\left(\coev_{\left(1\right)}|\evmap\left(\coev_{\left(2\right)},x\right)\right)
-    }
-\]
-\end{example}
 %
-Lastly, for the equality judgment:
+Lastly, for the equality judgment we have axioms
 %
-\begin{itemize}
-    \item we have axioms
+ %
         \[
             \inferrule{\msf{triangle}: (\id, \coev) \circ (\evmap, \id) = \id_{D}
                             \in
@@ -1024,8 +991,41 @@ Lastly, for the equality judgment:
                             n:D^{*}\vdash\left(\coev_{\left(2\right)} \middle| \evmap\left(N,\coev_{\left(1\right)}\right)\right)=n:D^{*}
                         }
         \]
-    \item together with rules enough to generate a congruence.
-\end{itemize}
+    together with rules enough to generate a congruence. {\color{red} What????}
+
+\begin{example} For a good example, let's look at the derivation of the composition
+$$(D)\xrightarrow{(\coev,D)} (D,D^{*},D) \xrightarrow{(D,\evmap)} (D)$$
+%
+%\[
+%\xymatrixcolsep{4pc}\xymatrix{\left(D\right)\ar[r]^{\left(\coev,D\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
+%\]
+% and 
+% \[
+% \xymatrixcolsep{4pc}\xymatrix{\left(D^{*}\right)\ar[r]^{\left(D^{*},\coev\right)} & \left(D,D^{*},D\right)\ar[r]^{\left(D,\evmap\right)} & \left(D\right)}
+% \]
+%
+which is simply:
+\[
+\inferrule*{
+    \inferrule*{
+        \coev:() \rightarrow (D,D^*) \in \mathbf{X}_1
+            \\
+            \left(132\right):\left(D,D,D^{*}\right)\liso\left(D,D^{*},D\right)
+    }{
+        x:D\vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)},x\right):D
+    }
+        \\
+        \evmap: (D^*,D) \rightarrow () \in \mathbf{X}_1
+    }{
+        x:D\vdash\left(\coev_{\left(1\right)}|\evmap\left(\coev_{\left(2\right)},x\right)\right)
+    }
+\]
+{\color{red} explain this more maybe?}
+\end{example}
+%
+
+
+
 
 \subsection{"Elements" of dual objects}
 We have now developed a type theory for the free dual pair which endows
