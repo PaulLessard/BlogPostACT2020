@@ -195,7 +195,7 @@ amsmath,superscriptaddress, 12pt]{article}
 
 \title{Shulman's Practical Type Theory for Symmetric Monoidal Categories}
 \author{Nuiok Dicaire and Paul Lessard}
-\date{Way too late...}
+\date{Elsewhen}
 
 \begin{document}
 
@@ -207,9 +207,7 @@ amsmath,superscriptaddress, 12pt]{article}
 
 
 
-Many well-known type theories, Martin-L\"{o}f dependent type theory or linear type theory for example, were developed as syntactic treatments of particular forms of reasoning: constructive mathematical reasoning in the case of Martin-L\"{o}f type theory and resource dependent computation in the case of linear type theory. In a sense, it is after the fact that these type theories provide convenient means to reason about locally Cartesian closed categories or $\star$-autonomous ones.
-
-In this post, a long overdue part of the Applied Category Theory Adjoint School (2020!?), we will discuss a then recent paper by Mike Shulman, 
+Many well-known type theories, Martin-L\"{o}f dependent type theory or linear type theory for example, were developed as syntactic treatments of particular forms of reasoning. Constructive mathematical reasoning in the case of Martin-L\"{o}f type theory and resource dependent computation in the case of linear type theory. It is after the fact that these type theories provide convenient means to reason about locally Cartesian closed categories or $\star$-autonomous ones. In this post, a long overdue part of the Applied Category Theory Adjoint School (2020!?), we will discuss a then recent paper by Mike Shulman, 
 \textit{A Practical Type Theory for Symmetric Monoidal Categories}, where the author reverses this approach. 
 Shulman starts with symmetric monoidal categories as the intended semantics and then (reverse)-engineers a syntax in which it is \emph{practical} to reason about such categories.
 
@@ -217,7 +215,7 @@ Shulman starts with symmetric monoidal categories as the intended semantics and 
 
 Which properties of a type theory (for symmetric monoidal categories) make it practical? Shulman, synthesizing various observations, settles on a few basic tenets to guide the invention of the syntax and its interpretation into symmetric monoidal categories. We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
 
-\paragraph{Intuitive} First, a practical type theory should permit us to leverage our intuition for reasoning about "sets with elements". What this means in practice is that we require a "natural deduction style" type theory, in which contexts look and feel like choosing elements and typing judgements look and feel like functions of sets. More we require an internal-language/term-model relationship with symmetric monoidal categories which provide correspondences:
+\paragraph{Intuitive} First, a practical type theory should permit us to leverage our intuition for reasoning about "sets with elements". What this means in practice is that we require a "natural deduction style" type theory, in which contexts look and feel like choosing elements, and typing judgements look and feel like functions of sets. Moreover, we also require an internal-language/term-model relationship with symmetric monoidal categories which provide correspondences:
 \begin{eqnarray*}
 \textbf{Category}              &  & \textbf{Type Theory}\\
 \mathrm{objects}                & \longleftrightarrow & \mathrm{contexts, (types)}\\
@@ -228,7 +226,7 @@ Which properties of a type theory (for symmetric monoidal categories) make it pr
 
 \paragraph{Concise} When stripped of the philosophical premises of what terms, types, judgements etc. are, the rules of a type theory can be seen to generate its derivable judgments. It is therefore desirable that the translation between symmetric monoidal categories and the rules of their associated type theories proceed by way of the most concise combinatorical description of symmetric monoidal categories possible.
 
-\paragraph{Complete} Lastly we ask that, given a presentation for a symmetric monoidal category, the type theory we get therefrom should be complete, in the sense that some proposition should hold in a particular symmetric monoidal category if and only if it is derivable as a judgment in the associated type theory.
+\paragraph{Complete} Lastly we ask that, given a presentation for a symmetric monoidal category, the type theory we get therefrom should be complete. A proposition should hold in a particular symmetric monoidal category if and only if it is derivable as a judgment in the associated type theory.
 
 \section{Symmetric Monoidal Categories and Presentations of \textsf{PROP}s}
 
@@ -239,10 +237,10 @@ a \textsf{PROP}.
 \begin{definition} A \textsf{PROP}, $\mathfrak{P}=(\mathfrak{P},\mathbf{P})$, consists of a set $\mathbf{P}$ of generating objects and a symmetric strict monoidal category $\mathfrak{P}$ whose underlying monoid of objects is the free monoid on the set $\mathbf{P}$.
 \end{definition}
 
-This is not however too hard to see: the equivalence between \textsf{PROP}s and symmetric monoidal categories simply replaces every equality of objects $A\otimes B = C$ with an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, thereby rendering the monoidal product to be free. We'll develop what we mean by presentation over the course of a few examples, and in doing so we'll hope to give the reader a better sense for \textsf{PROP}s.
+This is not however too hard to see: the equivalence between \textsf{PROP}s and symmetric monoidal categories simply replaces every equality of objects $A\otimes B = C$ with an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, thereby rendering the monoidal product to be free. we will develop what we mean by presentation over the course of a few examples. In doing so we hope to give the reader a better sense for \textsf{PROP}s.
 
 \begin{example}
-Given a set $\mathbf{X}$, let $\Sigma_{\mathbf{X}}$ be the \textbf{free permutative category on} $\mathbf{X}$. This is symmetric monoidal category whose monoid of objects is the monoid of lists drawn from the set $\mathbf{X}$ and whose morphisms are given by the expression
+Given a set $\mathbf{X}$, let $\Sigma_{\mathbf{X}}$ be the \textbf{free permutative category on} $\mathbf{X}$. This is a symmetric monoidal category whose monoid of objects is the monoid of lists drawn from the set $\mathbf{X}$ and whose morphisms are given by the expression
 \[
     \Sigma_{\mathbf{X}}\left(\overrightarrow{X},\overrightarrow{Y}\right)
     =
@@ -272,9 +270,9 @@ Importantly, this second example is very nearly general - every \textsf{PROP} ad
  be a set of pairs of morphisms in the $\mathsf{PROP}$ $F(\mathbf{X}_1,\mathbf{X}_0)$. Let $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ be the quotient of the symmetric monoidal category $F(\mathbf{X}_1,\mathbf{X}_0)$ by the congruence generated by $R \subset \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0)) \times \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0))$.
 \end{example}
 
-As you might hope, this last example is fully general. Every $\mathsf{PROP}$, hence every symmetric monoidal category, is equivalent to a $\mathsf{PROP}$ of the form $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$.
+This last example is fully general. Every $\mathsf{PROP}$, hence every symmetric monoidal category, is equivalent to a $\mathsf{PROP}$ of the form $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$.
 
-\begin{remark} If (generalized) computads are familiar to you, you may notice that our three examples here are free $\mathsf{PROP}$s on $0$, $1$, and $2$-computads.
+\begin{remark} If (generalized) computads are familiar, you may notice that our three examples here are free $\mathsf{PROP}$s on $0$, $1$, and $2$-computads.
 \end{remark}
 
 \section{From Presentations to Type Theories}
@@ -303,7 +301,7 @@ of typed variables, where the $A_i$ are elements of the set $\mathbf{X}_{0}$. It
 
 \subsection{Typing Judgments}
 
-Typing judgments, as promised, correspond to morphisms in $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. Here are some examples of morphisms and their corresponding judgements:
+As promised, typing judgments correspond to morphisms in $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. Here are some examples of morphisms and their corresponding judgements:
 %
 % \begin{eqnarray*}
 %     \mathbf{Typing \ judgments}
@@ -370,7 +368,7 @@ in which:
 	\item $\sigma$ is the avatar in $\Sigma_{\mathbf{X}_0}$ of some permutation.
 \end{itemize}
 %
-Now, it's pretty clear that we're hiding something - the gory details of the rules from which the typing judgments are derived (the so-called identity and generator rules in Shulman's paper). However the reader should rest assured that not only are the details not that onerous, but the more naive structural rules corresponding to tensoring,         composition, and braiding are admissible. In practical terms, this means that one is free to work with these more intuitive rules.
+Now, it is rather clear that we are hiding something - the gory details of the rules from which the typing judgments are derived (the so-called identity and generator rules in Shulman's paper). However, the reader should rest assured that not only are the details not that onerous, but the more naive structural rules corresponding to tensoring,         composition, and braiding are admissible. In practical terms, this means that one is free to work with these more intuitive rules.
 
 
 
@@ -421,16 +419,16 @@ Equality judgments, for example something of the form $x:A\vdash f\left(x\right)
 %            x:A\vdash f\left(x\right)=h\left(g\left(x\right)\right):B
 %\end{eqnarray*}
 %
-are similarly derived from rules coming from the set $\mathbf{R}$. We'll be more explicit later on within the context of an example.
+are similarly derived from rules coming from the set $\mathbf{R}$. We will be more explicit later on within the context of an example.
 
 \section{How do Symmetric Monoidal Categories fit into all this?}
 
 
 %Below we will illustrate the type theory with an example and describe Shulman's type theoretical proof of the cyclicity of the trace in the practical type theory for the free dual pair. Before we do so however we'll expound on what is perhaps the central insight of Shulman's paper.
-Until this point it's not actually terribly clear what makes this type theory specifically adapted to symmetric monoidal categories as opposed to Cartesian monoidal categories. After all, we have written contexts as lists, precisely as we would write contexts in a Cartesian type theory. 
+Until this point it is not actually terribly clear what makes this type theory specifically adapted to symmetric monoidal categories as opposed to Cartesian monoidal categories. After all, we have written contexts as lists precisely as we would write contexts in a Cartesian type theory. 
 %
 %
-While we don't always think about it, we write contexts in Cartesian type theories as lists of typed variables because of the universal property of the product - a universal property characterized in terms of projection maps. Indeed, in a Cartesian type theory lists can be recovered from the list of their projections. This is not the case for arbitrary symmetric monoidal products. In general there are no projection maps and even when there are, there is no guarantee that they have a similar computation rule (the type theoretic avatar of a universal property).
+Although we may not always think about it, we write contexts in Cartesian type theories as lists of typed variables because of the universal property of the product - a universal property characterized in terms of projection maps. Indeed, in a Cartesian type theory lists can be recovered from the list of their projections. This is not the case for arbitrary symmetric monoidal products. In general there are no projection maps. Even when there are, there is no guarantee that they have a similar computation rule (the type theoretic avatar of a universal property).
 
 %  (for the cognoscenti we have $\beta$-rules
 
@@ -447,14 +445,14 @@ While we don't always think about it, we write contexts in Cartesian type theori
 %         \right)
 % \] for (binary) cartesian products, however in general projection maps don't exist and the characterization of terms is not so straightforward)
 
-To illustrate this in a mathematical context, consider a pair of vector spaces $U_1$ and $U_2$. Any element $z\in U_1 \times U_2$ of the Cartesian product of $U_1$ and $U_2$ is uniquely specified by the pair of elements $\mathsf{pr}_{1}(z) \in U_1$ and $\mathsf{pr}_{2}(z)\in U_2$ - $z=(\mathsf{pr}_1(z),\mathsf{pr}_2(z))$. However, elements of the tensor product $U_1 \otimes U_2$ need not be simple tensors of the form $x \otimes y$ and, instead, are generally linear combinations $\sum_{i=1}^{k}x_{1,i} \otimes x_{2,i}$ of simple tensors.
+To illustrate this in a mathematical context, consider a pair of vector spaces $U_1$ and $U_2$. Any element $z\in U_1 \times U_2$ of the Cartesian product of $U_1$ and $U_2$ is uniquely specified by the pair of elements $\mathsf{pr}_{1}(z) \in U_1$ and $\mathsf{pr}_{2}(z)\in U_2$ - $z=(\mathsf{pr}_1(z),\mathsf{pr}_2(z))$. However, elements of the tensor product $U_1 \otimes U_2$ need not be simple tensors of the form $x \otimes y$ and instead are generally linear combinations $\sum_{i=1}^{k}x_{1,i} \otimes x_{2,i}$ of simple tensors.
 
-Provided we are careful however - meaning we do not perform any "illegal moves" in a sense we'll make clear - we can still use lists; this is what Shulman does in adapting Sweedler's notation. Consider a general element
+Provided we are careful however - meaning we do not perform any "illegal moves" in a sense we will make clear - we can still use lists. This is what Shulman does in adapting Sweedler's notation. Consider a general element
 %
     \[
         \sum_{i=1}^{k}x_{1,i}\otimes x_{2,i} \in U_1 \otimes U_2
     \]
-In Sweedler's notation this is written as $  (x_{(1)}, x_{(2)})$ with the summation, indices, and tensor symbols all dropped. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming recklessness introduces no errors!
+In Sweedler's notation this is written as $(x_{(1)}, x_{(2)})$ with the summation, indices, and tensor symbols all dropped. Provided we make sure that any expression in which $(x,y)$ appears is linear in both variables, this seeming recklessness introduces no errors.
 
 To see how this plays out, suppose that we have a morphism $f$ with domain $A$ and co-domain being the tensor product $(B_1,...,B_n)$. In Shulman's adaptation of Sweedler's notation this corresponds to the judgment:
 %
@@ -463,7 +461,7 @@ a:A\vdash\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\
 \]
 %
 
-Importantly, our typing rules will never derive the judgment $a:A\dashv f_{(k)}:B_k$ and we'll only be able to derive $a:A \dashv \mathsf{pr}_k\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right):B_k$ if we've $\mathsf{pr}_k:(B_1,\dots,B_n) \rightarrow B_k$ in $\mathbf{X}_1$ and more, unless $\mathbf{R}$ specifies that $\mathsf{pr}_k$ acts like a projection, it's just a name.
+Importantly, our typing rules will never derive the judgment $a:A\dashv f_{(k)}:B_k$ and we will only be able to derive $a:A \dashv \mathsf{pr}_k\left(f_{\left(1\right)}\left(a\right),\dots,f_{\left(n\right)}\left(a\right)\right):B_k$ if we have $\mathsf{pr}_k:(B_1,\dots,B_n) \rightarrow B_k$ in $\mathbf{X}_1$ and more, unless $\mathbf{R}$ specifies that $\mathsf{pr}_k$ acts like a projection, \text{pr} is but a name.
 
 Since this type theory allows us to pretend, in a sense, that types are ``sets with elements'', the symmetric monoidal aspect of the type theory can be moralized as:
 \begin{itemize}
@@ -475,7 +473,7 @@ whereas in a Cartesian ``sets with elements'' style type theory:
 \end{itemize}
 
 \begin{remark}
-Taking a hint from the bicategorical playbook can give us a more geometric picture for the difference between an indecomposable tuple and a decomposable one is. Since every symmetric monoidal category is also a bicategory with a single object, a typed term, usually a $1$-cell, also corresponds to $2$-cells between (directed) loops. Thinking in this vein we may think of an indecomposable tuple $(x_{(1)},x_{(2)},\dots,x_{(n)}):\overrightarrow{A}$ as an $n$-sphere in $\overrightarrow{A}$ whereas a decomposable one, say $(x,y,\dots,z):\overrightarrow{A}$, corresponds to a torus (of some dimension) in  $\overrightarrow{A}$.
+Taking a hint from the bicategorical playbook can give us a more geometric picture of the difference between an indecomposable tuple and a decomposable one. Since every symmetric monoidal category is also a bicategory with a single object, a typed term, usually a $1$-cell, also corresponds to $2$-cells between (directed) loops. In this vein we may think of an indecomposable tuple $(x_{(1)},x_{(2)},\dots,x_{(n)}):\overrightarrow{A}$ as an $n$-sphere in $\overrightarrow{A}$ whereas a decomposable one, say $(x,y,\dots,z):\overrightarrow{A}$, corresponds to a torus (of some dimension) in  $\overrightarrow{A}$.
 \end{remark}
 
 % \begin{remark}
@@ -739,7 +737,7 @@ Taking a hint from the bicategorical playbook can give us a more geometric pictu
 % \]
 % between a vector space $V$ and its dual vector space $V^{*}$, which is natural in vector spaces $A$ and $B$.
 
-Having sketched the basics of Shulman's \textsf{PTT} and how a presentation for a \textsf{PROP} specifies the rules of \textsf{PTT} for that \textsf{PROP} we may attend to an important and illuminating example. We will develop the practical type theory of the free dual pair.
+Having sketched the basics of Shulman's \textsf{PTT} and how a presentation for a \textsf{PROP} specifies the rules of \textsf{PTT} for that \textsf{PROP}, we may now attend to an important and illuminating example. We will develop the practical type theory of the free dual pair.
 
 Recall that a dual pair in a symmetric monoidal category abstracts the relationship
 
@@ -790,8 +788,7 @@ satisfying the triangle identities:
     \end{align*}
 \end{defn}
 
-These data suggest a presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ for the \textsf{PROP}
-generated by a dual pair; these data suggest a presentation for the \textbf{free dual pair}. We set:
+These data suggest a presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ for a \textsf{PROP}, in particular the \textbf{free dual pair}. We set:
 
 \begin{itemize}
     \item $\mathbf{X}_0 = \Set{D,D^\star}$;
@@ -829,7 +826,7 @@ generated by a dual pair; these data suggest a presentation for the \textbf{free
 % \]
 
 \subsection{The type theory of the free dual pair}
-We'll now develop the rules of the type theory for the free dual pair from the data this presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. While we haven't bothered with them until now, Shulman's practical type theory does have rules for term formation. In the case of the practical type theory for the free dual pair, the rules for the term judgment are quite few. We present a streamlined version of them:
+We will now develop the rules of the type theory for the free dual pair from the data this presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$. While we have not bothered with them until now, Shulman's practical type theory does include rules for term formation. In the case of the practical type theory for the free dual pair, the rules for the term judgment are quite few. We present a streamlined version of them:
 %
 \begin{align*}
 \vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}
@@ -839,7 +836,7 @@ We'll now develop the rules of the type theory for the free dual pair from the d
 &&
 \vcenter{\vbox{\prftree{\Gamma\vdash m\ \mathsf{term}}{\Gamma\vdash n\ \mathsf{term}}{\Gamma\vdash\evmap\left(m,n\right)\ \mathsf{term}}}}
 \end{align*}
-The first rule is the usual variable rule which we note gives us the terms in which we'll be able to derive the typing judgments corresponding to identities. The second one gives us terms in which we'll be able to derive co-evaluation as a typing judgment, and the last one gives us the terms with which we'll be able to derive evaluation as a typing judgment.
+The first rule is the usual variable rule which gives us the terms in which we may derive the typing judgments corresponding to identities. The second one gives us terms in which we may derive co-evaluation as a typing judgment, and the last one gives us the terms in which we may derive evaluation as a typing judgment.
 %
 %\begin{itemize}
 %\item the rule $$\vcenter{\vbox{\inferrule{\left(x:A\right)\in\Gamma}{\Gamma\vdash x\ \mathsf{term}}}}$$ is the usual variable rule giving us the terms in which we'll be able to derive the typing judgments corresponding to identities;
@@ -1071,7 +1068,7 @@ It's easy enough to believe that the evaluation map
 \evmap:\left(D,D^{\star}\right)\longrightarrow\left(\right)
 \]
  endows the terms of type $D$, or $D^{*}$ for that matter, with a
-structure of scalar valued functions on the other. The triangle identities impose the unique determination of terms of type $D$ or $D^*$ in terms of their values as given by $\evmap$.  Indeed, consider that, for a finite dimensional vector space $V$ over a field
+structure of scalar valued functions on the other. The triangle identities impose the unique determination of terms of type $D$ or $D^*$ in terms of their values as given by $\evmap$.  Indeed consider that, for a finite dimensional vector space $V$ over a field
 $k$, a basis $\left\{ \mathbf{e}_{i}\right\} _{i=1}^{n}$ for $V$
 and a dual basis $\left\{ \mathbf{e}_{i}^{*}\right\} _{i=1}^{n}$
 for $V^{*}$ give us an elegant way to write $\coev$ and the
@@ -1122,11 +1119,11 @@ that the triangle identities hold is just the observation that a vector is preci
 which is defined by taking the values $\mathbf{e}^*_{i}\left( \mathbf{v} \right)$ at the dual vectors $\mathbf{e}_i^*$.
 As part of the definition of a dual pair in an arbitrary symmetric strict monoidal category then, the triangle identities imposes this as a relationship between $\evmap$ and $\coev$. But within type theory, this sort of relationship between an un-named function and its values is familiar, indeed it is something very much like $\beta$-reduction.
 
-\par To see this more clearly, let's make a pair of notational changes. In place of writing 
+\par To see this more clearly, let us make a pair of notational changes. In place of writing 
 \[
 \left(x,y\right):\left(D^{*},D\right)\vdash\evmap\left(x,y\right):\left(\right)
 \]
-we'll denote $\evmap$ infix by $\_\triangleleft\_$ and write
+we will denote $\evmap$ infix by $\_\triangleleft\_$ and write
 \[
 \left(x,y\right):\left(D^{*},D\right)\vdash x\triangleleft y:\left(\right).
 \]
@@ -1134,7 +1131,7 @@ Similarly, in place of writing
 \[
 \vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)}\right):\left(D,D^{*}\right)
 \]
- we'll denote $\coev$ by the pair $\left(u,\lambda^{D}u\right)$
+ we will denote $\coev$ by the pair $\left(u,\lambda^{D}u\right)$
 and write
 \[
 \vdash\left(u,\lambda^{D}u\right):\left(D,D^{*}\right).
@@ -1148,7 +1145,7 @@ x:D\vdash\left( u \; |\; \lambda^{D}u\triangleleft x\right)=x:D.
 \par
 
 Then, since $=$ is a congruence with respect
-to substitution (recall that we promised the rules for the equality judgement were precisely those  required for generating a congruence from set of primitive relations), if we have, for some term $m$, the term $\lambda^{D}u\triangleleft m$
+to substitution (recall that we promised that the rules for the equality judgement were precisely those  required for generating a congruence from a set of primitive relations), if we have, for some term $m$, the term $\lambda^{D}u\triangleleft m$
 appearing in the scalars of a list of terms, then we may replace all
 instances of $u$ in the rest of the term with $m$. While a mouthful,
 this is a sort of "$\beta$-reduction for duality" allowing us to treat $\coev$ as a sort of $\lambda$-abstraction, as we've suggested by the change in notation. Conceptually interesting in its own right, this observation also yields a one line
