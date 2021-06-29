@@ -213,7 +213,9 @@ In this post, a long overdue part of the Applied Category Theory Adjoint School 
 \textit{A Practical Type Theory for Symmetric Monoidal Categories}, where the author reverses this approach. 
 Shulman starts with symmetric monoidal categories as the intended semantics and then (reverse)-engineers a syntax in which it is \emph{practical} to reason about such categories.
 
-But which properties of a type theory make it practical? Shulman, synthesizing various observations, settles on a few basic tenets to guide the invention of the syntax (and it's interpretation into symmetric monoidal categories). We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
+\hrulefill
+
+Which properties of a type theory (for symmetric monoidal categories) make it practical? Shulman, synthesizing various observations, settles on a few basic tenets to guide the invention of the syntax and its interpretation into symmetric monoidal categories. We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
 
 \paragraph{Intuitive} First, a practical type theory should permit us to leverage our intuition for reasoning about "sets with elements". What this means in practice is that we require a "natural deduction style" type theory, in which contexts look and feel like choosing elements and typing judgements look and feel like functions of sets. More we require an internal-language/term-model relationship with symmetric monoidal categories which provide correspondences:
 \begin{eqnarray*}
@@ -224,7 +226,7 @@ But which properties of a type theory make it practical? Shulman, synthesizing v
 \end{eqnarray*}
 
 
-\paragraph{Concise} When stripped of the philosophical premises of what terms, types, judgements etc. are, the rules of a type theory can be seen to generate its derivable judgments. It is therefore desireable that the translation between symmetric categories and the rules of their associated type theories procede by way of the most concise combinatorial description of symmetric monoidal categories possible.
+\paragraph{Concise} When stripped of the philosophical premises of what terms, types, judgements etc. are, the rules of a type theory can be seen to generate its derivable judgments. It is therefore desirable that the translation between symmetric monoidal categories and the rules of their associated type theories proceed by way of the most concise combinatorical description of symmetric monoidal categories possible.
 
 \paragraph{Complete} Lastly we ask that, given a presentation for a symmetric monoidal category, the type theory we get therefrom should be complete, in the sense that some proposition should hold in a particular symmetric monoidal category if and only if it is derivable as a judgment in the associated type theory.
 
@@ -362,7 +364,7 @@ The rules from which these judgments may be derived correspond, roughly speaking
 \]
 in which:
 \begin{itemize}
-	\item {\color{blue} $\Gamma$ is a context, and $\Delta$ is a (list of) type(s).}
+	\item $\Gamma$ is a context, and $\Delta$ is a (list of) type(s);
 	\item $\overrightarrow{m}, \dots ,\overrightarrow{n}$ are terms of types $\overrightarrow{A}, \dots , \overrightarrow{B}$ respectively;
 	\item the $f$ through $g$ are generating arrows in the set $\mathbf{X}_1$; and
 	\item $\sigma$ is the avatar in $\Sigma_{\mathbf{X}_0}$ of some permutation.
@@ -447,7 +449,7 @@ While we don't always think about it, we write contexts in Cartesian type theori
 
 To illustrate this in a mathematical context, consider a pair of vector spaces $U_1$ and $U_2$. Any element $z\in U_1 \times U_2$ of the Cartesian product of $U_1$ and $U_2$ is uniquely specified by the pair of elements $\mathsf{pr}_{1}(z) \in U_1$ and $\mathsf{pr}_{2}(z)\in U_2$ - $z=(\mathsf{pr}_1(z),\mathsf{pr}_2(z))$. However, elements of the tensor product $U_1 \otimes U_2$ need not be simple tensors of the form $x \otimes y$ and, instead, are generally linear combinations $\sum_{i=1}^{k}x_{1,i} \otimes x_{2,i}$ of simple tensors.
 
-Provided we are careful however - meaning we do not perform any "illegal moves" in a sense we'll make clear - we can still use lists; tis is what Shulman does in adapting Sweedler's notation. Consider a general element
+Provided we are careful however - meaning we do not perform any "illegal moves" in a sense we'll make clear - we can still use lists; this is what Shulman does in adapting Sweedler's notation. Consider a general element
 %
     \[
         \sum_{i=1}^{k}x_{1,i}\otimes x_{2,i} \in U_1 \otimes U_2
@@ -473,7 +475,7 @@ whereas in a Cartesian ``sets with elements'' style type theory:
 \end{itemize}
 
 \begin{remark}
-Taking a hint from the bicategorical playbook can give us a more geometric picture for the difference between an indecomposeable tuple and a decomposeable one is. Since every symmetric monoidal category is also a bicategory with a single object, a typed term, usually a $1$-cell, also corresponds to $2$-cells between (directed) loops. Thinking in this vein we may think of an indecomposeable tuple $(x_{(1)},x_{(2)},\dots,x_{(n)}):\overrightarrow{A}$ as an $n$-sphere in $\overrightarrow{A}$ whereas a decomposeable one, say $(x,y,\dots,z):\overrightarrow{A}$, corresponds to a torus (of some dimension) in  $\overrightarrow{A}$.
+Taking a hint from the bicategorical playbook can give us a more geometric picture for the difference between an indecomposable tuple and a decomposable one is. Since every symmetric monoidal category is also a bicategory with a single object, a typed term, usually a $1$-cell, also corresponds to $2$-cells between (directed) loops. Thinking in this vein we may think of an indecomposable tuple $(x_{(1)},x_{(2)},\dots,x_{(n)}):\overrightarrow{A}$ as an $n$-sphere in $\overrightarrow{A}$ whereas a decomposable one, say $(x,y,\dots,z):\overrightarrow{A}$, corresponds to a torus (of some dimension) in  $\overrightarrow{A}$.
 \end{remark}
 
 % \begin{remark}
@@ -737,7 +739,7 @@ Taking a hint from the bicategorical playbook can give us a more geometric pictu
 % \]
 % between a vector space $V$ and its dual vector space $V^{*}$, which is natural in vector spaces $A$ and $B$.
 
-Having sketched the basics of Shulman's \textsf{PTT} and how a presentation for a \textsf{PROP} specifies the rules of \textsf{PTT} for that \textsf{PROP} we may attend to an important and illuminating example. We will devolop the practical type theory of the free dual pair.
+Having sketched the basics of Shulman's \textsf{PTT} and how a presentation for a \textsf{PROP} specifies the rules of \textsf{PTT} for that \textsf{PROP} we may attend to an important and illuminating example. We will develop the practical type theory of the free dual pair.
 
 Recall that a dual pair in a symmetric monoidal category abstracts the relationship
 
@@ -1041,7 +1043,11 @@ This typing judgement admits the following derivation
         x:D\vdash\left(\coev_{\left(1\right)}|\evmap\left(\coev_{\left(2\right)},x\right)\right)
     }
 \]
-where the first rule is an instance of the identity rule with premised generators $\coev$ and the braiding $(132)$, and the second rule is an instance of the identity rule with the typing judgement $x:D\vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)},x\right):D$ the consequent of the first rule and the additional hyopthesis being the generator \textsf{ev}.
+where:
+\begin{itemize}
+    \item the first rule is an instance of the identity rule with premised generators $\coev$ and the braiding $(132)$; and
+    \item the second rule is an instance of the identity rule with the typing judgement $$x:D\vdash\left(\coev_{\left(1\right)},\coev_{\left(2\right)},x\right):D$$ the consequent of the first rule and the additional hypothesis being the generator \textsf{ev}.  
+\end{itemize} 
 \end{example}
 %
 
@@ -1059,20 +1065,16 @@ us to ask:
 \end{quotation}
 The answer is both practical and electrifying (though perhaps the
 authors of this post are too easily electrified).
-%
+
 It's easy enough to believe that the evaluation map 
 \[
 \evmap:\left(D,D^{\star}\right)\longrightarrow\left(\right)
 \]
  endows the terms of type $D$, or $D^{*}$ for that matter, with a
-structure of scalar valued functions on the other. The triangle identities impose the unique determination of terms of type $D$ or $D^*$ in terms of their values as given by $\evmap$.
-
-\par
-
-Indeed, consider that, for a finite dimensional vector space $V$ over a field
+structure of scalar valued functions on the other. The triangle identities impose the unique determination of terms of type $D$ or $D^*$ in terms of their values as given by $\evmap$.  Indeed, consider that, for a finite dimensional vector space $V$ over a field
 $k$, a basis $\left\{ \mathbf{e}_{i}\right\} _{i=1}^{n}$ for $V$
 and a dual basis $\left\{ \mathbf{e}_{i}^{*}\right\} _{i=1}^{n}$
-for $V^{*}$ give us an elegant way to write $\coev$ and the the
+for $V^{*}$ give us an elegant way to write $\coev$ and the
 first triangle identity. We write
 \[
 \xymatrixrowsep{0pc}\xymatrix{k\ar[r]^{\coev} & V\otimes V^{*}\\
@@ -1109,8 +1111,9 @@ and see that
     }}}
 \end{align*}
 
-The observation, for dual vector spaces defined by way of the equality \[
-V^*=\mathsf{Hom}_{\mathsf{Vect}_k}\left(V,k \right)
+The observation for dual vector spaces
+\[
+    V \mathrm{ and } V^*=\mathsf{Hom}_{\mathsf{Vect}_k}\left(V,k \right)
 \]
 that the triangle identities hold is just the observation that a vector is precisely determined by its values: every vector $\mathbf{v}$  is equal to the un-named vector
 \[
@@ -1145,21 +1148,22 @@ x:D\vdash\left( u \; |\; \lambda^{D}u\triangleleft x\right)=x:D.
 \par
 
 Then, since $=$ is a congruence with respect
-to substitution (which we haven't shown, but the reader should believe), if we have, for some term $m$, the term $\lambda^{D}u\triangleleft m$
+to substitution (recall that we promised the rules for the equality judgement were precisely those  required for generating a congruence from set of primitive relations), if we have, for some term $m$, the term $\lambda^{D}u\triangleleft m$
 appearing in the scalars of a list of terms, then we may replace all
 instances of $u$ in the rest of the term with $m$. While a mouthful,
 this is a sort of "$\beta$-reduction for duality" allowing us to treat $\coev$ as a sort of $\lambda$-abstraction, as we've suggested by the change in notation. Conceptually interesting in its own right, this observation also yields a one line
-proof for a familiar theorem, namely the cyclicity of the trace, which we shall now look at. 
+proof for a familiar theorem, namely the cyclicity of the trace.
 
 \begin{example}
-Consider two duals pairs 
+Consider two dual pairs 
 \begin{align*}
 \left(A,A^{*},\left(u,\lambda^{A}u\right),\_\triangleleft\_\right)
 &&
 \left(B,B^{*},\left(v,\lambda^{B}v\right),\_\triangleleft\_\right)
 \end{align*}
 in a symmetric strict monoidal category $\left(\mathfrak{C},\left(\_,\_\right),\left(\right)\right)$
-The trace $\mathsf{tr}\left(f\circ g\right)$ is defined as the composition 
+and a pair of maps $f:A\longrightarrow B$
+ and $g:B \longrightarrow A$. The trace $\mathsf{tr}\left(f\circ g\right)$ is defined as the composition 
 \[
 \xymatrixrowsep{0pc}\xymatrixcolsep{3pc}\xymatrix{\left(\right)\ar[r]^{\left(v,\lambda^{B}v\right)} & \left(B,B^{*}\right)\ar[r]^{f\circ g} & \left(B,B^{*}\right)\ar[r]^{\left(12\right)} & \left(B^{*},B\right)\ar[r]^{\_\triangleleft\_} & \left(\right)}
 \]
@@ -1168,14 +1172,14 @@ where $(12)$ denotes the permutation of entries of the list. Likewise the trace 
 \xymatrixrowsep{0pc}\xymatrixcolsep{3pc}\xymatrix{\left(\right)\ar[r]^{\left(u,\lambda^{A}u\right)} & \left(A,A^{*}\right)\ar[r]^{g\circ f} & \left(A,A^{*}\right)\ar[r]^{\left(12\right)} & \left(A^{*},A\right)\ar[r]^{\_\triangleleft\_} & \left(\right)}
 .
 \]
-We can know show using the notation introduced above that $\mathsf{tr}\left(f\circ g\right)=\mathsf{tr}\left(g\circ f\right)$ as follows:
+Using the notation introduced above it follows that $\mathsf{tr}\left(f\circ g\right)=\mathsf{tr}\left(g\circ f\right)$ as:
 \begin{eqnarray*}
 \mathsf{tr}\left(f\circ g\right) & \overset{\mathsf{def}}{=} & \left(\left|\lambda_{u}^{B}\triangleleft f\left(g\left(u\right)\right)\right.\right)\\
  & = & \left(\left|\lambda_{u}^{B}\triangleleft f\left(v\right)\right.,\lambda_{v}^{A}\triangleleft g\left(u\right)\right)\\
  & = & \left(\left|\lambda_{v}^{A}\triangleleft g\left(f\left(v\right)\right)\right.\right)\\
  & \overset{\mathsf{def}}{=} & \mathsf{tr}\left(g\circ f\right)
 \end{eqnarray*}
-Where the judged equalities are application of "$\beta$-reduction
+Where the judged equalities are applications of "$\beta$-reduction
 for a duality".
 \end{example}
 
