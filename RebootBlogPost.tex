@@ -215,6 +215,7 @@ Shulman starts with symmetric monoidal categories as the intended semantics and 
 Which properties of a type theory (for symmetric monoidal categories) make it practical? Shulman, synthesizing various observations, and settles on a few basic tenets to guide the invention of the syntax and its interpretation into symmetric monoidal categories. We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
 
 \paragraph{Intuitive} First, a practical type theory should permit us to leverage our intuition for reasoning about "sets with elements". What this means in practice is that we require a "natural deduction style" type theory, in which contexts look and feel like choosing elements, and typing judgements look and feel like functions of sets. Moreover, we also require an internal-language/term-model relationship with symmetric monoidal categories which provide correspondences:
+
 \begin{eqnarray*}
 \textbf{Category}              &  & \textbf{Type Theory}\\
 \mathrm{objects}                & \longleftrightarrow & \mathrm{contexts, (types)}\\
