@@ -6,7 +6,7 @@ Many well-known type theories, Martin-Löf dependent type theory or linear type 
 *A Practical Type Theory for Symmetric Monoidal Categories*, where the author reverses this approach. 
 Shulman starts with symmetric monoidal categories as the intended semantics and then (reverse)-engineers a syntax in which it is *practical* to reason about such categories.
 
-Which properties of a type theory (for symmetric monoidal categories) make it practical? Shulman, synthesizing various observations, and settles on a few basic tenets to guide the invention of the syntax and its interpretation into symmetric monoidal categories. We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
+Which properties of a type theory (for symmetric monoidal categories) make it practical? Shulman, synthesizing various observations, settles on a few basic tenets to guide the invention of the syntax and its interpretation into symmetric monoidal categories. We reduce these further to the conditions that the type theory be: (1) intuitive, (2) concise, and (3) complete.
 
 <strong> Intuitive. </strong> 
 First, a practical type theory should permit us to leverage our intuition for reasoning about "sets with elements". What this means in practice is that we require a "natural deduction style" type theory, in which contexts look and feel like choosing elements, and typing judgements look and feel like functions of sets. Moreover, we also require an internal-language/term-model relationship with symmetric monoidal categories which provide correspondences:
@@ -23,7 +23,7 @@ First, a practical type theory should permit us to leverage our intuition for re
 \]
 
 <strong> Concise. </strong> 
-When stripped of the philosophical premises of what terms, types, judgements etc. are, the rules of a type theory can be seen to generate its derivable judgments. It is therefore desirable that the translation between symmetric monoidal categories and the rules of their associated type theories proceed by way of the most concise combinatorial description of symmetric monoidal categories possible.
+When stripped of the philosophical premises of what terms, types, judgements etc. <em> are </em>>, the rules of a type theory can be seen to generate its derivable judgments. It is therefore desirable that the translation between symmetric monoidal categories and the rules of their associated type theories proceed by way of the most concise combinatorial description of symmetric monoidal categories possible.
 
 <strong> Complete. </strong> 
 Lastly we ask that, given a presentation for a symmetric monoidal category, the type theory we get therefrom should be complete. By this, we mean that a proposition should hold in a particular symmetric monoidal category if and only if it is derivable as a judgment in the associated type theory.
@@ -35,14 +35,14 @@ While it is well-known that every symmetric monoidal category is equivalent to a
 
 <strong> Definition. </strong> A $\mathsf{PROP}$, $\mathfrak{P}=(\mathfrak{P},\mathbf{P})$, consists of a set $\mathbf{P}$ of generating objects and a symmetric strict monoidal category $\mathfrak{P}$ whose underlying monoid of objects is the free monoid on the set $\mathbf{P}$.
 
-This is not however too hard to see: the equivalence between \textsf{PROP}s and symmetric monoidal categories simply replaces every equality of objects $A\otimes B = C$ with an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, thereby rendering the monoidal product to be free. We will develop what we mean by presentation over the course of a few examples. In doing so we hope to give the reader a better sense for $\mathsf{PROP}$s.
+This is not however too hard to see: the equivalence between $\mathsf{PROP}$s and symmetric monoidal categories simply replaces every equality of objects $A\otimes B = C$ with an isomorphism $A \otimes B \overset{\sim}{\longrightarrow} C$, thereby rendering the monoidal product to be free. We will develop what we mean by presentation over the course of a few examples. In doing so we hope to give the reader a better sense for $\mathsf{PROP}$s.
 
 <strong> Example. </strong>
-Given a set $\mathbf{X}$, let $\Sigma_{\mathbf{X}}$ be the \textbf{free permutative category on} $\mathbf{X}$. This is a symmetric monoidal category whose monoid of objects is the monoid of lists drawn from the set $\mathbf{X}$ and whose morphisms are given by the expression
+Given a set $\mathbf{X}$, let $\Sigma_{\mathbf{X}}$ be the <strong>free permutative category on</strong> $\mathbf{X}$. This is a symmetric monoidal category whose monoid of objects is the monoid of lists drawn from the set $\mathbf{X}$ and whose morphisms are given by the expression
 \[
     \Sigma_{\mathbf{X}}\left(\overrightarrow{X},\overrightarrow{Y}\right)
     =
-    \Set{\sigma \in S_{n} | \overrightarrow{X_\sigma}=\overrightarrow{Y}}
+    \left\{ \sigma \in S_{n} | \overrightarrow{X_\sigma}=\overrightarrow{Y} \right\}
 \]
 (where by $\overrightarrow{X_\sigma}$ we mean the reorganization of the list $\overrightarrow{X}$ according to the permutation $\sigma$). For every set $\mathbf{X}$, $\Sigma_{\mathbf{X}}$ is a $\mathsf{PROP}$.
 
@@ -50,7 +50,9 @@ Given a set $\mathbf{X}$, let $\Sigma_{\mathbf{X}}$ be the \textbf{free permutat
 \[
     \mathbf{X}_1
     =
-    \Set{(f_i,\overrightarrow{X}_i,\overrightarrow{Y}_i)}_{i\in I}
+    \left\{
+      (f_i,\overrightarrow{X}_i,\overrightarrow{Y}_i)
+      \right\}_{i\in I}
 \]
 be a set of triples comprised of names $f_i$ and pairs of lists $(\overrightarrow{X}_i,\overrightarrow{Y}_i)$ valued in $\mathbf{X}_0$. Let $F(\mathbf{X}_1,\mathbf{X}_0)$ denote the free symmetric monoidal category generated by $\Sigma_{\mathbf{X}_0}$ together with additional arrows $f_{i}:\overrightarrow{X}_i \longrightarrow \overrightarrow{Y}_i$ for each $i\in I$. Then $F(\mathbf{X}_1,\mathbf{X}_0)$ is also a $\mathsf{PROP}$.
 
@@ -59,9 +61,9 @@ Importantly, this second example is very nearly general - every $\mathsf{PROP}$ 
 <strong> Example. </strong>
  Let  $\mathbf{X}_0$ and $\mathbf{X}_1$ be as in the previous example and let
  \[
-    \mathbf{R}=\Set{ (s_j,t_j) \in \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0))^2 | j \in J}
+    \mathbf{R}=\left\{ (s_j,t_j) \in \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0))^2 | j \in J \right\}
  \]
- be a set of pairs of morphisms in the $\mathsf{PROP}$ $F(\mathbf{X}_1,\mathbf{X}_0)$. Let $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ be the quotient of the symmetric monoidal category $F(\mathbf{X}_1,\mathbf{X}_0)$ by the congruence generated by $R \subset \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0)) \times \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0))$.
+ be a set of pairs of morphisms in the $\mathsf{PROP}$ $F(\mathbf{X}_1,\mathbf{X}_0)$. Let $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ be the quotient of the symmetric monoidal category $F(\mathbf{X}_1,\mathbf{X}_0)$ by the congruence generated by $R \subset \mathsf{Mor}(F(\mathbf{X}_1,\mathbf{X}_0)) \times \mathsf{Mor}\left(F\left(\mathbf{X}_1,\mathbf{X}_0\right)\right)$.
 
 This last example is fully general. Every $\mathsf{PROP}$, hence every symmetric monoidal category, is equivalent to a $\mathsf{PROP}$ of the form $F(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$.
 
@@ -116,7 +118,7 @@ The rules from which these judgments may be derived correspond, roughly speaking
 \Gamma \dashv ( \overrightarrow{m}, \dots ,\overrightarrow{n} | \overrightarrow{z}) : ( \overrightarrow{A}, \dots, \overrightarrow{B}) \\
 
     (f:\overrightarrow{A} \rightarrow \overrightarrow{F}) \in \mathbf{X}_1 
-    \cdots 
+    \cdots \; 
     (g:\overrightarrow{B} \rightarrow \overrightarrow{G}) \in \mathbf{X}_1 
 \quad
     ( \sigma : (\overrightarrow{F},\dots, \overrightarrow{G}) \rightarrow \bigtriangleup) \in \Sigma_{\mathbf{X}_0} \\
