@@ -144,7 +144,7 @@ Now, it is rather clear that we are hiding something - the gory details of the r
 
 Equality judgments, for example something of the form $x:A\vdash h (x)=f\big(g(x)\big):C,$ which in categorical terms corresponds to a commuting diagram
 
-<img width = "150" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/equality_judgement_diag.png" alt = ""/>
+<img width = "150" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/equality_judgement_diag_trans.png" alt = ""/>
 
 <!-- <img width = "150" src="https://drive.google.com/file/d/1DGFUbSEHRpxj3PwTh82yJ88ZKGPiPPQU/view?usp=sharing" alt = ""/>
 -->
@@ -228,7 +228,7 @@ is comprised of:
 </ul>
 satisfying the triangle identities:
 
-<img width = "450" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/triangle_id.png" alt = ""/>
+<img width = "450" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/triangle_id_trans.png" alt = ""/>
 
 This data suggests a presentation $(\mathbf{R},\mathbf{X}_1,\mathbf{X}_0)$ for a $\mathsf{PROP}$, in particular the <b>free dual pair</b>. We set:
 <ul>
@@ -526,7 +526,7 @@ x & \mapsto \sum_{i=1}^{n}\mathbf{e}_{i}\otimes\mathbf{e}_{i}^{\star}
 \]
 and see that
 
-<img width = "450" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/dual_pair.diag.png" alt = ""/>
+<img width = "450" src = "http://math.ucr.edu/home/baez/mathematical/ACT2020/Lessard/dual_pair_diag_trans.png" alt = ""/>
 
 The observation for dual vector spaces
 \[
