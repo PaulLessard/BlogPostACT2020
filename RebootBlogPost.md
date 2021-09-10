@@ -346,8 +346,8 @@ For the typing judgments, we have two (again slightly streamlined) rules:
           \overrightarrow{p}
         \right)
         , \overrightarrow{z}
-      \right)
-  \right)
+      \right) 
+  \right) : \bigtriangleup
 }
 \]
         corresponds to applying a tensor product followed by a braiding $\sigma$ and a shuffling of scalars. The tensor product is taken between generating scalar-valued functions $h,\dots,k$ (which can only be some number of copies of $\mathsf{ev}$ in our case) and the identity on some object, here $\overrightarrow{E}$. And, </li>
@@ -446,7 +446,7 @@ together with enough rules so that $=$ acts as a congruence relative to all of t
 \]
 which  corresponds to the typing judgement
 \[
-    x:D\vdash \left(\mathsf{coev}_{(1)}|\mathsf{ev} \left(\mathsf{coev}_{(2)},x\right)\right)
+    x:D\vdash \left(\mathsf{coev}_{(1)}|\mathsf{ev} \left(\mathsf{coev}_{(2)},x\right)\right):D
 \]
 This typing judgement admits the following derivation
 \[
@@ -487,7 +487,7 @@ This typing judgement admits the following derivation
   \left(
           \mathsf{coev}_{(2)},x
   \right)
-\right)
+\right):D
 }
 \]
 where:
@@ -556,7 +556,7 @@ we will denote $\mathsf{ev}$ infix by $\triangleleft$ and write
 \left(
   D^{\star},D
 \right)
-\vdash x\triangleleft y:().
+\vdash x\triangleleft y:()
 \]
 Similarly, in place of writing 
 \[
@@ -565,12 +565,12 @@ Similarly, in place of writing
  we will denote $\mathsf{coev}$ by the pair $\left(u,\lambda^{D}u\right)$
 and write
 \[
-\vdash\left(u,\lambda^{D}u\right):\left(D,D^{\star}\right).
+\vdash\left(u,\lambda^{D}u\right):\left(D,D^{\star}\right)
 \]
 With this choice of notation then, the equality judgment which corresponds to
 the first triangle identity is 
 \[
-x:D\vdash\left( u \; \left| \; \lambda^{D}u\triangleleft x\right.\right)=x:D.
+x:D\vdash\left( u \; \left| \; \lambda^{D}u\triangleleft x\right.\right)=x:D
 \]
 
 Then, since $=$ is a congruence with respect
